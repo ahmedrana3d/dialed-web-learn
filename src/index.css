@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root{
+  height:100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "SFPRO";
+  src: url("/fonts/SFPRODISPLAYHEAVYITALIC.OTF") format("opentype");
+}
+@font-face {
+  font-family: 'GTApline';
+  src: url("/fonts/gt-apline.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Capraia';
+  src: url("/fonts/capraia-book-italic.otf") format("opentype");
+}
+
+.sf-pro {
+  font-family: "SFPRO";
+}
+
+.gt-alpine{
+  font-family: "GTApline";
+}
+
+.capraia{
+  font-family: "Capraia";
+}
+
+/* Scrollbar styles for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 3px; /* Width of the vertical scrollbar */
+  height: 1px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.8); /* Color of the scrollbar handle */
+  border-radius: 4px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(150, 150, 150, 0.9); /* Handle color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Make the scrollbar track transparent */
+}
+

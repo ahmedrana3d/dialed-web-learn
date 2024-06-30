@@ -157,7 +157,7 @@ scale : 1,
 
 <div className='h-[400vh] absolute w-screen bg-[#040316]'>
   <div className='sticky top-0 left-0  h-screen  w-full overflow-hidden flex justify-start items-center flex-col font-capraia'>
-    <h1 ref={headText} className='text-[#009eb7] text-6xl md:text-9xl text-center md:mx-32'>
+    <h1 ref={headText} className='text-[#AAA3FF] text-6xl md:text-9xl text-center md:mx-32'>
       Let's uncover that
     </h1>
 

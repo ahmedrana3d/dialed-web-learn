@@ -110,7 +110,7 @@ const FirstSection = () => {
     <>
       <div className='h-screen w-screen flex justify-center items-center flex-col font-sf-pro bg-[#040316]'>
         <h1 ref={headText} className='text-gray-200 text-3xl md:text-6xl text-center md:mx-32'>
-          Okay, you’re intrigued – but how do these features actually <span className='text-[#009eb7] '>Boost</span> your digital conversions?
+          Okay, you’re intrigued – but how do these features actually <span className='text-[#AAA3FF] '>Boost</span> your digital conversions?
         </h1>
 
 

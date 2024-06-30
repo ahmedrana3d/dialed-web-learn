@@ -2,6 +2,7 @@ import React from 'react'
 import FirstSection from './Sections/FirstSection'
 import SecondSection from './Sections/SecondSection'
 import ThirdSection from './Sections/ThirdSection'
+import FourthSection from './Sections/FourthSection'
 
 const Learn = () => {
   return (
@@ -9,7 +10,8 @@ const Learn = () => {
       
 <FirstSection/>
 <SecondSection/>
-{/* <ThirdSection/> */}
+<ThirdSection/>
+<FourthSection/>
 
 </div>
   )

@@ -2,6 +2,9 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
+import { ScrollScene, UseCanvas } from '@14islands/r3f-scroll-rig';
+import { Float, GradientTexture, MeshDistortMaterial, Sparkles } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 
 gsap.registerPlugin(SplitText);
 
@@ -9,6 +12,7 @@ const FirstSection = () => {
   const headText = useRef();
   const mouseEl = useRef();
   const mouseText = useRef();
+  const el = useRef()
 
   useGSAP(() => {
     if (headText.current && mouseText.current && mouseEl.current) {
@@ -108,7 +112,7 @@ const FirstSection = () => {
 
   return (
     <>
-      <div className='h-screen w-screen flex justify-center items-center flex-col font-sf-pro bg-[#040316]'>
+      <div ref={el} className='h-screen w-screen  flex justify-center items-center flex-col font-sf-pro bg-transparent absolute z-10'>
         <h1 ref={headText} className='text-gray-200 text-3xl md:text-6xl text-center md:mx-32'>
           Okay, you’re intrigued – but how do these features actually <span className='text-[#AAA3FF] '>Boost</span> your digital conversions?
         </h1>
@@ -122,13 +126,29 @@ const FirstSection = () => {
         </div>
 
         <div ref={mouseEl} className='fixed bottom-12 z-20'>
-          <svg className="mouse" width="24" height="48" viewBox="0 0 24 48">
-            <rect x="1" y="1" width="22" height="46" rx="12" ry="12" stroke="#888" strokeWidth="2" fill="none" />
-            <circle className="scroll" cx="12" cy="14" r="3" fill="#888" />
-            <rect className="progress" x="1" y="1" width="22" height="46" rx="12" ry="12" stroke="#009eb7" strokeWidth="2" fill="none" />
-          </svg>
+        <svg className="mouse" width="28" height="56" viewBox="0 0 24 48">
+  <rect x="1.5" y="1.5" width="21" height="45" rx="12" ry="12" stroke="#888" strokeWidth="2.5" fill="none" />
+  <circle className="scroll" cx="12" cy="15" r="3.5" fill="#888" />
+  <rect className="progress" x="1.5" y="1.5" width="21" height="45" rx="12" ry="12" stroke="#009eb7" strokeWidth="2.5" fill="none" />
+</svg>
+
         </div>
       </div>
+
+
+
+
+<Canvas id='canvas-webgl' className=' !w-screen !h-screen relative'>
+
+<color attach="background" args={[0x040316]} />
+
+<Sparkles position={ [ 0, 0, 0 ] } scale={ [ 20, 20, 5 ] } size={ 4 } count={ 100 } color={ "#a09bcb" } far={ 10 } speed={ 1 } />
+
+
+</Canvas>
+
+    
+
     </>
   );
 };

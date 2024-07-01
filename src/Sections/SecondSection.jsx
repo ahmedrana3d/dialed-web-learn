@@ -98,7 +98,7 @@ scale : 1,
         {
         duration: 0.25,
         ease: 'power1.inOut',
-        scale: 0,
+        scaleY: 0,
         scrollTrigger: {
           trigger: videoEl.current,
           start: '+=200%',
@@ -110,7 +110,7 @@ scale : 1,
       .to("#top-right", {
         duration: 0.25,
         ease: 'power1.inOut',
-        scale: 0,
+        scaleY: 0,
         scrollTrigger: {
           trigger: videoEl.current,
           start: '+=200%',
@@ -121,7 +121,7 @@ scale : 1,
       .to("#bottom-left", {
         duration: 0.25,
         ease: 'power1.inOut',
-        scale: 0,
+        scaleY: 0,
         scrollTrigger: {
           trigger: videoEl.current,
           start: '+=200%',
@@ -133,7 +133,7 @@ scale : 1,
         
         duration: 0.25,
         ease: 'power1.inOut',
-        scale: 0,
+        scaleY: 0,
         scrollTrigger: {
           trigger: videoEl.current,
           start: '+=200%',
@@ -167,10 +167,10 @@ scale : 1,
       <div  id='video-el-logo' className='absolute w-full h-full z-20 flex justify-center items-center'>
         <img src="./images/logo/keycap.png" alt="" />
       </div>
-      <div id='top-left' className='absolute top-0 left-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-top-left translate-x-[-5%] translate-y-[-5%]'></div>
-      <div id='top-right' className='absolute top-0 right-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-top-right translate-x-[5%] translate-y-[-5%]'></div>
-      <div id='bottom-left' className='absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-bottom-left translate-x-[-5%] translate-y-[5%]'></div>
-      <div id='bottom-right' className='absolute bottom-0 right-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-bottom-right translate-x-[5%] translate-y-[5%]'></div>
+      <div id='top-left' className='absolute top-0 left-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-top translate-x-[-5%] translate-y-[-5%]'></div>
+      <div id='top-right' className='absolute top-0 right-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-top translate-x-[5%] translate-y-[-5%]'></div>
+      <div id='bottom-left' className='absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-bottom translate-x-[-5%] translate-y-[5%]'></div>
+      <div id='bottom-right' className='absolute bottom-0 right-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-bottom translate-x-[5%] translate-y-[5%]'></div>
       <video
         src="./videos/video.mp4"
         autoPlay

@@ -51,3 +51,6 @@
   background-color: transparent; /* Make the scrollbar track transparent */
 }
 
+#ScrollRig-canvas{
+  z-index: 100;
+}

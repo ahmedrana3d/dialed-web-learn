@@ -140,7 +140,7 @@ const FirstSection = () => {
 
 <Canvas id='canvas-webgl' className=' !w-screen !h-screen relative'>
 
-<color attach="background" args={[0x040316]} />
+<color attach="background" args={[0x000]} />
 
 <Sparkles position={ [ 0, 0, 0 ] } scale={ [ 20, 20, 5 ] } size={ 4 } count={ 100 } color={ "#a09bcb" } far={ 10 } speed={ 1 } />
 

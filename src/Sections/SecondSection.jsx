@@ -155,9 +155,9 @@ scale : 1,
 
   return (
 
-<div className='h-[400vh] relative w-screen bg-[#040316]'>
-  <div className='sticky top-0 left-0  h-screen  w-full overflow-hidden flex justify-start items-center flex-col font-capraia'>
-    <h1 ref={headText} className='text-[#AAA3FF] text-6xl md:text-9xl text-center md:mx-32'>
+<div className='h-[400vh] relative w-screen bg-black'>
+  <div className='sticky top-0 left-0  h-screen  w-full overflow-hidden flex justify-start items-center flex-col font-inter font-bold'>
+    <h1 ref={headText} className='  text-gray-300  text-6xl md:text-9xl text-center md:mx-32'>
       Let's uncover that
     </h1>
 
@@ -167,10 +167,10 @@ scale : 1,
       <div  id='video-el-logo' className='absolute w-full h-full z-20 flex justify-center items-center'>
         <img src="./images/logo/keycap.png" alt="" />
       </div>
-      <div id='top-left' className='absolute top-0 left-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-top translate-x-[-5%] translate-y-[-5%]'></div>
-      <div id='top-right' className='absolute top-0 right-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-top translate-x-[5%] translate-y-[-5%]'></div>
-      <div id='bottom-left' className='absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-bottom translate-x-[-5%] translate-y-[5%]'></div>
-      <div id='bottom-right' className='absolute bottom-0 right-0 w-1/2 h-1/2 bg-[#040316] z-10 scale-[1.1] origin-bottom translate-x-[5%] translate-y-[5%]'></div>
+      <div id='top-left' className='absolute top-0 left-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-top translate-x-[-5%] translate-y-[-5%]'></div>
+      <div id='top-right' className='absolute top-0 right-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-top translate-x-[5%] translate-y-[-5%]'></div>
+      <div id='bottom-left' className='absolute bottom-0 left-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-bottom translate-x-[-5%] translate-y-[5%]'></div>
+      <div id='bottom-right' className='absolute bottom-0 right-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-bottom translate-x-[5%] translate-y-[5%]'></div>
       <video
         src="./videos/video.mp4"
         autoPlay

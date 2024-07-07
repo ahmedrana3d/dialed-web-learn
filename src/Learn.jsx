@@ -9,9 +9,6 @@ const Learn = () => {
   return (
     <div >
 
-<GlobalCanvas camera={{ position: [0, 0, 5],  fov: 50}}>
-  <ambientLight/>
- </GlobalCanvas>
       
 <FirstSection/>
 <SecondSection/>

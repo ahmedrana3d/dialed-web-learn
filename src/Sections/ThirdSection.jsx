@@ -45,7 +45,7 @@ const ThirdSection = () => {
 
   return (
     <div
-      className='w-screen relative h-[70vh] flex justify-center items-center'
+      className='w-screen relative h-[70vh] flex justify-center bg-black items-center'
       // Optional: Add background style or color
       // style={{
       //   backgroundImage: "url(./images/grain-bg.webp)",
@@ -69,11 +69,11 @@ const ThirdSection = () => {
 
       <div
         ref={textRef}
-        className='md:w-1/2 text-slate-800 text-3xl md:text-4xl lg:text-5xl xl:text-5xl  font-sf-pro font-semibold leading-tight'
+        className='md:w-1/2 text-gray-400 text-3xl md:text-4xl lg:text-5xl xl:text-6xl  font-sf-pro font-semibold leading-tight'
       >
 
       
-DialedWeb is an IT service company that uses <span className=' text-[#AAA3FF]'>cutting-edge technology</span>   to provide innovative solutions with a <span className=' text-teal-300'>global reach</span> . Our <span className=' text-orange-300 '>client-centric approach</span>   ensures we meet the unique needs of each client, delivering exceptional service and support.
+DialedWeb is an IT service company that uses <span className=' text-dialed-purple'>cutting-edge technology</span>   to provide innovative solutions with a <span className=' text-teal-300'>global reach</span> . Our <span className=' text-orange-300 '>client-centric approach</span>   ensures we meet the unique needs of each client, delivering exceptional service and support.
       </div>
     </div>
   )

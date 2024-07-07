@@ -10,10 +10,7 @@ function App() {
 const el = useRef()
   return (
     <>
- <GlobalCanvas>
-  <ambientLight/>
- </GlobalCanvas>
-
+{/*  */}
 
 
  

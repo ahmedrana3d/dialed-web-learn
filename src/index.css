@@ -20,9 +20,41 @@
   src: url("/fonts/capraia-book-italic.otf") format("opentype");
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url("/fonts/inter_font.tff") format("truetype");
+}
+
+@font-face {
+  font-family: 'SFPRO Bold';
+  src: url("/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: 'Horizon';
+  src: url("/fonts/newhorizon.otf") format("opentype");
+}
+
+
+
 .sf-pro {
   font-family: "SFPRO";
 }
+
+.inter {
+  font-family: "Inter";
+}
+
+
+.horizon {
+  font-family: "Horizon";
+}
+
+.sf-bold {
+  font-family: "SFPRO Bold";
+}
+
+
 
 .gt-alpine{
   font-family: "GTApline";
@@ -51,6 +83,39 @@
   background-color: transparent; /* Make the scrollbar track transparent */
 }
 
-#ScrollRig-canvas{
-  z-index: 100;
+
+
+.headline-orange {
+  line-height: 80%;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  cursor: auto;
+  overflow: hidden;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    120deg,
+    #0d0b38,
+    #3e3690,
+    #e1e1e1,
+    #aaa3ff,
+    #0d0b38,
+    #cdcbe1,
+    #545358
+  );
+  background-size: 400% 400%;
+  animation: backgroundChange 8s linear infinite;
+  display: inline;
+  font-size: inherit;
+}
+
+.highlighted-text {
+  @apply tracking-widest;
+}
+
+.highlighted-text {
+  color: #8BF5A5; /* Ensure the color matches the parent div */
+  text-shadow: 0 0 5px #8BF5A5, 0 0 10px #8BF5A5, 0 0 20px #8BF5A5, 0 0 30px #8BF5A5;
 }

@@ -10,10 +10,8 @@ const Page4 = () => {
 
 const statRef = useRef()
 
-
 useGSAP(() => {
   if (statRef.current) {
-    // Initialize an object to keep track of triggered animations
     const animationsTriggered = {
       animation1: false,
       animation2: false,
@@ -26,7 +24,8 @@ useGSAP(() => {
       ease: 'power0',
       scrollTrigger: {
         trigger: statRef.current,
-        start: 'top 30%',
+        start: '1% top',
+        end: 'bottom bottom',
         scrub: true,
         // markers: true,
         onUpdate: (self) => {
@@ -34,48 +33,73 @@ useGSAP(() => {
 
           // Trigger animations when scrolling down
           if (scrollY >= 0.72 && !animationsTriggered.animation5) {
-            console.log('Animation 5');
             highlightButton('brand-img');
+            changeBackground('rgb(19 37 26)');
             animationsTriggered.animation5 = true;
+            animateImage(".image-3", 0.9, "2rem", 0, 0.3);
+            animateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
           } else if (scrollY >= 0.5 && !animationsTriggered.animation4) {
-            console.log('Animation 4');
             highlightButton('customer-exp');
+            changeBackground('rgb(19 32 37)');
             animationsTriggered.animation4 = true;
+            animateImage(".image-2", 0.9, "2rem", 0, 0.3);
+            animateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
+            animateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
           } else if (scrollY >= 0.31 && !animationsTriggered.animation3) {
-            console.log('Animation 3');
             highlightButton('conversion-rate');
             animationsTriggered.animation3 = true;
           } else if (scrollY >= 0.19 && !animationsTriggered.animation2) {
-            console.log('Animation 2');
+            changeBackground('rgb(58 43 43)');
             highlightButton('conversion-rate');
             animationsTriggered.animation2 = true;
+            animateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            animateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            animateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            animateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
           } else if (scrollY >= 0.1 && !animationsTriggered.animation1) {
-            console.log('Animation 1');
+            changeBackground('rgb(106, 106, 106)');
             highlightButton('user-eng');
             animationsTriggered.animation1 = true;
           }
 
           // Reset animations when scrolling up
           if (scrollY < 0.1 && animationsTriggered.animation1) {
-            console.log(animationsTriggered.animation1);
+            changeBackground('rgb(106, 106, 106)');
             reverseHighlightButton('user-eng');
             animationsTriggered.animation1 = false;
+            reverseAnimateImage(".image-1", 0.9, "1rem", 2.132, 0.3);
+            reverseAnimateImage(".image-2", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-3", 0.72, "-0.3rem", 0.984, 0.5);
+            reverseAnimateImage(".image-4", 0.67, "-0.95rem", 0.41, 0.5);
           } else if (scrollY < 0.19 && animationsTriggered.animation2) {
-            console.log(animationsTriggered.animation2);
             reverseHighlightButton('conversion-rate');
+            changeBackground('rgb(58 43 43)');
             animationsTriggered.animation2 = false;
+            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
           } else if (scrollY < 0.31 && animationsTriggered.animation3) {
-            console.log(animationsTriggered.animation3);
             reverseHighlightButton('conversion-rate');
+            changeBackground('rgb(58 43 43)');
             animationsTriggered.animation3 = false;
-          } else if (scrollY < 0.50 && animationsTriggered.animation4) {
-            console.log(animationsTriggered.animation4);
+            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
+          } else if (scrollY < 0.56 && animationsTriggered.animation4) {
+            changeBackground('rgb(19 32 37)');
             reverseHighlightButton('customer-exp');
             animationsTriggered.animation4 = false;
+            reverseAnimateImage(".image-2", 0.9, "2rem", 0, 0.3);
+            reverseAnimateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
           } else if (scrollY < 0.72 && animationsTriggered.animation5) {
-            console.log(animationsTriggered.animation5);
             reverseHighlightButton('brand-img');
+            changeBackground('rgb(19 37 26)');
             animationsTriggered.animation5 = false;
+            reverseAnimateImage(".image-3", 0.9, "2rem", 0, 0.3);
+            reverseAnimateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
           }
         },
       },
@@ -84,12 +108,13 @@ useGSAP(() => {
     tl.fromTo(
       statRef.current,
       {
-        translateY: '13%',
+        translateY: '0%',
       },
       {
-        translateY: '-82%',
+        translateY: '-86%',
       }
     );
+
     function highlightButton(buttonClass) {
       const buttons = document.querySelectorAll('.tes-button');
       buttons.forEach((button) => {
@@ -112,7 +137,36 @@ useGSAP(() => {
       });
     }
 
+    function changeBackground(color) {
+      const linearGradient = `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, ${color} 63.68%)`;
+      gsap.to(".frame-container", {
+        backgroundImage: linearGradient,
+        duration: 1,
+      });
+    }
 
+    function animateImage(imageClass, scale, y, opacity, duration) {
+      const image = document.querySelector(imageClass);
+      gsap.to(image, {
+        scale: scale,
+        y: y,
+        opacity: opacity,
+        duration: duration,
+        ease: "power2.in",
+        transform: "translate(0%, -50%)",
+      });
+    }
+
+    function reverseAnimateImage(selector, scale, y, opacity, duration) {
+      gsap.to(selector, {
+        scale: scale,
+        y: y,
+        opacity: opacity,
+        duration: duration,
+        ease: "power2.out", // Reverse ease
+        transform: "translate(0%, -50%)",
+      });
+    }
   }
 }, []);
 
@@ -120,86 +174,82 @@ useGSAP(() => {
 
 
 
-// 17 // User Engagment
-// -1 // User Engagment 0.1
-// -17 // Conversion Rates 0.21
-// -33.5 // Conversion Rates 0.34
-// -52.2 // Customer Experience 0.52
-// -69 // Brand Image v 0.81
-
-
-
-
-
-// 17 to -72
-
-
 
 
 
   return (
-    <section className=" bg-dialed-back z-20 testimonials text-gray-200 h-[400vh] relative">
+    <section className=" bg-black z-20 testimonials text-gray-200 h-[700vh] relative">
 
 <div className='trigger w-20 h-20  z-50 absolute top-28 '></div>
 <div className='trigger1 w-20 h-20  z-50 absolute bottom-28 '></div>
 
 
-    <div className="h-[100vh] w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
-      <button data-name="events" className="text-left tes-button capitalize user-eng" style={{ fontWeight: 500, opacity: 1 }}> Engagment</button>
-      <button data-name="share homes" className="text-left tes-button capitalize conversion-rate" style={{ fontWeight: 400, opacity: 0.5 }}>Conversion</button>
-      <button data-name="cost splitting" className="text-left tes-button capitalize customer-exp" style={{ fontWeight: 400, opacity: 0.5 }}> Experience</button>
-      <button data-name="sync plans" className="text-left tes-button capitalize brand-img" style={{ fontWeight: 400, opacity: 0.5 }}>Image</button>
+    <div className="h-[100vh] hidden w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] md:flex flex-col justify-center text-regular30 gap-[.67rem]">
+      <button data-name="events" className="text-left tes-button capitalize user-eng text-2xl leading-relaxed"> Engagment</button>
+      <button data-name="share homes" className="text-left tes-button capitalize conversion-rate text-2xl leading-relaxed opacity-50" >Conversion</button>
+      <button data-name="cost splitting" className="text-left tes-button capitalize customer-exp text-2xl leading-relaxed opacity-50" > Experience</button>
+      <button data-name="sync plans" className="text-left tes-button capitalize brand-img text-2xl leading-relaxed opacity-50" >Image</button>
     </div>
-    <div className=" mt-[-100vh] sticky top-[0] px-[calc(100vw/12)] flex flex-row justify-between items-center">
-      <div className="h-[100vh] w-[7rem] buttons flex flex-col justify-center text-regular30 gap-[.67rem]"></div>
-      <div className="frame-container w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: 'linear-gradient(111deg, rgb(77 77 206) 13.66%, rgb(35 44 101) 63.68%)' }}>
-        <div className="relative w-[57%] h-full overflow-hidden">
-          <div ref={statRef} className="tes-scroll-content w-[60ch] absolute   flex flex-col gap-80    pl-[2.03rem] pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 13%)' }}>
-            <div className="min-h-[15.6rem]  tes-content h-auto flex flex-col justify-center">
-              <h6 className=" text-3xl leading-[1.27] pb-[3rem]  md:text-3xl lg:text-6xl">Encourage users to stay on your site and explore more. </h6>
-              <h6 className=" text-lg  md:text-xl lg:text-3xl">Interactive content generates 2x more user engagement than static content</h6>
-            </div>
-            <div className="min-h-[15.6rem]  tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Increase User Engagement with Interactivity</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">Websites with interactive elements see a 40% increase in user time spent on site</h6>
-            </div>
-            <div className="min-h-[15.6rem]  tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Transform Sales with 3D Product Configurations</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">3D product views can increase conversion rates by up to 250%</h6>
-            </div>
-            <div className="min-h-[15.6rem]  tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Drive Conversions with Product Customization Tools</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">Interactive Product Customizers can lead to a 30% increase in sales</h6>
-            </div>
-            <div className="min-h-[15.6rem]  tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Avoid Losing Customers, Enhance User Experience</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">89% of consumers turn to a competitor after a poor user experience</h6>
-            </div>
-            <div className="min-h-[15.6rem]  tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Get ahead of the curve.</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">A 3D website sets your brand apart from competitors by offering a cutting-edge, modern online experience.</h6>
-            </div>
+    <div className=" mt-[-100vh] h-screen sticky top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
+      <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
+      <div className="frame-container w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)` }}>
+        <div className="relative w-full md:w-[57%] h-full overflow-hidden flex justify-center">
+        <div className="relative w-full lg:w-[57%] h-full overflow-hidden ">
+        <div ref={statRef} className="tes-scroll-content w-full  absolute flex flex-col gap-80 pl-[2.03rem] pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 13%)' }}>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-3xl leading-[1.27]  md:text-3xl xl:text-6xl">Encourage users to stay on your site and explore more.</h6>
+            <h6 className="text-lg md:text-xl xl:text-3xl">Interactive content generates 2x more user engagement than static content</h6>
+            <div className="test-img-mask block md:hidden ">
+            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/car_image.png" />
+          </div>
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Increase User Engagement with Interactivity</h6>
+            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">Websites with interactive elements see a 40% increase in user time spent on site</h6>
+            
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Transform Sales with 3D Product Configurations</h6>
+            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">3D product views can increase conversion rates by up to 250%</h6>
+            <div className="test-img-mask block md:hidden ">
+            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/soda_image.png" />
+          </div>
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Drive Conversions with Product Customization Tools</h6>
+            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">Interactive Product Customizers can lead to a 30% increase in sales</h6>
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Avoid Losing Customers, Enhance User Experience</h6>
+            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">89% of consumers turn to a competitor after a poor user experience</h6>
+            <div className="test-img-mask block md:hidden ">
+            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/vr_image.png" />
+          </div>
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Get ahead of the curve.</h6>
+            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">A 3D website sets your brand apart from competitors by offering a cutting-edge, modern online experience.</h6>
+            <div className="test-img-mask block md:hidden ">
+            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/player_image.png" />
+          </div>
           </div>
         </div>
-        <div className="images-container w-[43%] relative">
+      </div>
+        </div>
+        <div className="images-container w-[43%] relative hidden md:block">
           <div className="test-img-mask" style={{ opacity: 1, display: 'flex' }}>
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, 1rem) scale(0.9, 0.9)', opacity: 2.132, zIndex: 4 }} src="./images/showcase/car_image.png" />
+            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-1" style={{ transform: 'translate(0%, -50%) translate(0px, 1rem) scale(0.9, 0.9)', opacity: 2.132, zIndex: 4 }} src="./images/showcase/car_image.png" />
           </div>
           <div className="test-img-mask" style={{ opacity: 1, display: 'flex' }}>
-            <img alt="" loading="lazy" width="1000" height="1000" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, 0.35rem) scale(0.8, 0.8)', opacity: 1.558, zIndex: 3 }} src="./images/showcase/soda_image.png" />
+            <img alt="" loading="lazy" width="1000" height="1000" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-2" style={{ transform: 'translate(0%, -50%) translate(0px, 0.35rem) scale(0.8, 0.8)', opacity: 1.558, zIndex: 3 }} src="./images/showcase/soda_image.png" />
           </div>
           <div className="test-img-mask" style={{ opacity: 1, display: 'flex' }}>
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -0.3rem) scale(0.7286, 0.7286)', opacity: 0.984, zIndex: 2 }} src="./images/showcase/vr_image.png" />
+            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-3" style={{ transform: 'translate(0%, -50%) translate(0px, -0.3rem) scale(0.7286, 0.7286)', opacity: 0.984, zIndex: 2 }} src="./images/showcase/vr_image.png" />
           </div>
           <div className="test-img-mask">
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -0.95rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: 1 }} src="./images/showcase/player_image.png" />
+            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-4" style={{ transform: 'translate(0%, -50%) translate(0px, -0.95rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: 1 }} src="./images/showcase/player_image.png" />
           </div>
-          <div className="test-img-mask">
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -1.4rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: -1 }} src="./images/showcase/player_image.png" />
-          </div>
-          <div className="test-img-mask">
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -2rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: -2 }} src="./images/showcase/player_image.png" />
-          </div>
+         
         </div>
       </div>
     </div>

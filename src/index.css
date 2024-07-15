@@ -35,6 +35,11 @@
   src: url("/fonts/newhorizon.otf") format("opentype");
 }
 
+@font-face {
+  font-family: 'Helvetica';
+  src: url("/fonts/Helvetica.ttf") format("truetype");
+}
+
 
 
 .sf-pro {
@@ -51,6 +56,10 @@
 }
 
 .sf-bold {
+  font-family: "SFPRO Bold";
+}
+
+.helvetica {
   font-family: "SFPRO Bold";
 }
 
@@ -116,6 +125,6 @@
 }
 
 .highlighted-text {
-  color: #8BF5A5; /* Ensure the color matches the parent div */
-  text-shadow: 0 0 5px #8BF5A5, 0 0 10px #8BF5A5, 0 0 20px #8BF5A5, 0 0 30px #8BF5A5;
+  color: #e6e6e6; /* Ensure the color matches the parent div */
+  text-shadow: 0 0 5px #e6e6e6, 0 0 10px #e6e6e6, 0 0 20px #e6e6e6, 0 0 30px #e6e6e6;
 }

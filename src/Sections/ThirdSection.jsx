@@ -1,82 +1,70 @@
-import { useGSAP } from '@gsap/react'
-import { SplitText } from 'gsap/SplitText'
-import React, { useRef } from 'react'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const ThirdSection = () => {
-  const textRef = useRef()
+  const textRef = useRef();
 
   useGSAP(() => {
     // Create a new SplitText instance to split the text into characters
-    const split = new SplitText(textRef.current, { type: 'words, chars' });
+    const split = new SplitText(textRef.current, { type: "words, chars" });
 
     // Define the GSAP timeline
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: textRef.current,
-        start: 'top bottom',  // Start the animation when the top of the textRef element enters the bottom of the viewport
-        end: 'bottom center',   // End the animation when the bottom of the textRef element exits the top of the viewport
-        scrub: true,         // Animate in sync with the scroll position
+        start: "top bottom", // Start the animation when the top of the textRef element enters the bottom of the viewport
+        end: "bottom center", // End the animation when the bottom of the textRef element exits the top of the viewport
+        scrub: true, // Animate in sync with the scroll position
         // markers: true,       // Display markers for debugging
       },
-    })
+    });
 
     // Add animations to the timeline
     tl.fromTo(
       split.chars,
       {
-        opacity: 0,  // Start with the text invisible
-        y: 30,       // Start the text from below its final position
+        scaleY: 0.1,
+        scaleX: 1.8,
+        filter: 'blur(10px) brightness(50%)',
+        willChange: 'filter, transform'
+      }, {
+          ease: 'none', 
+          scaleY: 1,
+          scaleX: 1,
+          filter: 'blur(0px) brightness(100%)',
+          stagger: 0.05, 
+      });
+
+
       
-      },
-      {
-        opacity: 1,  // End with the text fully visible
-        y: 0,        // Move text to its final position
-    
-        stagger: 0.03,  // Stagger animation by 0.03 seconds for each character
-        ease: 'power3.out',  // Easing function
-        duration: 1,    // Duration of the animation
-      }
-    )
-  }, [])
+  }, []);
 
   return (
-    <div
-      className='w-screen relative h-[70vh] flex justify-center bg-black items-center'
-      // Optional: Add background style or color
-      // style={{
-      //   backgroundImage: "url(./images/grain-bg.webp)",
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
-      //   backgroundRepeat: "no-repeat",
-      // }}
-    >
+<div className="w-screen relative h-[70vh] flex justify-center  bg-black items-center overflow-hidden">
+  <div
+    ref={textRef}
+    className="relative w-11/12 md:w-3/4 lg:w-1/2 text-gray-50  text-[2.5vw]  font-helvetica  leading-tight text-center px-4 md:px-8"
+  >
 
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus iste veritatis consequatur laborum odit, ratione maxime, totam suscipit eveniet sequi, amet rerum corporis assumenda quae ducimus quasi ipsa consequuntur deleniti?
 
-{/* <div className=' absolute -z-10'>
-<svg version="1.1"
-   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-   width="516.3px" height="190px" viewBox="0 0 516.3 190" 
-   xml:space="preserve">
-  <path id="template" d="M9.13,99.99c0,0,18.53-41.58,49.91-65.11c30-22.5,65.81-24.88,77.39-24.88c33.87,0,57.55,11.71,77.05,28.47c23.09,19.85,40.33,46.79,61.71,69.77c24.09,25.89,53.44,46.75,102.37,46.75c22.23,0,40.62-2.83,55.84-7.43c27.97-8.45,44.21-22.88,54.78-36.7c14.35-18.75,16.43-36.37,16.43-36.37"/>
-  <path id="path" d="M9.13,99.99c0,0,18.53-41.58,49.91-65.11c30-22.5,65.81-24.88,77.39-24.88c33.87,0,57.55,11.71,77.05,28.47c23.09,19.85,40.33,46.79,61.71,69.77c24.09,25.89,53.44,46.75,102.37,46.75c22.23,0,40.62-2.83,55.84-7.43c27.97-8.45,44.21-22.88,54.78-36.7c14.35-18.75,16.43-36.37,16.43-36.37"/>
-</svg>
-      </div> */}
+  </div>
+  <div className="absolute inset-0 z-[-1]">
+    <svg viewBox="0 0 1024 1024" className="w-full h-full absolute top-0 left-0 opacity-10">
+      <circle cx="200" cy="300" r="200" fill="rgba(255, 255, 255, 0.1)" />
+      <circle cx="800" cy="500" r="150" fill="rgba(255, 255, 255, 0.05)" />
+      <circle cx="500" cy="800" r="250" fill="rgba(255, 255, 255, 0.1)" />
+    </svg>
+  </div>
+</div>
 
+  
+  );
+};
 
-      <div
-        ref={textRef}
-        className='md:w-1/2 text-gray-400 text-3xl md:text-4xl lg:text-5xl xl:text-6xl  font-sf-pro font-semibold leading-tight'
-      >
-
-      
-DialedWeb is an IT service company that uses <span className=' text-dialed-purple'>cutting-edge technology</span>   to provide innovative solutions with a <span className=' text-teal-300'>global reach</span> . Our <span className=' text-orange-300 '>client-centric approach</span>   ensures we meet the unique needs of each client, delivering exceptional service and support.
-      </div>
-    </div>
-  )
-}
-
-export default ThirdSection
+export default ThirdSection;

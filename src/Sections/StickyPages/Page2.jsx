@@ -66,25 +66,35 @@ const Page2 = () => {
 
 
   return (
+
+    <>
+
+
+
+
     <div className="z-20 relative flex justify-center w-screen h-[200vh] bg-black">
     <div
       ref={text1}
-      className="flex h-screen flex-col justify-center items-center gap-20 sticky top-0"
-    >
-      <p className="text-gray-300 font-sf-bold text-2xl md:text-4xl lg:text-7xl text-center px-4 md:px-0">
-        Users generate an <span className=' text-cyan-400 '>opinion</span> 💭 about a website 🌐 in
+      className="flex h-screen flex-col justify-center items-center gap-10 md:gap-20 sticky top-0"
+      >
+      <p className="text-gray-300 font-sf-bold text-xl sm:text-2xl md:text-4xl lg:text-7xl text-center px-2 sm:px-4 md:px-0">
+        Users generate an <span className='text-cyan-400'>opinion</span> 💭 about a website 🌐 in
       </p>
       <div className="relative">
-        <h1 className="font-semibold text-5xl md:text-7xl lg:text-9xl horizon text-[#8BF5A5]">
+        <h1 className="font-semibold text-4xl sm:text-5xl md:text-7xl lg:text-9xl horizon text-[#8BF5A5]">
           0.05
-          <span className="absolute right-0 tracking-widest bottom-0 text-white text-sm md:text-base lg:text-lg">
+          <span className="absolute right-0 tracking-widest bottom-0 text-sm sm:text-base md:text-lg lg:text-xl text-white">
             seconds
           </span>
         </h1>
       </div>
     </div>
+
+    {/* <img src="./images/squiggle.svg" className=' absolute top-0 left-0 w-screen h-[200vh] z-50' alt="" /> */}
+
   </div>
   
+      </>
   
 
   )

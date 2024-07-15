@@ -16,45 +16,64 @@ const SecondSection = () => {
     if (headText.current) {
       const tl = gsap.timeline();
       const split = new SplitText(headText.current, { type: 'words, chars' });
-
-      tl.fromTo(split.chars, { 
-        'will-change': 'opacity', 
-        opacity: 0,
-        filter: 'blur(20px)'
+// Initial animation for the text appearance
+// Initial animation for the text appearance
+tl.fromTo(
+  split.chars,
+  { 
+    'will-change': 'opacity', 
+    opacity: 0,
+    filter: 'blur(20px)',
+    scale: 0.4, // Start smaller
+    rotation: -45, // Start with a slight rotation
+    color: '#AAA3FF', // Start with a specific color
+  },
+  {
+    duration: 0.5, // Duration for smoother effect
+    ease: 'power1.inOut',
+    opacity: 1,
+    filter: 'blur(0px)',
+    scale: 1, // Scale up to normal size
+    rotation: 0, // Rotate to normal
+    color: '#ffffff', // Change color
+    stagger: { each: 0.05, from: "start" },
+    delay: 0.1, // Adding slight delay
+    scrollTrigger: {
+      trigger: headText.current,
+      start: 'top bottom', // Start when the top of the trigger element reaches the center of the viewport
+      end: 'bottom center', // End when the bottom of the trigger element reaches the center of the viewport
+      scrub: true,
+      // markers : true
     },
-    {
-        duration: 0.25,
-        ease: 'power1.inOut',
-        opacity: 1,
-        filter: 'blur(0px)',
-        stagger: { each: 0.05, from: 'random'},
-        scrollTrigger: {
-            trigger: headText.current,
-            start: 'center+=20% bottom',
-            end: '+=50%',
-            scrub: true,
-          
-        },
-    });
+  }
+);
 
-    tl.to(
-        split.chars, 
-  
-        {
-          duration: 0.25,
-          ease: 'power1.inOut',
-          opacity: 0,
-          filter: 'blur(20px)',
-          stagger: { each: 0.05, from: 'random'},
-          scrollTrigger: {
-            trigger: headText.current,
-            start: '+=60%',
-            end: '+=70%',
-            scrub: true,
-          },
-        }
-      );
+// Animation for the text disappearance
+tl.to(
+  split.chars,
+  {
+    duration: 0.5, // Duration for smoother effect
+    ease: 'power1.inOut',
+    opacity: 0,
+    filter: 'blur(20px)',
+    x: (index, target, targets) => index < targets.length / 2 ? '-100vw' : '100vw', // Move left or right based on position
+    rotation: 45, // Rotate in the opposite direction
+    stagger: { each: 0.1, from: "edges" }, // Stagger from the center to edges
+    scrollTrigger: {
+      trigger: headText.current,
+      start: 'top 30%', // Start when the top of the trigger element reaches the center of the viewport
+      end: 'bottom top', // End when the bottom of the trigger element reaches the center of the viewport
+      scrub: true,
+      // markers : true,
+    },
+  }
+);
 
+      
+      
+      
+
+    // animateText(".split")
 
     tl.fromTo(
         videoEl.current, 
@@ -153,12 +172,98 @@ scale : 1,
     }
   }, []);
 
+
+  function animateText(textSelector) {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
+  
+    document.querySelectorAll(textSelector).forEach((element) => {
+      gsap.set(element, {
+        transformPerspective: 500,
+        transformOrigin: "center bottom",
+        rotationX: 70
+      });
+  
+      let mySplitText = new SplitText(element, { type: "chars" });
+      let chars = mySplitText.chars;
+  
+      gsap.fromTo(
+        element,
+        {
+          rotationX: 70,
+          opacity: 0
+        },
+        {
+          rotationX: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "back.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            toggleActions: "play none none reset"
+          }
+        }
+      );
+  
+      gsap.from(chars, {
+        yPercent: 100,
+        stagger: 0.04,
+        opacity: 0,
+        ease: "power1.out",
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          toggleActions: "play none none reset"
+        }
+      });
+  
+      gsap.fromTo(
+        element,
+        {
+          opacity: 0
+        },
+        {
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            end: "top 60%",
+            scrub: true,
+            toggleActions: "play reverse play reverse"
+          }
+        }
+      );
+  
+      gsap.fromTo(
+        element,
+        {
+          opacity: 1
+        },
+        {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 20%",
+            end: "top 5%",
+            scrub: true,
+            toggleActions: "play reverse play reverse"
+          }
+        }
+      );
+    });
+  }
+
   return (
 
 <div className='h-[400vh] relative w-screen bg-black'>
   <div className='sticky top-0 left-0  h-screen  w-full overflow-hidden flex justify-start items-center flex-col font-inter font-bold'>
-    <h1 ref={headText} className='  text-gray-300  text-6xl md:text-9xl text-center md:mx-32'>
+    <h1 ref={headText} className='  split  absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-gray-200 font-sf-bold  text-6xl md:text-9xl text-center '>
+      <span className=' opacity-0 hidden'>L</span>
       Let's uncover that
+      <span className=' opacity-0 hidden'>t</span>
     </h1>
 
 

@@ -13,6 +13,7 @@ export default {
         'inter': ['Inter', 'sans-serif'], // Define your custom font family
         'sf-bold': ['SFPRO Bold', 'sans-serif'], // Define your custom font family
         'horizon': ['Horzion', 'sans-serif'], // Define your custom font family
+        'helvetica': ['Helvetica', 'sans-serif'], // Define your custom font family
       },
       textColor : {
         'dialed-purple' : "#AAA3FF",

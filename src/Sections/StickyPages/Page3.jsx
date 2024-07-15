@@ -96,7 +96,7 @@ const Page3 = () => {
                 <div className='trigger absolute h-16 w-16 z-30 top-2/3'></div>
 
                 <div ref={meterContainer} className='flex flex-col gap-7 justify-center items-center'>
-                    <ReactOdometer className=' text-6xl md:text-7xl lg:text-huge-xl ' value={value} format="d"></ReactOdometer>
+                    <ReactOdometer className='  text-[10vw] ' value={value} format="d"></ReactOdometer>
                     <div ref={text1} className='tracking-[0.3em] text-xl lg:text-6xl text-center text-gray-100 font-inter font-bold'>
                         Websites are created <span className='highlighted-text'>Every Day</span>
                     </div>

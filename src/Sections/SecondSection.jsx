@@ -3,7 +3,6 @@ import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { div } from 'three/examples/jsm/nodes/Nodes.js';
 
 gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
@@ -69,100 +68,57 @@ tl.to(
   }
 );
 
-      
-      
-      
 
-    // animateText(".split")
-
-    tl.fromTo(
-        videoEl.current, 
+tl.fromTo(
+  videoEl.current, 
+{
+scale : 0,
+},
   {
-    scale : 0,
-  },
-        {
-          duration: 0.25,
-          ease: 'power1.inOut',
+    duration: 0.25,
+    ease: 'power1.inOut',
 scale : 1,  
-          scrollTrigger: {
-            trigger: videoEl.current,
-            start: '+=60%',
-            end: '+=70%',
-            scrub: true,
-            // markers: true,
-          },
-        }
-      )
+    scrollTrigger: {
+      trigger: videoEl.current,
+      start: '+=60%',
+      end: '+=70%',
+      scrub: true,
+      // markers: true,
+    },
+  }
+)
 
 
-      .to("#video-el-logo", {
-        duration: 0.25,
-        ease: 'power1.inOut',
-        opacity : 0,
-        scrollTrigger: {
-          trigger: videoEl.current,
-          start: '+=40%',
-          end: '+=40%',
-          scrub: true,
-       
-        },
-      })
+.to("#video-el-logo", {
+  duration: 0.25,
+  ease: 'power1.inOut',
+  opacity : 0,
+  scrollTrigger: {
+    trigger: videoEl.current,
+    start: '+=40%',
+    end: '+=40%',
+    scrub: true,
+ 
+  },
+})
+
+
       
+tl.fromTo('.mask', {
+  r: 0,
+}, {
+  r: 1450,
+  ease: 'power3.inOut',
+   scrollTrigger: {
+        trigger: videoEl.current,
+        start: '+=60%',
+        end: '+=100%',
+        scrub: true,
+      //  markers : true
+      },
+})
 
       
-
-
-
-      tl.to("#top-left",
-        {
-        duration: 0.25,
-        ease: 'power1.inOut',
-        scaleY: 0,
-        scrollTrigger: {
-          trigger: videoEl.current,
-          start: '+=200%',
-          end: '+=200%',
-          scrub: true,
-         
-        },
-      })
-      .to("#top-right", {
-        duration: 0.25,
-        ease: 'power1.inOut',
-        scaleY: 0,
-        scrollTrigger: {
-          trigger: videoEl.current,
-          start: '+=200%',
-          end: '+=200%',
-          scrub: true,
-        },
-      })
-      .to("#bottom-left", {
-        duration: 0.25,
-        ease: 'power1.inOut',
-        scaleY: 0,
-        scrollTrigger: {
-          trigger: videoEl.current,
-          start: '+=200%',
-          end: '+=200%',
-          scrub: true,
-        },
-      })
-      .to("#bottom-right", {
-        
-        duration: 0.25,
-        ease: 'power1.inOut',
-        scaleY: 0,
-        scrollTrigger: {
-          trigger: videoEl.current,
-          start: '+=200%',
-            end: '+=200%',
-          scrub: true,
-        },
-      })
-
-
-
 
 
 
@@ -173,94 +129,11 @@ scale : 1,
   }, []);
 
 
-  function animateText(textSelector) {
-    gsap.registerPlugin(SplitText, ScrollTrigger);
-  
-    document.querySelectorAll(textSelector).forEach((element) => {
-      gsap.set(element, {
-        transformPerspective: 500,
-        transformOrigin: "center bottom",
-        rotationX: 70
-      });
-  
-      let mySplitText = new SplitText(element, { type: "chars" });
-      let chars = mySplitText.chars;
-  
-      gsap.fromTo(
-        element,
-        {
-          rotationX: 70,
-          opacity: 0
-        },
-        {
-          rotationX: 0,
-          opacity: 1,
-          duration: 1.5,
-          ease: "back.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            toggleActions: "play none none reset"
-          }
-        }
-      );
-  
-      gsap.from(chars, {
-        yPercent: 100,
-        stagger: 0.04,
-        opacity: 0,
-        ease: "power1.out",
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: element,
-          start: "top 80%",
-          toggleActions: "play none none reset"
-        }
-      });
-  
-      gsap.fromTo(
-        element,
-        {
-          opacity: 0
-        },
-        {
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            end: "top 60%",
-            scrub: true,
-            toggleActions: "play reverse play reverse"
-          }
-        }
-      );
-  
-      gsap.fromTo(
-        element,
-        {
-          opacity: 1
-        },
-        {
-          opacity: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 20%",
-            end: "top 5%",
-            scrub: true,
-            toggleActions: "play reverse play reverse"
-          }
-        }
-      );
-    });
-  }
-
   return (
 
 <div className='h-[400vh] relative w-screen bg-black'>
   <div className='sticky top-0 left-0  h-screen  w-full overflow-hidden flex justify-start items-center flex-col font-inter font-bold'>
-    <h1 ref={headText} className='  split  absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-gray-200 font-sf-bold  text-6xl md:text-9xl text-center '>
+    <h1 ref={headText} className='  split  absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-gray-200 font-sf-bold  text-[6vw] text-center '>
       <span className=' opacity-0 hidden'>L</span>
       Let's uncover that
       <span className=' opacity-0 hidden'>t</span>
@@ -268,27 +141,26 @@ scale : 1,
 
 
 
-    <div ref={videoEl} className='absolute top-0 left-0 w-full h-full overflow-hidden '>
-      <div  id='video-el-logo' className='absolute w-full h-full z-20 flex justify-center items-center'>
-        <img src="./images/logo/keycap.png" alt="" />
-      </div>
-      <div id='top-left' className='absolute top-0 left-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-top translate-x-[-5%] translate-y-[-5%]'></div>
-      <div id='top-right' className='absolute top-0 right-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-top translate-x-[5%] translate-y-[-5%]'></div>
-      <div id='bottom-left' className='absolute bottom-0 left-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-bottom translate-x-[-5%] translate-y-[5%]'></div>
-      <div id='bottom-right' className='absolute bottom-0 right-0 w-1/2 h-1/2  bg-black z-10 scale-[1.1] origin-bottom translate-x-[5%] translate-y-[5%]'></div>
-      <video
-        src="./videos/video.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className='absolute top-0 left-0 w-full h-full object-cover'
-      />
-    </div>
+    <div ref={videoEl} className='absolute top-0 left-0 z-30 bg-transparent w-screen h-screen overflow-hidden'>
 
 
+  <div id='video-el-logo' className='absolute w-full opacity-1 h-full z-20 flex justify-center items-center'>
+    <img src="./images/logo/keycap.png" alt="Logo" />
+  </div>
 
-
+  <svg className="content__img content__img--1 absolute top-0 left-0 w-screen h-screen object-cover" version="1.1" preserveAspectRatio='none' xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <filter id="displacementFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <mask id="circleMask">
+        <circle cx="50%" cy="50%" r="30" data-value-final="820" fill="white" className="mask" style={{ filter: 'url(#displacementFilter)' }} />
+      </mask>
+    </defs>
+  </svg>
+  <video className="video-mask absolute top-0 left-0 w-screen h-screen object-cover" src="./videos/video.mp4" muted loop autoPlay />
+</div>
 
 
   

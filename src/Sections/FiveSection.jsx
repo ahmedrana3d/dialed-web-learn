@@ -172,7 +172,7 @@ const FiveSection = () => {
 
 
   return (
-    <div class="content z-30">
+    <div class="content z-30 bg-black">
 
 
 <div className=' flex justify-center items-center flex-col'>

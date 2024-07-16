@@ -2,8 +2,9 @@ import React, { useRef } from 'react'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 
 const Page4 = () => {
@@ -105,6 +106,8 @@ useGSAP(() => {
       },
     });
 
+    animateText(".stand-out")
+
     tl.fromTo(
       statRef.current,
       {
@@ -172,16 +175,102 @@ useGSAP(() => {
 
 
 
+function animateText(textSelector) {
+  
+  document.querySelectorAll(textSelector).forEach((element) => {
+    gsap.set(element, {
+      transformPerspective: 500,
+      transformOrigin: "center bottom",
+      rotationX: 70
+    });
 
+    let mySplitText = new SplitText(element, { type: "chars" });
+    let chars = mySplitText.chars;
+
+    gsap.fromTo(
+      element,
+      {
+        rotationX: 70,
+        opacity: 0
+      },
+      {
+        rotationX: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "back.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          toggleActions: "play none none reset"
+        }
+      }
+    );
+
+    gsap.from(chars, {
+      yPercent: 15,
+      stagger: 0.04,
+      opacity: 0,
+      ease: "power1.out",
+      duration: 1.5,
+      scrollTrigger: {
+        trigger: element,
+        start: "top 80%",
+        toggleActions: "play none none reset"
+      }
+    });
+
+    gsap.fromTo(
+      element,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          end: "top 60%",
+          scrub: true,
+          toggleActions: "play reverse play reverse"
+        }
+      }
+    );
+
+    gsap.fromTo(
+      element,
+      {
+        opacity: 1
+      },
+      {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 20%",
+          end: "top 5%",
+          scrub: true,
+          toggleActions: "play reverse play reverse"
+        }
+      }
+    );
+  });
+}
 
 
 
 
   return (
-    <section className=" bg-black z-20 testimonials text-gray-200 h-[700vh] relative">
+    <section className=" z-20 testimonials text-gray-200 h-[700vh] relative">
+
+<div   className='stand-out font-sf-bold  leading-tight text-[#fefeff]  text-center text-[5vw]'>
+                    How do you make yours <p>
+                    stand out? </p> 
+                </div>
 
 <div className='trigger w-20 h-20  z-50 absolute top-28 '></div>
 <div className='trigger1 w-20 h-20  z-50 absolute bottom-28 '></div>
+
 
 
     <div className="h-[100vh] hidden w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] md:flex flex-col justify-center text-regular30 gap-[.67rem]">
@@ -197,7 +286,7 @@ useGSAP(() => {
         <div className="relative w-full lg:w-[57%] h-full overflow-hidden ">
         <div ref={statRef} className="tes-scroll-content w-full  absolute flex flex-col gap-80 pl-[2.03rem] pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 13%)' }}>
           <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-            <h6 className="text-3xl leading-[1.27]  md:text-3xl xl:text-6xl">Encourage users to stay on your site and explore more.</h6>
+            <h6 className="text-3xl leading-[1.27]  md:text-3xl xl:text-5xl">Encourage users to stay on your site and explore more.</h6>
             <h6 className="text-lg md:text-xl xl:text-3xl">Interactive content generates 2x more user engagement than static content</h6>
             <div className="test-img-mask block md:hidden ">
             <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/car_image.png" />

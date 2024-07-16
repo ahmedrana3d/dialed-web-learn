@@ -17,7 +17,6 @@ const Page3 = () => {
     useGSAP(() => {
         if (text1.current) {
             const split = new SplitText(text1.current, { type: 'words, chars' });
-            const split2 = new SplitText(text2.current, { type: 'words, chars' });
 
             const tl = gsap.timeline({
                 ease: "power0",
@@ -50,49 +49,49 @@ const Page3 = () => {
                 stagger: { each: 0.05, grid: 'auto', from: 'random'}
             }, ">");
 
-            tl.to(meterContainer.current, {
-                y: -300,
-                opacity: 0,
-                delay: 0.5,
-            }, ">");
+            // tl.to(meterContainer.current, {
+            //     y: -300,
+            //     opacity: 0,
+            //     delay: 0.5,
+            // }, ">");
 
-            tl.fromTo(split2.chars, {
-                'will-change': 'transform',
-                transformOrigin: '50% 100%',
-                scaleY: 0,
-                delay: 0.5,
-            }, {
-                ease: 'power3.in',
-                opacity: 1,
-                scaleY: 1,
-                stagger: 0.05
-            }, ">");
+            // tl.fromTo(split2.chars, {
+            //     'will-change': 'transform',
+            //     transformOrigin: '50% 100%',
+            //     scaleY: 0,
+            //     delay: 0.5,
+            // }, {
+            //     ease: 'power3.in',
+            //     opacity: 1,
+            //     scaleY: 1,
+            //     stagger: 0.05
+            // }, ">");
 
-            tl.to(text2.current, {
-                position: 'fixed',
-                left: '50%',
-                top: '50%',
-                transform: 'translate3d(-50%, -50%, 0)', // Use translate3d for GPU acceleration
-                z: 400,
-                y: 0,
-                scale: 50,
-                color: '#000000',
-                backgroundColor: '#000000',
-                duration: 2,
-                ease: 'power2.inOut',
-                delay: 0.5,
-                backfaceVisibility: 'hidden', // Improve rendering
-                '-webkit-font-smoothing': 'antialiased', // Ensure smooth text rendering
-                'text-rendering': 'optimizeLegibility',
-            });
+            // tl.to(text2.current, {
+            //     position: 'fixed',
+            //     left: '50%',
+            //     top: '50%',
+            //     transform: 'translate3d(-50%, -50%, 0)', // Use translate3d for GPU acceleration
+            //     z: 400,
+            //     y: 0,
+            //     scale: 50,
+            //     color: '#000000',
+            //     backgroundColor: '#000000',
+            //     duration: 2,
+            //     ease: 'power2.inOut',
+            //     delay: 0.5,
+            //     backfaceVisibility: 'hidden', // Improve rendering
+            //     '-webkit-font-smoothing': 'antialiased', // Ensure smooth text rendering
+            //     'text-rendering': 'optimizeLegibility',
+            // });
         }
     }, []);
 
     return (
-        <div className='z-10 relative w-screen h-[350vh]'>
+        <div className='z-10 relative w-screen h-[100vh]'>
             <div className='trigger1 absolute h-16 w-16 z-30 bottom-0'></div>
 
-            <div className='h-screen flex justify-center items-center flex-col sticky top-0 bg-black'>
+            <div className='h-screen flex justify-center items-center flex-col   '>
                 <div className='trigger absolute h-16 w-16 z-30 top-2/3'></div>
 
                 <div ref={meterContainer} className='flex flex-col gap-7 justify-center items-center'>
@@ -102,9 +101,7 @@ const Page3 = () => {
                     </div>
                 </div>
 
-                <div ref={text2} className='text-center tracking-widest text-xl lg:text-6xl text-gray-100 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-inter font-bold'>
-                    How do you make yours stand out?
-                </div>
+             
             </div>
         </div>
     );

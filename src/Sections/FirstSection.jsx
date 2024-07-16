@@ -6,6 +6,7 @@ import { ScrollScene, UseCanvas } from '@14islands/r3f-scroll-rig';
 import { Float, GradientTexture, MeshDistortMaterial, Sparkles } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 
+
 gsap.registerPlugin(SplitText);
 
 const FirstSection = () => {
@@ -135,7 +136,7 @@ tl.from(split.chars, {
   return (
     <>
       <div ref={el} className='!w-screen !h-screen relative    flex justify-center items-center flex-col  font-helvetica  bg-black z-10'>
-        <h1 ref={headText} className=' text-gray-50 tracking-wide scale-50 font-light text-3xl md:text-6xl text-center md:mx-32'>
+        <h1 ref={headText} className=' text-gray-50 tracking-wide scale-50 text-[2.4vw] font-light  text-center md:mx-32'>
           Okay, you’re intrigued – but how do these features actually      
           
            <span className=' relative inline-block mx-4 '>

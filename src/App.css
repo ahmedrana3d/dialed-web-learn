@@ -40,7 +40,7 @@
 }
 
 .writing-home {
-  top: calc(-0.8vw) !important;
+  top: calc(-0.1vw) !important;
   left: calc(-1vw - 5px) !important;
   right: calc(-1vw - 5px) !important;
   width: calc(100% + 10px + 2vw) !important;
@@ -270,3 +270,10 @@
 		transform: translateX(50%);
    }
 }
+
+.video-mask {
+	-webkit-mask-image: url(#circleMask);
+	mask-image: url(#circleMask);
+	-webkit-mask-size: cover;
+	mask-size: cover;
+  }

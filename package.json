@@ -15,6 +15,7 @@
     "@react-three/drei": "^9.107.2",
     "@react-three/fiber": "^8.16.8",
     "gsap": "npm:@gsap/business@^3.12.5",
+    "lenis": "^1.1.6",
     "leva": "^0.9.35",
     "lottie-react": "^2.4.0",
     "maath": "^0.10.7",

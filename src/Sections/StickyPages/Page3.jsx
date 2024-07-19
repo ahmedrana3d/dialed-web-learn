@@ -26,6 +26,7 @@ const Page3 = () => {
                     endTrigger: ".trigger1",
                     end: "top bottom",
                     scrub: 1,
+                    // markers : true,
                     onUpdate: self => {
                         if (self.progress > 0) {
                             setValue(252000);
@@ -92,7 +93,7 @@ const Page3 = () => {
             <div className='trigger1 absolute h-16 w-16 z-30 bottom-0'></div>
 
             <div className='h-screen flex justify-center items-center flex-col   '>
-                <div className='trigger absolute h-16 w-16 z-30 top-2/3'></div>
+                <div className='trigger bg absolute h-16 w-16 z-30 top-2/3'></div>
 
                 <div ref={meterContainer} className='flex flex-col gap-7 justify-center items-center'>
                     <ReactOdometer className='  text-[10vw] ' value={value} format="d"></ReactOdometer>

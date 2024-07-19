@@ -126,5 +126,5 @@
 
 .highlighted-text {
   color: #e6e6e6; /* Ensure the color matches the parent div */
-  text-shadow: 0 0 5px #e6e6e6, 0 0 10px #e6e6e6, 0 0 20px #e6e6e6, 0 0 30px #e6e6e6;
+  text-shadow: 0 0 1.25px #e6e6e6, 0 0 2.5px #e6e6e6, 0 0 5px #e6e6e6, 0 0 7.5px #e6e6e6;
 }

@@ -135,7 +135,7 @@ tl.from(split.chars, {
 
   return (
     <>
-      <div ref={el} className='!w-screen !h-screen relative    flex justify-center items-center flex-col  font-helvetica  bg-black z-10'>
+      <div ref={el} className='!w-screen !h-screen relative    flex justify-center items-center flex-col  font-sf-bold  bg-black z-10'>
         <h1 ref={headText} className=' text-gray-50 tracking-wide scale-50 text-[2.4vw] font-light  text-center md:mx-32'>
           Okay, you’re intrigued – but how do these features actually      
           

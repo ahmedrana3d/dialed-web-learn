@@ -15,6 +15,7 @@ export default {
         'horizon': ['Horzion', 'sans-serif'], // Define your custom font family
         'helvetica': ['Helvetica', 'sans-serif'], // Define your custom font family
         'international': ['NB-International', 'sans-serif'], // Define your custom font family
+        'international-bold': ['NB-International-Bold', 'sans-serif'], // Define your custom font family
       },
       textColor : {
         'dialed-purple' : "#AAA3FF",

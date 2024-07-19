@@ -45,6 +45,11 @@
   src: url("/fonts/NB-International-Pro-Light.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'NB-International-Bold';
+  src: url("/fonts/NBInternationalPro-Bold.otf") format("opentype");
+}
+
 
 
 .sf-pro {
@@ -69,6 +74,10 @@
 }
 
 .international {
+  font-family: "NB-International";
+}
+
+.international-bold {
   font-family: "NB-International";
 }
 

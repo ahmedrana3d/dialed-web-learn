@@ -24,7 +24,7 @@ const ThirdSection = () => {
       { opacity: 0.1 }, 
       {
         opacity: 1,
-        duration: 1,
+        duration: 0.5,
         stagger: 0.05,
         scrollTrigger: {
           trigger: textRef.current,
@@ -61,8 +61,8 @@ const ThirdSection = () => {
 
   return (
     <div className="w-screen h-[100vh] flex justify-center items-center bg-black">
-      <div className="grid grid-cols-4 grid-rows-3 gap-4 w-4/5 h-3/5 p-4 bg-zinc-800 rounded-2xl">
-        <div className="bg-black col-span-2 row-span-3 flex justify-center items-center rounded-3xl">
+      <div className="grid grid-cols-4 grid-rows-3 gap-4 w-4/5 h-3/5 p-4  rounded-2xl">
+        <div className=" bg-[#111111] col-span-2 row-span-3 flex justify-center items-center rounded-3xl">
           <Canvas className='!w-[100%] !h-[100vh]'
             camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 11] }}
           >
@@ -78,13 +78,15 @@ const ThirdSection = () => {
         <div className="col-span-2 row-span-3 flex flex-col gap-4">
           <div className="flex gap-4 h-2/5">
             <div className="bg-white w-[60%] flex justify-center items-center rounded-3xl">
-              <div ref={numberRef} className="text-7xl font-international font-semibold">90%</div>
+              <div ref={numberRef} className="text-[5vw] font-international-bold">90%</div>
             </div>
             <div className="bg-white w-[40%] flex justify-center items-center rounded-3xl">
+              <div className=" scale-75">
               <Lottie animationData={UserAnimation} loop={true} />
+              </div>
             </div>
           </div>
-          <div className="bg-black flex justify-center items-center h-full rounded-3xl">
+          <div className="bg-[#111111] flex justify-center items-center h-full rounded-3xl">
             <div ref={textRef} className="text-white font-inter text-[2.2vw] mx-16 leading-tight font-semibold">
               Of users cite poor design as a primary reason for not trusting a website.
             </div>

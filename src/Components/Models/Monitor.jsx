@@ -81,7 +81,7 @@ export default function Monitor(props) {
       if (size.width !== 0 && size.height !== 0) {
         const x = (event.clientX / size.width) * 2 - 1;
         const y = -(event.clientY / size.height) * 2 + 1;
-        setTargetRotation({ x: y * 0.1, y: x * 0.1 });
+        setTargetRotation({ x: y * 0.1, y: x * 0.04 });
       }
     };
 

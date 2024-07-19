@@ -3,67 +3,95 @@ import { SplitText } from "gsap/SplitText";
 import React, { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Lottie from "lottie-react";
+import UserAnimation from "../assets/user.json";
+import { Canvas } from "@react-three/fiber";
+import { Environment, Stage } from "@react-three/drei";
+import Monitor from "../Components/Models/Monitor";
+import TextPlugin from "gsap/TextPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const ThirdSection = () => {
   const textRef = useRef();
+  const numberRef = useRef();
 
   useGSAP(() => {
-    // Create a new SplitText instance to split the text into characters
     const split = new SplitText(textRef.current, { type: "words, chars" });
 
-    // Define the GSAP timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: textRef.current,
-        start: "top bottom", // Start the animation when the top of the textRef element enters the bottom of the viewport
-        end: "bottom center", // End the animation when the bottom of the textRef element exits the top of the viewport
-        scrub: true, // Animate in sync with the scroll position
-        // markers: true,       // Display markers for debugging
-      },
-    });
-
-    // Add animations to the timeline
-    tl.fromTo(
-      split.chars,
+    gsap.fromTo(
+      split.chars, 
+      { opacity: 0.1 }, 
       {
-        scaleY: 0.1,
-        scaleX: 1.8,
-        filter: 'blur(10px) brightness(50%)',
-        willChange: 'filter, transform'
-      }, {
-          ease: 'none', 
-          scaleY: 1,
-          scaleX: 1,
-          filter: 'blur(0px) brightness(100%)',
-          stagger: 0.05, 
-      });
+        opacity: 1,
+        duration: 1,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: 'top 99%',
+          end: 'top 99%',
+          // markers: true,
+          toggleActions: 'play none reset none',
+        }
+      }
+    );
 
+    gsap.fromTo(
+      numberRef.current, 
+      { innerText: "0%" }, 
+      {
+        duration: 2,
+        innerText: "90%",
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: numberRef.current,
+          start: 'top 99%',
+          end: 'top 99%',
+          // markers: true,
+          toggleActions: 'play none reset none',
+        },
+        snap: { innerText: 1 },
+        onUpdate: function() {
+          numberRef.current.innerText = `${Math.round(parseFloat(this.targets()[0].innerText))}%`;
+        }
+      }
+    );
 
-      
   }, []);
 
   return (
-<div className="w-screen relative h-[70vh] flex justify-center  bg-black items-center overflow-hidden">
-  <div
-    ref={textRef}
-    className="relative w-11/12 md:w-3/4 lg:w-1/2 text-gray-50  text-[2.5vw]  font-helvetica  leading-tight text-center px-4 md:px-8"
-  >
-
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus iste veritatis consequatur laborum odit, ratione maxime, totam suscipit eveniet sequi, amet rerum corporis assumenda quae ducimus quasi ipsa consequuntur deleniti?
-
-  </div>
-  <div className="absolute inset-0 z-[-1]">
-    <svg viewBox="0 0 1024 1024" className="w-full h-full absolute top-0 left-0 opacity-10">
-      <circle cx="200" cy="300" r="200" fill="rgba(255, 255, 255, 0.1)" />
-      <circle cx="800" cy="500" r="150" fill="rgba(255, 255, 255, 0.05)" />
-      <circle cx="500" cy="800" r="250" fill="rgba(255, 255, 255, 0.1)" />
-    </svg>
-  </div>
-</div>
-
-  
+    <div className="w-screen h-[100vh] flex justify-center items-center bg-black">
+      <div className="grid grid-cols-4 grid-rows-3 gap-4 w-4/5 h-3/5 p-4 bg-zinc-800 rounded-2xl">
+        <div className="bg-black col-span-2 row-span-3 flex justify-center items-center rounded-3xl">
+          <Canvas className='!w-[100%] !h-[100vh]'
+            camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 11] }}
+          >
+            <group>
+              <Stage>
+                <Monitor />
+              </Stage>
+            </group>
+            <Environment preset="city" />
+            <ambientLight intensity={Math.PI / 2} />
+          </Canvas>
+        </div>
+        <div className="col-span-2 row-span-3 flex flex-col gap-4">
+          <div className="flex gap-4 h-2/5">
+            <div className="bg-white w-[60%] flex justify-center items-center rounded-3xl">
+              <div ref={numberRef} className="text-7xl font-international font-semibold">90%</div>
+            </div>
+            <div className="bg-white w-[40%] flex justify-center items-center rounded-3xl">
+              <Lottie animationData={UserAnimation} loop={true} />
+            </div>
+          </div>
+          <div className="bg-black flex justify-center items-center h-full rounded-3xl">
+            <div ref={textRef} className="text-white font-inter text-[2.2vw] mx-16 leading-tight font-semibold">
+              Of users cite poor design as a primary reason for not trusting a website.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

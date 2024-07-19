@@ -40,6 +40,11 @@
   src: url("/fonts/Helvetica.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'NB-International';
+  src: url("/fonts/NB-International-Pro-Light.ttf") format("truetype");
+}
+
 
 
 .sf-pro {
@@ -61,6 +66,10 @@
 
 .helvetica {
   font-family: "SFPRO Bold";
+}
+
+.international {
+  font-family: "NB-International";
 }
 
 

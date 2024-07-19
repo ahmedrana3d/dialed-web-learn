@@ -14,6 +14,7 @@ export default {
         'sf-bold': ['SFPRO Bold', 'sans-serif'], // Define your custom font family
         'horizon': ['Horzion', 'sans-serif'], // Define your custom font family
         'helvetica': ['Helvetica', 'sans-serif'], // Define your custom font family
+        'international': ['NB-International', 'sans-serif'], // Define your custom font family
       },
       textColor : {
         'dialed-purple' : "#AAA3FF",
@@ -25,7 +26,9 @@ export default {
         'huge-xl' : "18rem",
         'big-xl' : "14rem",
       },
-      
+      colors: {
+        'dark-gray': '#333333',
+      },
     },
   },
   plugins: [],

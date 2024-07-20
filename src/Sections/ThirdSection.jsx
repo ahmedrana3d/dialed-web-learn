@@ -63,7 +63,7 @@ const ThirdSection = () => {
     <div className="w-screen h-[100vh] flex justify-center items-center bg-black">
       <div className="grid grid-cols-4 grid-rows-3 gap-4 w-4/5 h-3/5 p-4  rounded-2xl">
         <div className=" bg-[#111111] col-span-2 row-span-3 flex justify-center items-center rounded-3xl">
-          <Canvas className='!w-[100%] !h-[100%]'
+          <Canvas className='!w-[100%] !h-[75vh]'
             camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 11] }}
           >
             <group>

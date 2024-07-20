@@ -120,7 +120,7 @@ if (chessBoardRef.current) {
             </div>
           </div>
         </div>
-        <div className="bg-[#111111] col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl relative">
+        <div className="bg-black col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl relative">
   <Canvas
     className="!w-full !h-full z-10"
     camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 5, 11] }}
@@ -139,11 +139,11 @@ if (chessBoardRef.current) {
 
   <div className="absolute left-0 top-0 w-full h-full grid gap-x-10 grid-cols-2  pointer-events-none">
   <div
-        className="rounded bg-[#3c9ec5] scale-transition origin-left"
+        className="rounded-3xl bg-[#111111] scale-transition origin-left"
         style={{ transform: `scale(${scaleValues.left}, 1)` }}
       ></div>
       <div
-        className="rounded bg-neutral-200 scale-transition origin-right"
+        className="rounded-3xl bg-neutral-200 scale-transition origin-right"
         style={{ transform: `scale(${scaleValues.right}, 1)` }}
       ></div>
   </div>

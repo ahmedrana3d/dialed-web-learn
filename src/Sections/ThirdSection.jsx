@@ -86,11 +86,12 @@ const ThirdSection = () => {
               </div>
             </div>
           </div>
-          <div className="bg-[#111111] flex justify-center items-center h-full rounded-3xl">
-            <div ref={textRef} className="text-white font-inter text-[2.2vw] mx-16 leading-tight font-semibold">
-              Of users cite poor design as a primary reason for not trusting a website.
-            </div>
-          </div>
+          <div className="bg-[#111111] flex justify-start items-start h-full rounded-3xl p-7">
+  <div ref={textRef} className="text-white font-inter text-[2.2vw] leading-tight font-semibold">
+    Of users cite poor design as a primary reason for not trusting a website.
+  </div>
+</div>
+
         </div>
       </div>
     </div>

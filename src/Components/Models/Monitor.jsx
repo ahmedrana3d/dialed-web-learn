@@ -51,7 +51,7 @@ extend({ ImageFadeMaterial });
 
 export default function Monitor(props) {
   const [hovered, hover] = useState(false);
-  const texture1 = useVideoTexture("./videos/good_screen.mp4");
+  const texture1 = useVideoTexture("./videos/good_screen.mov");
   const texture2 = useVideoTexture("./videos/bad_screen.mp4");
   const dispTexture = useTexture("./videos/cells_disp.png");
   const ref = useRef();
@@ -81,7 +81,7 @@ export default function Monitor(props) {
       if (size.width !== 0 && size.height !== 0) {
         const x = (event.clientX / size.width) * 2 - 1;
         const y = -(event.clientY / size.height) * 2 + 1;
-        setTargetRotation({ x: y * 0.1, y: x * 0.04 });
+        setTargetRotation({ x: y * 0.1, y: x * 0.08 });
       }
     };
 
@@ -91,34 +91,7 @@ export default function Monitor(props) {
 
 
 
-  const [Position, setPosition] = useState([0, -30, 0]);
-  const [monitorScale, setMonitorScale] = useState([30, 30, 30])
-    useEffect(() => {
-      const handleResize = () => {
-        // Adjust xPosition based on screen size
-        const screenWidth = window.innerWidth;
-        if (screenWidth < 800) {
-          // Adjust this breakpoint according to your design
-          setPosition([0,-1,0])
-          setMonitorScale([0.7,0.7,0.7])
-        } else {
-            setPosition([0,-2.5,0])
-            setMonitorScale([1.5,1.5,1.5])
-        }
   
-  
-  
-  
-  
-      };
-  
-      handleResize(); // Call it once to set initial position
-  
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-
 
 
 
@@ -140,10 +113,9 @@ export default function Monitor(props) {
       ref={ref2}
       {...props}
       dispose={null}
-      scale={monitorScale}
-      position={Position}
+   
     >
-      <group position={[0, -0.055, 0.027]}>
+      <group >
         <mesh
           castShadow
           receiveShadow

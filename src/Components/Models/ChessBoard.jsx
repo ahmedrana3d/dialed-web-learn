@@ -28,7 +28,7 @@ const ChessBoard = forwardRef((props, ref) => {
   return (
     <group ref={group} {...props} dispose={null}>
     <group ref={group} name="Scene">
-        <group name="Scene_1" position={[0, -0.411, -0.038]} scale={0.167}>
+        <group name="Scene_1" position={[0, 0.2, -0.038]} scale={0.167}>
           <group name="RootNode" scale={0.024}>
             <group name="B_Bishop_1" position={[-4.418, 0, 9.582]} rotation={[-Math.PI / 2, 0, 0]}>
               <mesh

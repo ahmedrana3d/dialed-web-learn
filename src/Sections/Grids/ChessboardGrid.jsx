@@ -16,11 +16,10 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 const ChessboardGrid = () => {
   const textRef = useRef();
   const numberRef = useRef();
-  
+
+
   const [scaleValues, setScaleValues] = useState({ left: 1.5, right: 0.5 });
   const chessBoardRef = useRef();
-
-
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -29,8 +28,8 @@ const ChessboardGrid = () => {
       const mouseX = clientX;
       const scaleFactor = mouseX / windowWidth;
       const newScaleValues = {
-        left: 1.5 - scaleFactor,
-        right: 0.5 + scaleFactor,
+        left: 0.5 + scaleFactor,
+        right: 1.5 - scaleFactor,
       };
       setScaleValues(newScaleValues);
     };
@@ -48,9 +47,9 @@ const ChessboardGrid = () => {
 
     gsap.fromTo(
       split.chars,
-      { opacity: 0.1 },
+      { scale: 0,  },
       {
-        opacity: 1,
+        scale: 1,
         duration: 0.5,
         stagger: 0.05,
         scrollTrigger: {
@@ -67,6 +66,9 @@ if (chessBoardRef.current) {
         },
       }
     );
+
+
+  
 
     gsap.fromTo(
       numberRef.current,

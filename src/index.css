@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "SFPRO";
   src: url("/fonts/SFPRODISPLAYHEAVYITALIC.OTF") format("opentype");
@@ -145,4 +149,13 @@
 .highlighted-text {
   color: #e6e6e6; /* Ensure the color matches the parent div */
   text-shadow: 0 0 1.25px #e6e6e6, 0 0 2.5px #e6e6e6, 0 0 5px #e6e6e6, 0 0 7.5px #e6e6e6;
+}
+.curtains-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  /* pointer-events: none; */
 }

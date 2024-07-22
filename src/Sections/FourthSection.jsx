@@ -37,9 +37,9 @@ const FourthSection = () => {
     <div className='relative bg-black'>
       {/* <Page1 /> */}
       <div>
-  <svg className='absolute w-screen h-[150vw] left-0' width="100%" height="100%" viewBox="0 0 1000 1500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <path ref={svgPath} d="M-24 14C285.5 184.236 6.36279 290.269 144.723 435.802C239.904 535.918 560.015 556.406 609.308 424.839C658.601 293.272 498.127 225.66 406.798 273.17C136.995 390.296 -113.444 1120.7 265.5 1027.69C522.961 964.492 961.045 952.071 960.591 1080.5C942.343 1402.77 1249.39 740.968 1585.5 635" stroke="#CD3C2F" strokeLinecap="round" strokeWidth="14" strokeLinejoin="round"/>
-  </svg>
+  {/* <svg className='absolute w-screen h-[150vw] left-0' width="100%" height="100%" viewBox="0 0 1000 1500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <path  d="M-24 14C285.5 184.236 6.36279 290.269 144.723 435.802C239.904 535.918 560.015 556.406 609.308 424.839C658.601 293.272 498.127 225.66 406.798 273.17C136.995 390.296 -113.444 1120.7 265.5 1027.69C522.961 964.492 961.045 952.071 960.591 1080.5C942.343 1402.77 1249.39 740.968 1585.5 635" stroke="#CD3C2F" strokeLinecap="round" strokeWidth="14" strokeLinejoin="round"/>
+  </svg> */}
   {/* <Page2 /> */}
   <Page3 />
 </div>

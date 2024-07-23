@@ -16,8 +16,6 @@ const OpinionStatGrid = () => {
   const textRef = useRef();
   const text2Ref = useRef();
   const numberRef = useRef();
-  
-
 
   useGSAP(() => {
     const split = new SplitText(textRef.current, { type: "words, chars" });
@@ -38,12 +36,6 @@ const OpinionStatGrid = () => {
           trigger: textRef.current,
           start: "top 99%",
           end: "top 99%",
-          onEnter : ()=>{
-if (chessBoardRef.current) {
-  chessBoardRef.current.playAnimation()
-}
-          },
-          // markers: true,
           toggleActions: "play none reset none",
         },
       }
@@ -61,12 +53,6 @@ if (chessBoardRef.current) {
           trigger: text2Ref.current,
           start: "top 99%",
           end: "top 99%",
-          onEnter : ()=>{
-if (chessBoardRef.current) {
-  chessBoardRef.current.playAnimation()
-}
-          },
-          // markers: true,
           toggleActions: "play none reset none",
         },
       }
@@ -81,38 +67,42 @@ if (chessBoardRef.current) {
   }, []);
 
   return (
+
     <div className="w-screen h-[100vh] flex justify-center items-center bg-black">
-<div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 md:grid-rows-2 gap-4 w-[95%] h-[90%] md:w-[80%] md:h-[60%] p-2 md:p-4 rounded-2xl">
-  <div className="bg-[#111111] col-span-1 md:col-span-2 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl">
-  <div ref={textRef} className="text-white font-inter text-[4vw] md:text-[2vw] leading-tight font-semibold p-4 md:p-10">
+  <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-4 w-[95%] h-[90%] md:w-[80%] md:h-[60%] p-2 md:p-4 rounded-2xl">
+    
+    <div className="bg-[#111111] col-span-1 md:col-span-2 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl">
+      <div ref={textRef} className="text-white font-inter text-[5vw] md:text-[2vw] leading-tight font-semibold p-2 md:p-6">
         Users generate an opinion about a website in...
       </div>
-  </div>
-  <div className="bg-white col-span-1 md:col-span-1 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl">
-  <div >
-            <Lottie animationData={ClockAnimation} loop={true} />
-          </div>
-  </div>
-  <div className="bg-[#111111] col-span-1 md:col-span-1 row-span-1 md:row-span-2 flex justify-between gap-20 flex-col items-center rounded-3xl">
-  <div ref={text2Ref} className=" my-36 md:p-5 text-white font-inter text-[4vw] md:text-[2vw] leading-tight font-semibold">
+    </div>
+    
+    <div className="bg-white col-span-1 md:col-span-1 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl">
+      <div>
+        <Lottie animationData={ClockAnimation} loop={true} />
+      </div>
+    </div>
+    
+    <div className="bg-[#111111] col-span-1 md:col-span-1 row-span-1 md:row-span-2 flex flex-col justify-between items-center rounded-3xl">
+      <div ref={text2Ref} className="text-white font-inter text-[5vw] md:text-[2vw] leading-tight font-semibold p-2 md:p-4">
         Ensure your hero page is engaging and captivating.
       </div>
-      <button className=" md:mb-32 bg-white text-black font-sf-bold text-2xl font-bold py-5 px-10 rounded-full flex items-center space-x-2">
-  <span>Get in Touch</span>
-  <SlArrowRight />
-</button>
-  </div>
-  <div className="bg-white col-span-1 md:col-span-3 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl">
-  <div
-        ref={numberRef}
-        className="text-[8vw] md:text-[5.5vw] font-international-bold"
-      >
-        0.05 <span className="text-[4vw] md:text-[2vw]">seconds</span>
+      <button className="bg-white text-black font-sf-bold text-[4vw] md:text-2xl font-bold py-3 px-6 rounded-full flex items-center space-x-2">
+        <span>Get in Touch</span>
+        <SlArrowRight />
+      </button>
+    </div>
+    
+    
+    <div className="bg-white col-span-1 md:col-span-3 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl md:order-none order-last">
+      <div ref={numberRef} className="text-[7vw] md:text-[5.5vw] font-international-bold">
+        0.05 <span className="text-[5vw] md:text-[2vw]">seconds</span>
       </div>
+    </div>
   </div>
 </div>
 
-  </div>
+
   
   );
 };

@@ -97,7 +97,6 @@ export default function Monitor(props) {
 
   function setBG(value) {
     hover(value);
-    console.log(value)
   }
 
   const { nodes, materials } = useGLTF("./models/monitor_simple.glb");

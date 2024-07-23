@@ -11,21 +11,21 @@ gsap.registerPlugin(SplitText);
 
 const FirstSection = () => {
   const headText = useRef();
-  const mouseEl = useRef();
+  // const mouseEl = useRef();
   const mouseText = useRef();
   const writingRef = useRef()
   const el = useRef()
 
   useGSAP(() => {
-    if (headText.current && mouseText.current && mouseEl.current) {
+    if (headText.current && mouseText.current ) {
       // Initialize SplitText instances
       const split = new SplitText(headText.current, { type: 'words, chars' });
       const split2 = new SplitText(mouseText.current, { type: 'words, chars' });
 
       // Get the path length for the progress animation
-      const path = document.querySelector('.progress');
-      const length = path.getTotalLength();
-      gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+      // const path = document.querySelector('.progress');
+      // const length = path.getTotalLength();
+      // gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
       // Define the GSAP timeline
       const tl = gsap.timeline();
@@ -47,7 +47,6 @@ tl.from(split.chars, {
         scale: 1, 
         duration: 1,
         ease: "power4.inOut",
-        // letterSpacing: "5px",  // Increase letter spacing
         onComplete : ()=>{
           pathWritting.style.strokeDashoffset = 0;
         }
@@ -65,12 +64,12 @@ tl.from(split.chars, {
         stagger: 0.03,
         ease: 'power3.out',
       }, "-=0.5") // Start this animation 0.5 seconds before the previous one ends
-      .from(mouseEl.current, {
-        duration: 1,
-        opacity: 0,
-        y: 50,
-        ease: 'power3.out',
-      }, "-=0.5"); // Start this animation 0.5 seconds before the previous one ends
+      // .from(mouseEl.current, {
+      //   duration: 1,
+      //   opacity: 0,
+      //   y: 50,
+      //   ease: 'power3.out',
+      // }, "-=0.5"); // Start this animation 0.5 seconds before the previous one ends
 
       // Update ScrollTrigger setup for headText
       tl.fromTo(headText.current, {
@@ -107,23 +106,23 @@ tl.from(split.chars, {
       });
 
       // Add the ScrollTrigger animation for the progress bar
-      tl.to(".progress", {
-        strokeDashoffset: 0,
-        display: "none",
-        scrollTrigger: {
-          trigger: document.body,
-          start: "top top",  // Start animation when the top of the body reaches the top of the viewport
-          endTrigger: ".mouse-end",
-          end: "top bottom",  // End animation when the top of .mouse-end element reaches the bottom of the viewport
-          scrub: true,       // Sync animation with the scroll position
-          onEnterBack: () => {
-            gsap.to(mouseEl.current, { opacity: 1, duration: 0.4 });  // Show the .progress element if scrolled back
-          },
-          onLeave: () => {
-            gsap.to(mouseEl.current, { opacity: 0, duration: 0.4 });  // Hide the .progress element when scrolled beyond the end
-          },
-        }
-      });
+      // tl.to(".progress", {
+      //   strokeDashoffset: 0,
+      //   display: "none",
+      //   scrollTrigger: {
+      //     trigger: document.body,
+      //     start: "top top",  // Start animation when the top of the body reaches the top of the viewport
+      //     endTrigger: ".mouse-end",
+      //     end: "top bottom",  // End animation when the top of .mouse-end element reaches the bottom of the viewport
+      //     scrub: true,       // Sync animation with the scroll position
+      //     onEnterBack: () => {
+      //       gsap.to(mouseEl.current, { opacity: 1, duration: 0.4 });  // Show the .progress element if scrolled back
+      //     },
+      //     onLeave: () => {
+      //       gsap.to(mouseEl.current, { opacity: 0, duration: 0.4 });  // Hide the .progress element when scrolled beyond the end
+      //     },
+      //   }
+      // });
 
       // Clean up SplitText instances
       return () => {
@@ -136,7 +135,7 @@ tl.from(split.chars, {
   return (
     <>
       <div ref={el} className='!w-screen !h-screen relative    flex justify-center items-center flex-col  font-sf-bold  bg-black z-10'>
-        <h1 ref={headText} className=' text-gray-50 tracking-wide scale-50 text-[2.4vw] font-light  text-center md:mx-32'>
+        <h1 ref={headText} className=' text-gray-50  scale-50 text-[6vw] md:text-[2.4vw]  text-center md:mx-32'>
           Okay, you’re intrigued – but how do these features actually      
           
            <span className=' relative inline-block mx-4 '>
@@ -169,14 +168,14 @@ tl.from(split.chars, {
           <div ref={mouseText} className='text-gray-200'>Scroll Down To Find Out</div>
         </div>
 
-        <div ref={mouseEl} className='fixed bottom-12 z-20'>
+        {/* <div ref={mouseEl} className='fixed bottom-12 z-20'>
         <svg className="mouse" width="28" height="56" viewBox="0 0 24 48">
   <rect x="1.5" y="1.5" width="21" height="45" rx="12" ry="12" stroke="#888" strokeWidth="2.5" fill="none" />
   <circle className="scroll" cx="12" cy="15" r="3.5" fill="#888" />
   <rect className="progress" x="1.5" y="1.5" width="21" height="45" rx="12" ry="12" stroke="#009eb7" strokeWidth="2.5" fill="none" />
 </svg>
 
-        </div>
+        </div> */}
       </div>
 
 

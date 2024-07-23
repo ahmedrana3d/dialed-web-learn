@@ -115,7 +115,7 @@ const ThirdPage = () => {
   }, []);
 
   return (
-    <div className='w-screen h-[200vh] bg-black flex flex-col items-start pl-12'>
+    <div className='w-screen h-auto bg-black flex flex-col items-center gap-12 md:gap-0 md:items-start '>
       <svg
         className='absolute w-screen h-[150vw] left-0'
         width="100%"
@@ -142,7 +142,7 @@ const ThirdPage = () => {
         </defs>
       </svg>
 
-      <div className='w-full'>
+      <div className='w-full  pl-12'>
         <div className='overflow-hidden'>
           <div ref={headText1Ref} className='text-[8vw] font-sf-bold text-gray-50 tracking-tight'>Great Experiences</div>
         </div>
@@ -151,20 +151,20 @@ const ThirdPage = () => {
         </div>
       </div>
 
-      <div className='w-full text-left mt-8 flex justify-end'>
-        <div ref={paraRef} className='w-[50vw] text-[clamp(1rem,1.5vw,3rem)] leading-[1.5] mr-8 font-inter text-white'>
+      <div className='w-full text-left mt-8 flex justify-center md:justify-end'>
+        <div ref={paraRef} className=' w-5/6 md:w-[50vw] text-[clamp(1rem,1.5vw,3rem)] leading-[1.5] mr-8 font-inter text-white'>
           A <span className='text-red-400'>negative experience</span> on a website will deter 88% of online consumers from revisiting, and 79% of consumers who encounter performance issues are less likely to buy from that site again, highlighting the critical importance of <span  className='text-emerald-400'>user satisfaction</span> for maintaining <span className='text-dialed-purple'>customer loyalty</span> and sales.
         </div>
       </div>
 
 
-<div className=' z-10 w-full'>
+<div className=' z-10 w-full flex justify-center md:justify-start'>
 
 {/* <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
 <SimplePlane/>
 </Curtains> */}
 
-<video src="./videos/video.mp4" muted loop autoPlay className='w-1/3 rounded-3xl'></video>
+<video src="./videos/video.mp4" muted loop autoPlay className=' w-5/6 md:w-1/3 rounded-3xl'></video>
 
 </div>
 

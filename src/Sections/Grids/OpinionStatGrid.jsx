@@ -76,7 +76,16 @@ const OpinionStatGrid = () => {
         Users generate an opinion about a website in...
       </div>
     </div>
+
+
+    <div className="bg-white col-span-1 md:col-span-1 row-span-1 md:row-span-1 md:hidden flex justify-center items-center rounded-3xl">
+      <div ref={numberRef} className="text-[7vw] md:text-[5.5vw] font-international-bold">
+        0.05 <span className="text-[5vw] md:text-[2vw]">seconds</span>
+      </div>
+    </div>
     
+
+    {/* bg-white col-span-1 md:col-span-1 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl */}
     <div className="bg-white col-span-1 md:col-span-1 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl">
       <div>
         <Lottie animationData={ClockAnimation} loop={true} />
@@ -94,7 +103,7 @@ const OpinionStatGrid = () => {
     </div>
     
     
-    <div className="bg-white col-span-1 md:col-span-3 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl md:order-none order-last">
+    <div className="bg-white col-span-1 hidden md:col-span-3 row-span-1 md:row-span-1 md:flex justify-center items-center rounded-3xl md:order-none order-last">
       <div ref={numberRef} className="text-[7vw] md:text-[5.5vw] font-international-bold">
         0.05 <span className="text-[5vw] md:text-[2vw]">seconds</span>
       </div>

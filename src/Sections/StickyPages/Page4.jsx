@@ -263,7 +263,7 @@ function animateText(textSelector) {
   return (
     <section className=" z-20 testimonials text-gray-200 h-[700vh] relative">
 
-<div   className='stand-out font-sf-bold  leading-tight text-[#fefeff]  text-center text-[5vw]'>
+<div   className='stand-out font-sf-bold  leading-tight text-[#fefeff]  text-center text-[7vw] md:text-[5vw]'>
                     How do you make yours <p>
                     stand out? </p> 
                 </div>
@@ -273,7 +273,7 @@ function animateText(textSelector) {
 
 
 
-    <div className="h-[100vh] hidden w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] md:flex flex-col justify-center text-regular30 gap-[.67rem]">
+    <div className="h-[100vh] invisible md:visible w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
       <button data-name="events" className="text-left tes-button capitalize user-eng text-2xl leading-relaxed"> Engagment</button>
       <button data-name="share homes" className="text-left tes-button capitalize conversion-rate text-2xl leading-relaxed opacity-50" >Conversion</button>
       <button data-name="cost splitting" className="text-left tes-button capitalize customer-exp text-2xl leading-relaxed opacity-50" > Experience</button>
@@ -281,7 +281,7 @@ function animateText(textSelector) {
     </div>
     <div className=" mt-[-100vh] h-screen sticky top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
       <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
-      <div className="frame-container w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)` }}>
+      <div className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)` }}>
         <div className="relative w-full md:w-[57%] h-full overflow-hidden flex justify-center">
         <div className="relative w-full lg:w-[57%] h-full overflow-hidden ">
         <div ref={statRef} className="tes-scroll-content w-full  absolute flex flex-col gap-80 pl-[2.03rem] pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 13%)' }}>

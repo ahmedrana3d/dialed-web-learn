@@ -64,7 +64,7 @@ const MonitorGrid = () => {
   <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 md:grid-rows-3 gap-4 w-[95%] h-[90%] md:w-[90%] md:h-[70%] p-2 md:p-4 ">
     <div className="bg-[#111111] col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl">
       <Canvas
-        className='!w-full !h-[50vh] md:!h-[75vh]'
+        className='!w-full !h-[35vh] md:!h-[75vh]'
         camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 11] }}
       >
         <group>

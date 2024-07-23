@@ -5,6 +5,9 @@
 #root{
   width: 100%;
 }
+body{
+  overflow-x: hidden;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;

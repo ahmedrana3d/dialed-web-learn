@@ -160,9 +160,7 @@ const ThirdPage = () => {
 
 <div className=' z-10 w-full flex justify-center md:justify-start'>
 
-{/* <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
-<SimplePlane/>
-</Curtains> */}
+
 
 <video src="./videos/video.mp4" muted loop controls={false} autoPlay className=' w-5/6 md:w-1/3 rounded-3xl'></video>
 

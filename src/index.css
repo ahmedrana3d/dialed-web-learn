@@ -100,22 +100,17 @@ body{
 
 /* Scrollbar styles for WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 3px; /* Width of the vertical scrollbar */
-  height: 1px; /* Height of the horizontal scrollbar */
+  overflow: scroll; /* Ensure scrolling is possible */
+  scrollbar-width: none; /* For Firefox */
+  display: none; /* Hide scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(100, 100, 100, 0.8); /* Color of the scrollbar handle */
-  border-radius: 4px; /* Rounded corners */
+  overflow: scroll; /* Ensure scrolling is possible */
+  scrollbar-width: none; /* For Firefox */
+  display: none; /* Hide scrollbar */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(150, 150, 150, 0.9); /* Handle color on hover */
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent; /* Make the scrollbar track transparent */
-}
 
 
 

@@ -164,7 +164,7 @@ const ThirdPage = () => {
 <SimplePlane/>
 </Curtains> */}
 
-<video src="./videos/video.mp4" muted loop autoPlay className=' w-5/6 md:w-1/3 rounded-3xl'></video>
+<video src="./videos/video.mp4" muted loop controls={false} autoPlay className=' w-5/6 md:w-1/3 rounded-3xl'></video>
 
 </div>
 

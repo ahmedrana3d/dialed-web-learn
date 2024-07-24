@@ -27,11 +27,11 @@ useGSAP(() => {
     const tl = gsap.timeline({
       ease: 'power0',
       scrollTrigger: {
-        trigger: ".testimonials",
+        trigger: statRef.current,
         start: 'top top',
         end: 'bottom bottom',
         scrub: true,
-        markers: true,
+        // markers: true,
         onUpdate: (self) => {
           const scrollY = parseFloat(self.progress.toFixed(2));
 

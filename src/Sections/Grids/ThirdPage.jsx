@@ -167,9 +167,8 @@ const ThirdPage = () => {
 <video src="./videos/video.mp4" 
 autoPlay
 muted
-playsinline
+playsInline
 loop
-webkit-playsinline
 className=' w-5/6 md:w-1/3 rounded-3xl'></video>
 
 </div>

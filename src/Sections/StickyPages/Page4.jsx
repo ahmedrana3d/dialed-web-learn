@@ -31,94 +31,83 @@ useGSAP(() => {
         start: 'top top',
         end: 'bottom bottom',
         scrub: true,
+        markers: true,
         onUpdate: (self) => {
           const scrollY = parseFloat(self.progress.toFixed(2));
-    
-          // Helper function to handle animations
-          const handleAnimation = (scrollPos, animKey, bgColor, buttonClass, imageSettings, reverse = false) => {
-            if (scrollY >= scrollPos && !animationsTriggered[animKey]) {
-              changeBackground(bgColor);
-              highlightButton(buttonClass);
-    
-              imageSettings.forEach(([selector, scale, y, opacity, duration, ease]) => {
-                const animationFunc = reverse ? reverseAnimateImage : animateImage;
-                animationFunc(selector, scale, y, opacity, duration, ease);
-              });
-    
-              animationsTriggered[animKey] = true;
-            }
-          };
-    
-          // Helper function to handle reverse animations
-          const handleReverseAnimation = (scrollPos, animKey, bgColor, buttonClass, imageSettings) => {
-            if (scrollY < scrollPos && animationsTriggered[animKey]) {
-              changeBackground(bgColor);
-              reverseHighlightButton(buttonClass);
-    
-              imageSettings.forEach(([selector, scale, y, opacity, duration]) => {
-                reverseAnimateImage(selector, scale, y, opacity, duration);
-              });
-    
-              animationsTriggered[animKey] = false;
-            }
-          };
-    
-          // Trigger animations
-          handleAnimation(0.66, 'animation5', 'rgb(19 37 26)', 'brand-img', [
-            [".image-3", 0.9, "2rem", 0, 0.3],
-            [".image-4", 0.9, "1rem", 2.132, 0.5]
-          ]);
-          
-          handleAnimation(0.4, 'animation4', 'rgb(19 32 37)', 'customer-exp', [
-            [".image-2", 0.9, "2rem", 0, 0.3],
-            [".image-3", 0.9, "1rem", 2.132, 0.5],
-            [".image-4", 0.8, "0.35rem", 1.558, 0.5]
-          ]);
-    
-          handleAnimation(0.31, 'animation3', null, 'conversion-rate', []);
-    
-          handleAnimation(0.09, 'animation2', 'rgb(58 43 43)', 'conversion-rate', [
-            [".image-1", 0.9, "2.2rem", 0, 0.3],
-            [".image-2", 0.9, "1rem", 2.132, 0.5],
-            [".image-3", 0.8, "0.35rem", 1.558, 0.5],
-            [".image-4", 0.72, "-0.3rem", 0.984, 0.5]
-          ]);
-    
-          handleAnimation(0.03, 'animation1', 'rgb(106, 106, 106)', 'user-eng', [], true);
-    
-          // Reset animations
-          handleReverseAnimation(0.03, 'animation1', 'rgb(106, 106, 106)', 'user-eng', [
-            [".image-1", 0.9, "1rem", 2.132, 0.3],
-            [".image-2", 0.8, "0.35rem", 1.558, 0.5],
-            [".image-3", 0.72, "-0.3rem", 0.984, 0.5],
-            [".image-4", 0.67, "-0.95rem", 0.41, 0.5]
-          ]);
-    
-          handleReverseAnimation(0.19, 'animation2', 'rgb(58 43 43)', 'conversion-rate', [
-            [".image-1", 0.9, "2.2rem", 0, 0.3],
-            [".image-2", 0.9, "1rem", 2.132, 0.5],
-            [".image-3", 0.8, "0.35rem", 1.558, 0.5],
-            [".image-4", 0.72, "-0.3rem", 0.984, 0.5]
-          ]);
-    
-          handleReverseAnimation(0.34, 'animation3', 'rgb(58 43 43)', 'conversion-rate', [
-            [".image-1", 0.9, "2.2rem", 0, 0.3],
-            [".image-2", 0.9, "1rem", 2.132, 0.5],
-            [".image-3", 0.8, "0.35rem", 1.558, 0.5],
-            [".image-4", 0.72, "-0.3rem", 0.984, 0.5]
-          ]);
-    
-          handleReverseAnimation(0.56, 'animation4', 'rgb(19 32 37)', 'customer-exp', [
-            [".image-2", 0.9, "2rem", 0, 0.3],
-            [".image-3", 0.9, "1rem", 2.132, 0.5],
-            [".image-4", 0.8, "0.35rem", 1.558, 0.5]
-          ]);
-    
-          handleReverseAnimation(0.72, 'animation5', 'rgb(19 37 26)', 'brand-img', [
-            [".image-3", 0.9, "2rem", 0, 0.3],
-            [".image-4", 0.9, "1rem", 2.132, 0.5]
-          ]);
+
+          // Trigger animations when scrolling down
+          if (scrollY >= 0.66 && !animationsTriggered.animation5) {
+            highlightButton('brand-img');
+            changeBackground('rgb(19 37 26)');
+            animationsTriggered.animation5 = true;
+            animateImage(".image-3", 0.9, "2rem", 0, 0.3);
+            animateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
+          } else if (scrollY >= 0.4 && !animationsTriggered.animation4) {
+            highlightButton('customer-exp');
+            changeBackground('rgb(19 32 37)');
+            animationsTriggered.animation4 = true;
+            animateImage(".image-2", 0.9, "2rem", 0, 0.3);
+            animateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
+            animateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
+          } else if (scrollY >= 0.31 && !animationsTriggered.animation3) {
+            highlightButton('conversion-rate');
+            animationsTriggered.animation3 = true;
+          } else if (scrollY >= 0.09 && !animationsTriggered.animation2) {
+            changeBackground('rgb(58 43 43)');
+            highlightButton('conversion-rate');
+            animationsTriggered.animation2 = true;
+            animateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            animateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            animateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            animateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
+          } else if (scrollY >= 0.03 && !animationsTriggered.animation1) {
+            changeBackground('rgb(106, 106, 106)');
+            highlightButton('user-eng');
+            animationsTriggered.animation1 = true;
+          }
+
+          // Reset animations when scrolling up
+          if (scrollY < 0.03 && animationsTriggered.animation1) {
+            changeBackground('rgb(106, 106, 106)');
+            reverseHighlightButton('user-eng');
+            animationsTriggered.animation1 = false;
+            reverseAnimateImage(".image-1", 0.9, "1rem", 2.132, 0.3);
+            reverseAnimateImage(".image-2", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-3", 0.72, "-0.3rem", 0.984, 0.5);
+            reverseAnimateImage(".image-4", 0.67, "-0.95rem", 0.41, 0.5);
+          } else if (scrollY < 0.19 && animationsTriggered.animation2) {
+            reverseHighlightButton('conversion-rate');
+            changeBackground('rgb(58 43 43)');
+            animationsTriggered.animation2 = false;
+            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
+          } else if (scrollY < 0.34 && animationsTriggered.animation3) {
+            reverseHighlightButton('conversion-rate');
+            changeBackground('rgb(58 43 43)');
+            animationsTriggered.animation3 = false;
+            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
+          } else if (scrollY < 0.56 && animationsTriggered.animation4) {
+            changeBackground('rgb(19 32 37)');
+            reverseHighlightButton('customer-exp');
+            animationsTriggered.animation4 = false;
+            reverseAnimateImage(".image-2", 0.9, "2rem", 0, 0.3);
+            reverseAnimateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
+          } else if (scrollY < 0.72 && animationsTriggered.animation5) {
+            reverseHighlightButton('brand-img');
+            changeBackground('rgb(19 37 26)');
+            animationsTriggered.animation5 = false;
+            reverseAnimateImage(".image-3", 0.9, "2rem", 0, 0.3);
+            reverseAnimateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
+          }
+
         },
+
       },
     });
 

@@ -51,8 +51,23 @@ extend({ ImageFadeMaterial });
 
 export default function Monitor(props) {
   const [hovered, hover] = useState(false);
-  const texture1 = useVideoTexture("./videos/good_screen.mov");
-  const texture2 = useVideoTexture("./videos/bad_screen.mp4");
+  const texture1 = useVideoTexture("./videos/good_screen.mov", {
+    autoPlay: true,
+    muted: true,
+    playsinline: true,
+    loop: true,
+    webkitPlaysInline: true
+  });
+  
+  const texture2 = useVideoTexture("./videos/bad_screen.mp4", {
+    autoPlay: true,
+    muted: true,
+    playsinline: true,
+    loop: true,
+    webkitPlaysInline: true
+  });
+  
+
   const dispTexture = useTexture("./videos/cells_disp.png");
   const ref = useRef();
   const ref2 = useRef(null);

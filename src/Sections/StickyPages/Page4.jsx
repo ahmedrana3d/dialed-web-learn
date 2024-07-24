@@ -21,87 +21,103 @@ useGSAP(() => {
       animation5: false,
     };
 
+
+
+
     const tl = gsap.timeline({
       ease: 'power0',
       scrollTrigger: {
         trigger: statRef.current,
-        start: '1% top',
+        start: 'top top',
         end: 'bottom bottom',
         scrub: true,
-        // markers: true,
         onUpdate: (self) => {
           const scrollY = parseFloat(self.progress.toFixed(2));
-
-          // Trigger animations when scrolling down
-          if (scrollY >= 0.72 && !animationsTriggered.animation5) {
-            highlightButton('brand-img');
-            changeBackground('rgb(19 37 26)');
-            animationsTriggered.animation5 = true;
-            animateImage(".image-3", 0.9, "2rem", 0, 0.3);
-            animateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
-          } else if (scrollY >= 0.5 && !animationsTriggered.animation4) {
-            highlightButton('customer-exp');
-            changeBackground('rgb(19 32 37)');
-            animationsTriggered.animation4 = true;
-            animateImage(".image-2", 0.9, "2rem", 0, 0.3);
-            animateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
-            animateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
-          } else if (scrollY >= 0.31 && !animationsTriggered.animation3) {
-            highlightButton('conversion-rate');
-            animationsTriggered.animation3 = true;
-          } else if (scrollY >= 0.19 && !animationsTriggered.animation2) {
-            changeBackground('rgb(58 43 43)');
-            highlightButton('conversion-rate');
-            animationsTriggered.animation2 = true;
-            animateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
-            animateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
-            animateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
-            animateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
-          } else if (scrollY >= 0.1 && !animationsTriggered.animation1) {
-            changeBackground('rgb(106, 106, 106)');
-            highlightButton('user-eng');
-            animationsTriggered.animation1 = true;
-          }
-
-          // Reset animations when scrolling up
-          if (scrollY < 0.1 && animationsTriggered.animation1) {
-            changeBackground('rgb(106, 106, 106)');
-            reverseHighlightButton('user-eng');
-            animationsTriggered.animation1 = false;
-            reverseAnimateImage(".image-1", 0.9, "1rem", 2.132, 0.3);
-            reverseAnimateImage(".image-2", 0.8, "0.35rem", 1.558, 0.5);
-            reverseAnimateImage(".image-3", 0.72, "-0.3rem", 0.984, 0.5);
-            reverseAnimateImage(".image-4", 0.67, "-0.95rem", 0.41, 0.5);
-          } else if (scrollY < 0.19 && animationsTriggered.animation2) {
-            reverseHighlightButton('conversion-rate');
-            changeBackground('rgb(58 43 43)');
-            animationsTriggered.animation2 = false;
-            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
-            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
-            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
-            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
-          } else if (scrollY < 0.31 && animationsTriggered.animation3) {
-            reverseHighlightButton('conversion-rate');
-            changeBackground('rgb(58 43 43)');
-            animationsTriggered.animation3 = false;
-            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
-            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
-            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
-            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
-          } else if (scrollY < 0.56 && animationsTriggered.animation4) {
-            changeBackground('rgb(19 32 37)');
-            reverseHighlightButton('customer-exp');
-            animationsTriggered.animation4 = false;
-            reverseAnimateImage(".image-2", 0.9, "2rem", 0, 0.3);
-            reverseAnimateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
-            reverseAnimateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
-          } else if (scrollY < 0.72 && animationsTriggered.animation5) {
-            reverseHighlightButton('brand-img');
-            changeBackground('rgb(19 37 26)');
-            animationsTriggered.animation5 = false;
-            reverseAnimateImage(".image-3", 0.9, "2rem", 0, 0.3);
-            reverseAnimateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
-          }
+    
+          // Helper function to handle animations
+          const handleAnimation = (scrollPos, animKey, bgColor, buttonClass, imageSettings, reverse = false) => {
+            if (scrollY >= scrollPos && !animationsTriggered[animKey]) {
+              changeBackground(bgColor);
+              highlightButton(buttonClass);
+    
+              imageSettings.forEach(([selector, scale, y, opacity, duration, ease]) => {
+                const animationFunc = reverse ? reverseAnimateImage : animateImage;
+                animationFunc(selector, scale, y, opacity, duration, ease);
+              });
+    
+              animationsTriggered[animKey] = true;
+            }
+          };
+    
+          // Helper function to handle reverse animations
+          const handleReverseAnimation = (scrollPos, animKey, bgColor, buttonClass, imageSettings) => {
+            if (scrollY < scrollPos && animationsTriggered[animKey]) {
+              changeBackground(bgColor);
+              reverseHighlightButton(buttonClass);
+    
+              imageSettings.forEach(([selector, scale, y, opacity, duration]) => {
+                reverseAnimateImage(selector, scale, y, opacity, duration);
+              });
+    
+              animationsTriggered[animKey] = false;
+            }
+          };
+    
+          // Trigger animations
+          handleAnimation(0.66, 'animation5', 'rgb(19 37 26)', 'brand-img', [
+            [".image-3", 0.9, "2rem", 0, 0.3],
+            [".image-4", 0.9, "1rem", 2.132, 0.5]
+          ]);
+          
+          handleAnimation(0.4, 'animation4', 'rgb(19 32 37)', 'customer-exp', [
+            [".image-2", 0.9, "2rem", 0, 0.3],
+            [".image-3", 0.9, "1rem", 2.132, 0.5],
+            [".image-4", 0.8, "0.35rem", 1.558, 0.5]
+          ]);
+    
+          handleAnimation(0.31, 'animation3', null, 'conversion-rate', []);
+    
+          handleAnimation(0.09, 'animation2', 'rgb(58 43 43)', 'conversion-rate', [
+            [".image-1", 0.9, "2.2rem", 0, 0.3],
+            [".image-2", 0.9, "1rem", 2.132, 0.5],
+            [".image-3", 0.8, "0.35rem", 1.558, 0.5],
+            [".image-4", 0.72, "-0.3rem", 0.984, 0.5]
+          ]);
+    
+          handleAnimation(0.03, 'animation1', 'rgb(106, 106, 106)', 'user-eng', [], true);
+    
+          // Reset animations
+          handleReverseAnimation(0.03, 'animation1', 'rgb(106, 106, 106)', 'user-eng', [
+            [".image-1", 0.9, "1rem", 2.132, 0.3],
+            [".image-2", 0.8, "0.35rem", 1.558, 0.5],
+            [".image-3", 0.72, "-0.3rem", 0.984, 0.5],
+            [".image-4", 0.67, "-0.95rem", 0.41, 0.5]
+          ]);
+    
+          handleReverseAnimation(0.19, 'animation2', 'rgb(58 43 43)', 'conversion-rate', [
+            [".image-1", 0.9, "2.2rem", 0, 0.3],
+            [".image-2", 0.9, "1rem", 2.132, 0.5],
+            [".image-3", 0.8, "0.35rem", 1.558, 0.5],
+            [".image-4", 0.72, "-0.3rem", 0.984, 0.5]
+          ]);
+    
+          handleReverseAnimation(0.34, 'animation3', 'rgb(58 43 43)', 'conversion-rate', [
+            [".image-1", 0.9, "2.2rem", 0, 0.3],
+            [".image-2", 0.9, "1rem", 2.132, 0.5],
+            [".image-3", 0.8, "0.35rem", 1.558, 0.5],
+            [".image-4", 0.72, "-0.3rem", 0.984, 0.5]
+          ]);
+    
+          handleReverseAnimation(0.56, 'animation4', 'rgb(19 32 37)', 'customer-exp', [
+            [".image-2", 0.9, "2rem", 0, 0.3],
+            [".image-3", 0.9, "1rem", 2.132, 0.5],
+            [".image-4", 0.8, "0.35rem", 1.558, 0.5]
+          ]);
+    
+          handleReverseAnimation(0.72, 'animation5', 'rgb(19 37 26)', 'brand-img', [
+            [".image-3", 0.9, "2rem", 0, 0.3],
+            [".image-4", 0.9, "1rem", 2.132, 0.5]
+          ]);
         },
       },
     });
@@ -119,25 +135,12 @@ useGSAP(() => {
     );
 
     function highlightButton(buttonClass) {
-      const buttons = document.querySelectorAll('.tes-button');
-      buttons.forEach((button) => {
-        if (button.classList.contains(buttonClass)) {
-          gsap.to(button, { opacity: 1, fontWeight: 500 });
-        } else {
-          gsap.to(button, { opacity: 0.5, fontWeight: 400 });
-        }
-      });
+      gsap.to(`.tes-button.${buttonClass}`, { opacity: 1, fontWeight: 500 });
+      gsap.to(`.tes-button:not(.${buttonClass})`, { opacity: 0.5, fontWeight: 400 });
     }
 
     function reverseHighlightButton(buttonClass) {
-      const buttons = document.querySelectorAll('.tes-button');
-      buttons.forEach((button) => {
-        if (button.classList.contains(buttonClass)) {
-          gsap.to(button, { opacity: 1, fontWeight: 500 });
-        } else {
-          gsap.to(button, { opacity: 0.5, fontWeight: 400 });
-        }
-      });
+      highlightButton(buttonClass);
     }
 
     function changeBackground(color) {
@@ -161,14 +164,7 @@ useGSAP(() => {
     }
 
     function reverseAnimateImage(selector, scale, y, opacity, duration) {
-      gsap.to(selector, {
-        scale: scale,
-        y: y,
-        opacity: opacity,
-        duration: duration,
-        ease: "power2.out", // Reverse ease
-        transform: "translate(0%, -50%)",
-      });
+      animateImage(selector, scale, y, opacity, duration, "power2.out");
     }
   }
 }, []);
@@ -261,7 +257,7 @@ function animateText(textSelector) {
 
 
   return (
-    <section className=" z-20 testimonials text-gray-200 h-[700vh] relative">
+    <section className=" z-20 testimonials text-gray-200 h-[600vh] relative">
 
 <div   className='stand-out font-sf-bold  leading-tight text-[#fefeff]  text-center text-[7vw] md:text-[5vw]'>
                     How do you make yours <p>
@@ -281,43 +277,37 @@ function animateText(textSelector) {
     </div>
     <div className=" mt-[-100vh] h-screen sticky top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
       <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
-      <div className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)` }}>
+      <div className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white md:pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)` }}>
         <div className="relative w-full md:w-[57%] h-full overflow-hidden flex justify-center">
-        <div className="relative w-full lg:w-[57%] h-full overflow-hidden ">
-        <div ref={statRef} className="tes-scroll-content w-full  absolute flex flex-col gap-80 pl-[2.03rem] pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 13%)' }}>
-          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-            <h6 className="text-3xl leading-[1.27]  md:text-3xl xl:text-5xl">Encourage users to stay on your site and explore more.</h6>
-            <h6 className="text-lg md:text-xl xl:text-3xl">Interactive content generates 2x more user engagement than static content</h6>
-            <div className="test-img-mask block md:hidden ">
-            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/car_image.png" />
-          </div>
-          </div>
+        <div className="relative w-full lg:w-[57%] h-full overflow-hidden mx-[3vw] ">
+        <div ref={statRef} className="tes-scroll-content w-full text-center md:text-start absolute flex flex-col gap-80 md:pl-[2.03rem] md:pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 13%)' }}>
+   
           <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
             <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Increase User Engagement with Interactivity</h6>
-            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">Websites with interactive elements see a 40% increase in user time spent on site</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">Websites with interactive elements see a 40% increase in user time spent on site</h6>
             
           </div>
           <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
             <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Transform Sales with 3D Product Configurations</h6>
-            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">3D product views can increase conversion rates by up to 250%</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">3D product views can increase conversion rates by up to 250%</h6>
             <div className="test-img-mask block md:hidden ">
             <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/soda_image.png" />
           </div>
           </div>
           <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
             <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Drive Conversions with Product Customization Tools</h6>
-            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">Interactive Product Customizers can lead to a 30% increase in sales</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">Interactive Product Customizers can lead to a 30% increase in sales</h6>
           </div>
           <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
             <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Avoid Losing Customers, Enhance User Experience</h6>
-            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">89% of consumers turn to a competitor after a poor user experience</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">89% of consumers turn to a competitor after a poor user experience</h6>
             <div className="test-img-mask block md:hidden ">
             <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/vr_image.png" />
           </div>
           </div>
           <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
             <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Get ahead of the curve.</h6>
-            <h6 className="text-[.63rem] md:text-xl xl:text-2xl">A 3D website sets your brand apart from competitors by offering a cutting-edge, modern online experience.</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">A 3D website sets your brand apart from competitors by offering a cutting-edge, modern online experience.</h6>
             <div className="test-img-mask block md:hidden ">
             <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/player_image.png" />
           </div>

@@ -92,7 +92,7 @@ const OpinionStatGrid = () => {
       </div>
     </div>
     
-    <div className="bg-[#111111] col-span-1 md:col-span-1 row-span-1 md:row-span-2 flex flex-col justify-between items-center rounded-3xl">
+    <div className="bg-[#111111] col-span-1 md:col-span-1 row-span-1 md:row-span-2 flex flex-col justify-around items-center rounded-3xl">
       <div ref={text2Ref} className="text-white font-inter text-[5vw] md:text-[2vw] leading-tight font-semibold p-2 md:p-4">
         Ensure your hero page is engaging and captivating.
       </div>

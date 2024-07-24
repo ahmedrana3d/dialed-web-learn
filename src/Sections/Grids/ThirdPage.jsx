@@ -96,8 +96,10 @@ const ThirdPage = () => {
       }
     );
 
+
+
     gsap.to(headText1Ref.current, {
-      x: 250,
+      x: "18%",
       scrollTrigger: {
         trigger: headText1Ref.current,
         start: "top center",
@@ -142,12 +144,12 @@ const ThirdPage = () => {
         </defs>
       </svg>
 
-      <div className='w-full  pl-12'>
-        <div className='overflow-hidden'>
-          <div ref={headText1Ref} className='text-[8vw] font-sf-bold text-gray-50 tracking-tight'>Great Experiences</div>
+      <div className='w-full  '>
+        <div className='overflow-hidden w-full'>
+          <div ref={headText1Ref} className='text-[8vw] font-sf-bold text-gray-50 tracking-tight leading-tight pl-12'>Great Experiences</div>
         </div>
         <div className='overflow-hidden'>
-          <div ref={headText2Ref} className='text-[8vw] font-sf-bold text-gray-50 tracking-tight'>Build Loyalty</div>
+          <div ref={headText2Ref} className='text-[8vw] font-sf-bold text-gray-50 tracking-tight leading-tight pl-12'>Build Loyalty</div>
         </div>
       </div>
 
@@ -158,7 +160,7 @@ const ThirdPage = () => {
       </div>
 
 
-<div className=' z-10 w-full flex justify-center md:justify-start'>
+<div className=' z-10 w-full flex justify-center md:justify-start md:pl-12'>
 
 
 

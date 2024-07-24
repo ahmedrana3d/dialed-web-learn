@@ -27,7 +27,7 @@ useGSAP(() => {
     const tl = gsap.timeline({
       ease: 'power0',
       scrollTrigger: {
-        trigger: statRef.current,
+        trigger: ".testimonials",
         start: 'top top',
         end: 'bottom bottom',
         scrub: true,

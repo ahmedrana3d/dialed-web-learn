@@ -106,7 +106,7 @@ useGSAP(() => {
         trigger: startTrigger.current,
        endTrigger : endTrigger.current,
         scrub: true,
-        markers: true,
+        // markers: true,
         onUpdate: (self) => {
           const scrollY = parseFloat(self.progress.toFixed(2));
 

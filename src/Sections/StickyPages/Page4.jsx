@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Page4 = () => {
   const statRef = useRef();
+  const startTrigger = useRef();
+  const endTrigger = useRef();
 
 useGSAP(() => {
   if (statRef.current) {
@@ -101,11 +103,10 @@ useGSAP(() => {
     const tl = gsap.timeline({
       ease: "power0",
       scrollTrigger: {
-        trigger: statRef.current,
-        start: "top top",
-        end: "bottom bottom",
+        trigger: startTrigger.current,
+       endTrigger : endTrigger.current,
         scrub: true,
-        // markers: true,
+        markers: true,
         onUpdate: (self) => {
           const scrollY = parseFloat(self.progress.toFixed(2));
 
@@ -262,8 +263,8 @@ useGSAP(() => {
         How do you make yours <p>stand out? </p>
       </div>
 
-      <div className="trigger w-20 h-20  z-50 absolute top-28 "></div>
-      <div className="trigger1 w-20 h-20  z-50 absolute bottom-28 "></div>
+      <div ref={startTrigger} className=" w-20 h-20    z-50 absolute  top-[110vh] "></div>
+      <div ref={endTrigger} className=" w-20 h-20    z-50 absolute bottom-28 "></div>
 
       <div className="h-[100vh] invisible md:visible w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
         <button

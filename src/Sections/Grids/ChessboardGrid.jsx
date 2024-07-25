@@ -133,7 +133,7 @@ if (chessBoardRef.current) {
         <ChessBoard ref={chessBoardRef} />
         </group>
       </Stage>
-      {/* <OrbitControls/> */}
+       <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI/2}/> 
     </group>
     <Environment preset="city" />
     <ambientLight intensity={Math.PI / 2} />

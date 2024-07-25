@@ -54,7 +54,7 @@ export default function Monitor(props) {
   const texture1 = useVideoTexture("./videos/good_screen.mp4", {
     autoPlay: true,
     muted: true,
-    playsinline: true,
+    playsInline: true,
     loop: true,
     webkitPlaysInline: true
   });

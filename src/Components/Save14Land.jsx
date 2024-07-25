@@ -2,18 +2,17 @@ import React, { useRef } from 'react'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 
 const Page4 = () => {
 
 const statRef = useRef()
 
-
 useGSAP(() => {
   if (statRef.current) {
-    // Initialize an object to keep track of triggered animations
     const animationsTriggered = {
       animation1: false,
       animation2: false,
@@ -22,185 +21,303 @@ useGSAP(() => {
       animation5: false,
     };
 
+
+
+
     const tl = gsap.timeline({
       ease: 'power0',
       scrollTrigger: {
         trigger: statRef.current,
-        start: 'top 30%',
+        start: 'top top',
+        end: 'bottom bottom',
         scrub: true,
         // markers: true,
         onUpdate: (self) => {
           const scrollY = parseFloat(self.progress.toFixed(2));
 
           // Trigger animations when scrolling down
-          if (scrollY >= 0.72 && !animationsTriggered.animation5) {
-            console.log('Animation 5');
+          if (scrollY >= 0.66 && !animationsTriggered.animation5) {
             highlightButton('brand-img');
+            changeBackground('rgb(19 37 26)');
             animationsTriggered.animation5 = true;
-          } else if (scrollY >= 0.5 && !animationsTriggered.animation4) {
-            console.log('Animation 4');
+            animateImage(".image-3", 0.9, "2rem", 0, 0.3);
+            animateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
+          } else if (scrollY >= 0.4 && !animationsTriggered.animation4) {
             highlightButton('customer-exp');
+            changeBackground('rgb(19 32 37)');
             animationsTriggered.animation4 = true;
+            animateImage(".image-2", 0.9, "2rem", 0, 0.3);
+            animateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
+            animateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
           } else if (scrollY >= 0.31 && !animationsTriggered.animation3) {
-            console.log('Animation 3');
             highlightButton('conversion-rate');
             animationsTriggered.animation3 = true;
-          } else if (scrollY >= 0.19 && !animationsTriggered.animation2) {
-            console.log('Animation 2');
+          } else if (scrollY >= 0.09 && !animationsTriggered.animation2) {
+            changeBackground('rgb(58 43 43)');
             highlightButton('conversion-rate');
             animationsTriggered.animation2 = true;
-          } else if (scrollY >= 0.1 && !animationsTriggered.animation1) {
-            console.log('Animation 1');
+            animateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            animateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            animateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            animateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
+          } else if (scrollY >= 0.03 && !animationsTriggered.animation1) {
+            changeBackground('rgb(106, 106, 106)');
             highlightButton('user-eng');
             animationsTriggered.animation1 = true;
           }
 
           // Reset animations when scrolling up
-          if (scrollY < 0.1 && animationsTriggered.animation1) {
-            console.log(animationsTriggered.animation1);
+          if (scrollY < 0.03 && animationsTriggered.animation1) {
+            changeBackground('rgb(106, 106, 106)');
             reverseHighlightButton('user-eng');
             animationsTriggered.animation1 = false;
+            reverseAnimateImage(".image-1", 0.9, "1rem", 2.132, 0.3);
+            reverseAnimateImage(".image-2", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-3", 0.72, "-0.3rem", 0.984, 0.5);
+            reverseAnimateImage(".image-4", 0.67, "-0.95rem", 0.41, 0.5);
           } else if (scrollY < 0.19 && animationsTriggered.animation2) {
-            console.log(animationsTriggered.animation2);
             reverseHighlightButton('conversion-rate');
+            changeBackground('rgb(58 43 43)');
             animationsTriggered.animation2 = false;
-          } else if (scrollY < 0.31 && animationsTriggered.animation3) {
-            console.log(animationsTriggered.animation3);
+            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
+          } else if (scrollY < 0.34 && animationsTriggered.animation3) {
             reverseHighlightButton('conversion-rate');
+            changeBackground('rgb(58 43 43)');
             animationsTriggered.animation3 = false;
-          } else if (scrollY < 0.50 && animationsTriggered.animation4) {
-            console.log(animationsTriggered.animation4);
+            reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
+            reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
+            reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
+          } else if (scrollY < 0.56 && animationsTriggered.animation4) {
+            changeBackground('rgb(19 32 37)');
             reverseHighlightButton('customer-exp');
             animationsTriggered.animation4 = false;
+            reverseAnimateImage(".image-2", 0.9, "2rem", 0, 0.3);
+            reverseAnimateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
+            reverseAnimateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
           } else if (scrollY < 0.72 && animationsTriggered.animation5) {
-            console.log(animationsTriggered.animation5);
             reverseHighlightButton('brand-img');
+            changeBackground('rgb(19 37 26)');
             animationsTriggered.animation5 = false;
+            reverseAnimateImage(".image-3", 0.9, "2rem", 0, 0.3);
+            reverseAnimateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
           }
+
         },
+
       },
     });
+
+    animateText(".stand-out")
 
     tl.fromTo(
       statRef.current,
       {
-        translateY: '13%',
+        translateY: '0%',
       },
       {
-        translateY: '-82%',
+        translateY: '-86%',
       }
     );
 
     function highlightButton(buttonClass) {
-      const buttons = document.querySelectorAll('.tes-button');
-      buttons.forEach((button) => {
-        if (button.classList.contains(buttonClass)) {
-          gsap.to(button, { opacity: 1, fontWeight: 500 });
-        } else {
-          gsap.to(button, { opacity: 0.5, fontWeight: 400 });
-        }
-      });
+      gsap.to(`.tes-button.${buttonClass}`, { opacity: 1, fontWeight: 500 });
+      gsap.to(`.tes-button:not(.${buttonClass})`, { opacity: 0.5, fontWeight: 400 });
     }
 
     function reverseHighlightButton(buttonClass) {
-      const buttons = document.querySelectorAll('.tes-button');
-      buttons.forEach((button) => {
-        if (button.classList.contains(buttonClass)) {
-          gsap.to(button, { opacity: 1, fontWeight: 500 });
-        } else {
-          gsap.to(button, { opacity: 0.5, fontWeight: 400 });
-        }
+      highlightButton(buttonClass);
+    }
+
+    function changeBackground(color) {
+      const linearGradient = `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, ${color} 63.68%)`;
+      gsap.to(".frame-container", {
+        backgroundImage: linearGradient,
+        duration: 1,
       });
     }
 
+    function animateImage(imageClass, scale, y, opacity, duration) {
+      const image = document.querySelector(imageClass);
+      gsap.to(image, {
+        scale: scale,
+        y: y,
+        opacity: opacity,
+        duration: duration,
+        ease: "power2.in",
+        transform: "translate(0%, -50%)",
+      });
+    }
 
+    function reverseAnimateImage(selector, scale, y, opacity, duration) {
+      animateImage(selector, scale, y, opacity, duration, "power2.out");
+    }
   }
 }, []);
 
 
 
+function animateText(textSelector) {
+  
+  document.querySelectorAll(textSelector).forEach((element) => {
+    gsap.set(element, {
+      transformPerspective: 500,
+      transformOrigin: "center bottom",
+      rotationX: 70
+    });
 
+    let mySplitText = new SplitText(element, { type: "chars" });
+    let chars = mySplitText.chars;
 
-// 17 // User Engagment
-// -1 // User Engagment 0.1
-// -17 // Conversion Rates 0.21
-// -33.5 // Conversion Rates 0.34
-// -52.2 // Customer Experience 0.52
-// -69 // Brand Image v 0.81
+    gsap.fromTo(
+      element,
+      {
+        rotationX: 70,
+        opacity: 0
+      },
+      {
+        rotationX: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "back.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          toggleActions: "play none none reset"
+        }
+      }
+    );
 
+    gsap.from(chars, {
+      yPercent: 15,
+      stagger: 0.04,
+      opacity: 0,
+      ease: "power1.out",
+      duration: 1.5,
+      scrollTrigger: {
+        trigger: element,
+        start: "top 80%",
+        toggleActions: "play none none reset"
+      }
+    });
 
+    gsap.fromTo(
+      element,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          end: "top 60%",
+          scrub: true,
+          toggleActions: "play reverse play reverse"
+        }
+      }
+    );
 
-
-
-// 17 to -72
-
+    gsap.fromTo(
+      element,
+      {
+        opacity: 1
+      },
+      {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 20%",
+          end: "top 5%",
+          scrub: true,
+          toggleActions: "play reverse play reverse"
+        }
+      }
+    );
+  });
+}
 
 
 
 
   return (
-    <section className=" bg-dialed-back z-20 testimonials text-gray-200 h-[400vh] relative">
+    <section className=" z-20 testimonials text-gray-200 h-[600vh] relative">
+
+<div   className='stand-out font-sf-bold  leading-tight text-[#fefeff]  text-center text-[7vw] md:text-[5vw]'>
+                    How do you make yours <p>
+                    stand out? </p> 
+                </div>
 
 <div className='trigger w-20 h-20  z-50 absolute top-28 '></div>
 <div className='trigger1 w-20 h-20  z-50 absolute bottom-28 '></div>
 
 
-    <div className="h-[100vh] w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
-      <button data-name="events" className="text-left tes-button capitalize user-eng" style={{ fontWeight: 500, opacity: 1 }}>User Engagment</button>
-      <button data-name="share homes" className="text-left tes-button capitalize conversion-rate" style={{ fontWeight: 400, opacity: 0.5 }}>Conversion Rates</button>
-      <button data-name="cost splitting" className="text-left tes-button capitalize customer-exp" style={{ fontWeight: 400, opacity: 0.5 }}>Customer Experience</button>
-      <button data-name="sync plans" className="text-left tes-button capitalize brand-img" style={{ fontWeight: 400, opacity: 0.5 }}>Brand Image</button>
+
+    <div className="h-[100vh] invisible md:visible w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
+      <button data-name="events" className="text-left tes-button capitalize user-eng text-2xl leading-relaxed"> Engagment</button>
+      <button data-name="share homes" className="text-left tes-button capitalize conversion-rate text-2xl leading-relaxed opacity-50" >Conversion</button>
+      <button data-name="cost splitting" className="text-left tes-button capitalize customer-exp text-2xl leading-relaxed opacity-50" > Experience</button>
+      <button data-name="sync plans" className="text-left tes-button capitalize brand-img text-2xl leading-relaxed opacity-50" >Image</button>
     </div>
-    <div className=" mt-[-100vh] sticky top-[0] px-[calc(100vw/12)] flex flex-row justify-between items-center">
-      <div className="h-[100vh] w-[7rem] buttons flex flex-col justify-center text-regular30 gap-[.67rem]"></div>
-      <div className="frame-container w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: 'linear-gradient(111deg, rgb(77 77 206) 13.66%, rgb(35 44 101) 63.68%)' }}>
-        <div className="relative w-[57%] h-full overflow-hidden">
-          <div ref={statRef} className="tes-scroll-content w-[60ch] absolute   flex flex-col  gap-80   pl-[2.03rem] pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 17%)' }}>
-            <div className="min-h-[15.6rem] h-screen tes-content h-auto flex flex-col justify-center">
-              <h6 className=" text-3xl leading-[1.27] pb-[3rem]  md:text-3xl lg:text-6xl">Encourage users to stay on your site and explore more. </h6>
-              <h6 className=" text-lg  md:text-xl lg:text-3xl">Interactive content generates 2x more user engagement than static content</h6>
-            </div>
-            <div className="min-h-[15.6rem] h-screen tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Increase User Engagement with Interactivity</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">Websites with interactive elements see a 40% increase in user time spent on site</h6>
-            </div>
-            <div className="min-h-[15.6rem] h-screen tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Transform Sales with 3D Product Configurations</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">3D product views can increase conversion rates by up to 250%</h6>
-            </div>
-            <div className="min-h-[15.6rem] h-screen tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Drive Conversions with Product Customization Tools</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">Interactive Product Customizers can lead to a 30% increase in sales</h6>
-            </div>
-            <div className="min-h-[15.6rem] h-screen tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Avoid Losing Customers, Enhance User Experience</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">89% of consumers turn to a competitor after a poor user experience</h6>
-            </div>
-            <div className="min-h-[15.6rem] h-screen tes-content h-auto flex flex-col justify-center">
-              <h6 className="text-[1.64rem] leading-[1.27] pb-[3rem]  md:text-3xl lg:text-5xl">Get ahead of the curve.</h6>
-              <h6 className="text-[.63rem]  md:text-xl lg:text-2xl text-base">A 3D website sets your brand apart from competitors by offering a cutting-edge, modern online experience.</h6>
-            </div>
+    <div className=" mt-[-100vh] h-screen sticky top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
+      <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
+      <div className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white md:pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between" style={{     backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)` }}>
+        <div className="relative w-full md:w-[57%] h-full overflow-hidden flex justify-center">
+        <div className="relative w-full lg:w-[57%] h-full overflow-hidden mx-[3vw] ">
+        <div ref={statRef} className="tes-scroll-content w-full text-center md:text-start absolute flex flex-col gap-80 md:pl-[2.03rem] md:pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]" style={{ transform: 'translate(0px, 13%)' }}>
+   
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Increase User Engagement with Interactivity</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">Websites with interactive elements see a 40% increase in user time spent on site</h6>
+            
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Transform Sales with 3D Product Configurations</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">3D product views can increase conversion rates by up to 250%</h6>
+            <div className="test-img-mask block md:hidden ">
+            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/soda_image.png" />
+          </div>
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Drive Conversions with Product Customization Tools</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">Interactive Product Customizers can lead to a 30% increase in sales</h6>
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Avoid Losing Customers, Enhance User Experience</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">89% of consumers turn to a competitor after a poor user experience</h6>
+            <div className="test-img-mask block md:hidden ">
+            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/vr_image.png" />
+          </div>
+          </div>
+          <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
+            <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">Get ahead of the curve.</h6>
+            <h6 className="text-[4vw] md:text-xl xl:text-2xl">A 3D website sets your brand apart from competitors by offering a cutting-edge, modern online experience.</h6>
+            <div className="test-img-mask block md:hidden ">
+            <img alt="" loading="lazy"  className="w-[100%] origin-top   rounded-[1.25rem] object-cover"  src="./images/showcase/player_image.png" />
+          </div>
           </div>
         </div>
-        <div className="images-container w-[43%] relative">
+      </div>
+        </div>
+        <div className="images-container w-[43%] relative hidden md:block">
           <div className="test-img-mask" style={{ opacity: 1, display: 'flex' }}>
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, 1rem) scale(0.9, 0.9)', opacity: 2.132, zIndex: 4 }} src="./images/showcase/car_image.png" />
+            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-1" style={{ transform: 'translate(0%, -50%) translate(0px, 1rem) scale(0.9, 0.9)', opacity: 2.132, zIndex: 4 }} src="./images/showcase/car_image.png" />
           </div>
           <div className="test-img-mask" style={{ opacity: 1, display: 'flex' }}>
-            <img alt="" loading="lazy" width="1000" height="1000" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, 0.35rem) scale(0.8, 0.8)', opacity: 1.558, zIndex: 3 }} src="./images/showcase/soda_image.png" />
+            <img alt="" loading="lazy" width="1000" height="1000" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-2" style={{ transform: 'translate(0%, -50%) translate(0px, 0.35rem) scale(0.8, 0.8)', opacity: 1.558, zIndex: 3 }} src="./images/showcase/soda_image.png" />
           </div>
           <div className="test-img-mask" style={{ opacity: 1, display: 'flex' }}>
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -0.3rem) scale(0.7286, 0.7286)', opacity: 0.984, zIndex: 2 }} src="./images/showcase/vr_image.png" />
+            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-3" style={{ transform: 'translate(0%, -50%) translate(0px, -0.3rem) scale(0.7286, 0.7286)', opacity: 0.984, zIndex: 2 }} src="./images/showcase/vr_image.png" />
           </div>
           <div className="test-img-mask">
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -0.95rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: 1 }} src="./images/showcase/player_image.png" />
+            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-4" style={{ transform: 'translate(0%, -50%) translate(0px, -0.95rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: 1 }} src="./images/showcase/player_image.png" />
           </div>
-          <div className="test-img-mask">
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -1.4rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: -1 }} src="./images/showcase/player_image.png" />
-          </div>
-          <div className="test-img-mask">
-            <img alt="" loading="lazy" width="800" height="1200" className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover" style={{ transform: 'translate(0%, -50%) translate(0px, -2rem) scale(0.675, 0.675)', opacity: 0.41, zIndex: -2 }} src="./images/showcase/player_image.png" />
-          </div>
+         
         </div>
       </div>
     </div>
@@ -215,293 +332,3 @@ useGSAP(() => {
 }
 
 export default Page4
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { Environment, OrbitControls, Sparkles, Stage } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import React, { useRef } from 'react'
-import Monitor from '../../Components/Models/Monitor'
-import { useGSAP } from '@gsap/react'
-import { SplitText } from 'gsap/SplitText'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import ChessBoard from '../../Components/Models/ChessBoard'
-import { useControls } from 'leva'
-import { min } from 'three/examples/jsm/nodes/Nodes.js'
-
-
-gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollTrigger);
-
-const Page1 = () => {
-
-// const pos = useControls("Chess Board" , {
-// x : { min : -5, max : 5 , value :-1.5},
-// y : { min : -5, max : 5 , value : 1.4},
-// z : { min : -5, max : 5 , value :0},
-// })
-
-
-
-  
-
-const headText = useRef()
-const descText = useRef()
-
-
-const headText2 = useRef()
-const descText2 = useRef()
-
-const monitorRef = useRef()
-const chessRef = useRef()
-  // useGSAP(() => {
-  //   if (headText.current && descText.current ) {
-  //     // Initialize SplitText instances
-  //     const split = new SplitText(headText.current, { type: 'words, chars' });
-  //     const split2 = new SplitText(descText.current, { type: 'words, chars' });
-  //     const split3 = new SplitText(descText2.current, { type: 'words, chars' });
-
-      
-  //     // Get the path length for the progress animation
-  //     const path = document.querySelector('.progress');
-  //     const length = path.getTotalLength();
-  //     gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
-
-  //     // Define the GSAP timeline
-  //     const tl = gsap.timeline();
-
-    //   tl.fromTo(split2.chars, { 
-    //     'will-change': 'opacity, transform', 
-    //     opacity: 0, 
-    //     rotationY: 180,
-    //     xPercent: -40,
-    //     yPercent: 100
-    // },
-    // {
-    //     ease: 'power4.inOut()',
-    //     opacity: 1,
-    //     rotationY: 0,
-    //     xPercent: 0,
-    //     yPercent: 0,
-    //     stagger: {
-    //         each: -0.03,
-    //         from: 0
-    //     },
-    //     scrollTrigger: {
-    //         trigger: descText.current,
-    //         start: 'center+=20% bottom',
-    //         end: '+=70%',
-    //         scrub: true,
-      
-    //         onUpdate: (e) => {
-    //           headText.current.innerText = `${Math.round(e.progress * 90)}%`;
-    //         }
-          
-    //     },
-    // });
-    
-
-
-
-
-    
-    //   tl.fromTo(split2.chars, { 
-    //     'will-change': 'opacity, transform', 
-    //     opacity: 0, 
-    //     rotationY: 180,
-    //     xPercent: -40,
-    //     yPercent: 100
-    // },
-    // {
-    //     ease: 'power4.inOut()',
-    //     opacity: 1,
-    //     rotationY: 0,
-    //     xPercent: 0,
-    //     yPercent: 0,
-    //     stagger: {
-    //         each: -0.03,
-    //         from: 0
-    //     },
-    //     scrollTrigger: {
-    //         trigger: descText.current,
-    //         start: 'center+=20% bottom',
-    //         end: '+=70%',
-    //         scrub: true,
-          
-    //         onUpdate: (e) => {
-    //           headText.current.innerText = `${Math.round(e.progress * 90)}%`;
-    //           monitorRef.current.scale.set(e.progress,e.progress,e.progress)
-    //         },
-
-           
-          
-    //     },
-    // });
-    
-
-  // // Add the final animation to remove elements in a cool way
-  // tl.to([headText.current, descText.current], {
-  //   opacity: 0,
-  //   y: -50,
-  //   scale : 0.7,
-  //   duration: 1,
-  //   ease: 'power3.inOut',
-  //   scrollTrigger: {
-  //     trigger: descText.current,
-  //     start: '+=70%',
-  //     end : '+=25%',
-  //     scrub: true,
-  //     // markers : true,
-  //     onUpdate : (e)=>{
-  //       monitorRef.current.scale.set(
-  //         1 - e.progress,
-  //         1 - e.progress,
-  //         1 - e.progress
-  //       );
-  //     }
-  //   },
-  // });
-
-
-
-
-
-    
-
-
-//   tl.fromTo(split3.chars, { 
-//     'will-change': 'opacity, transform', 
-//     opacity: 0, 
-//     rotationY: 180,
-//     xPercent: -40,
-//     yPercent: 100
-// },
-// {
-//     ease: 'power4.inOut()',
-//     opacity: 1,
-//     rotationY: 0,
-//     xPercent: 0,
-//     yPercent: 0,
-//     stagger: {
-//         each: -0.03,
-//         from: 0
-//     },
-//     scrollTrigger: {
-//         trigger: descText2.current,
-//         start: 'center+=100% bottom',
-//         end: '+=70%',
-//         scrub: true,
-//       markers : true,
-//         onUpdate: (e) => {
-//           headText2.current.innerText = `${Math.round(e.progress * 89)}%`;
-//           chessRef.current.scale.set(e.progress,e.progress,e.progress)
-        
-//         },
-
-       
-      
-//     },
-// });
-
-
-
-
-
-
-
-      // Clean up SplitText instances
-  //     return () => {
-  //       split.revert();
-  //       split2.revert();
-  //     };
-  //   }
-  // }, []);
-
-
-
-
-
-
-
-  return (
-    <section className='z-10 relative w-screen h-[300vh] bg-black'>
-  <div className='h-screen flex justify-start items-center flex-col sticky top-0'>
-  {/* <div className='text-center absolute z-10 md:top-4 opacity-1'>
-      <div ref={headText} className=' font-horizon horizon  bg-gradient-to-t to-[#8BF5A5] via-[#51d378] from-[#5afa98] bg-clip-text text-transparent text-huge-xl'>0%</div>
-      <p ref={descText} className=' md:text-4xl lg:text-4xl xl:text-5xl  font-sf-bold  text-[#fcfeea]  '>
-        of users cite poor design as a primary reason for not <span className=' font-bold font-sf-pro text-red-500'>trusting</span> a website
-      </p>
-    </div> */}
-
-    {/* <div className='text-center opacity-0 absolute left-0 z-10 md:top-96 opacity-1 flex flex-col justify-start gap-12 items-start'>
-
-
-  <div ref={headText2} className='  text-[20rem] font-horizon horizon bg-gradient-to-t to-[#8BF5A5] via-[#51d378] from-[#5afa98] bg-clip-text text-transparent '>
-    89%
-  </div>
- 
-    <p ref={descText2} className='md:text-4xl lg:text-4xl xl:text-7xl text-center  font-sf-bold text-[#fcfeea]'>
-    of consumers turn to a competitor after a  <span className='font-bold font-sf-pro text-red-500'>poor</span> user experience
-    </p>
-  
-
-</div> */}
-
-
-
-
-    <div className='w-full h-full'>
-      <Canvas className='!w-[100%] !h-[100vh]'
-       camera={{ fov: 45, near: 0.1, far: 1000, position : [0 , 0 , 11] }}
-      >
-        {/* <color attach="background" args={[0x040316]} /> */}
-        <Sparkles
-          position={[0, 0, 0]}
-          scale={[30, 30, 8]}
-          size={8}
-          count={100}
-          color={"#a09bcb"}
-          far={10}
-          speed={1}
-        />
-        <group ref={monitorRef}   position={[0,-1,0]}>
-          
-          <Monitor />
-        
-        </group>
-
-{/* <group
-rotation={[0.54,0.880,0]}
-position={[pos.x , pos.y ,pos.z]}
-scale={[0,0,0]}
-ref={chessRef}
-visible={false}
->
-
-<ChessBoard/>
-
-</group> */}
-        <Environment preset="city" />
-        <ambientLight intensity={Math.PI / 2} />
-      </Canvas>
-    </div>
-  </div>
-</section>
-
-  
-  )
-}
-
-export default Page1

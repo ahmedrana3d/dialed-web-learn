@@ -51,7 +51,7 @@ extend({ ImageFadeMaterial });
 
 export default function Monitor(props) {
   const [hovered, hover] = useState(false);
-  const texture1 = useVideoTexture("./videos/good_screen.mov", {
+  const texture1 = useVideoTexture("./videos/good_screen.mp4", {
     autoPlay: true,
     muted: true,
     playsinline: true,

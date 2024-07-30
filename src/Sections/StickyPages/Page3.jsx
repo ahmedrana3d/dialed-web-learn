@@ -15,6 +15,7 @@ const Page3 = () => {
     const handleScrollUpdate = useCallback((self) => {
         if (self.progress > 0) {
             setValue(252000);
+         
         } else {
             setValue(100000);
         }
@@ -59,7 +60,7 @@ const Page3 = () => {
 
                 <div ref={meterContainer} className='flex flex-col gap-7 justify-center items-center'>
                     <ReactOdometer className='text-[10vw]' value={value} format="d" />
-                    <div ref={text1} className='tracking-[0.3em] text-xl lg:text-6xl text-center text-gray-100 font-inter font-bold'>
+                    <div ref={text1} className='tracking-[0.05em] text-xl lg:text-6xl text-center text-gray-100 font-inter font-bold'>
                         Websites are created <span className='highlighted-text'>Every Day</span>
                     </div>
                 </div>

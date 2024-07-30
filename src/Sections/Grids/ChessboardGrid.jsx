@@ -124,16 +124,17 @@ if (chessBoardRef.current) {
         </div>
         <div className="bg-black col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl relative">
   <Canvas
-    className="!w-full !h-full z-10"
+    className="!w-full !h-[35vh] md:!h-[40vh] lg:!h-full z-10"
     camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 5, 11] }}
   >
     <group>
-      <Stage shadows={"contact"}>
-        <group position={[0, 10, -1]} rotation={[0 , 1 , 0]}>
+
+
+       
         <ChessBoard ref={chessBoardRef} />
-        </group>
-      </Stage>
-       <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI/2}/> 
+       
+   
+       <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI/2} /> 
     </group>
     <Environment preset="city" />
     <ambientLight intensity={Math.PI / 2} />

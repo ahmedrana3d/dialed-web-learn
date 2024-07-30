@@ -137,9 +137,9 @@ const ThirdPage = () => {
         />
         <defs>
           <radialGradient id="paint0_radial_79_8" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(524.199 337.527) rotate(90) scale(333.473 333.473)">
-            <stop stop-color="#323232" />
-            <stop offset="0.0001" stop-color="#282828" />
-            <stop offset="1" stop-color="#666666" />
+            <stop stopColor="#323232" />
+            <stop offset="0.0001" stopColor="#282828" />
+            <stop offset="1" stopColor="#666666" />
           </radialGradient>
         </defs>
       </svg>
@@ -154,8 +154,8 @@ const ThirdPage = () => {
       </div>
 
       <div className='w-full text-left mt-8 flex justify-center md:justify-end'>
-        <div ref={paraRef} className=' w-5/6 md:w-[50vw] text-[clamp(1rem,1.5vw,3rem)] leading-[1.5] mr-8 font-inter text-white'>
-          A <span className='text-red-400'>negative experience</span> on a website will deter 88% of online consumers from revisiting, and 79% of consumers who encounter performance issues are less likely to buy from that site again, highlighting the critical importance of <span  className='text-emerald-400'>user satisfaction</span> for maintaining <span className='text-dialed-purple'>customer loyalty</span> and sales.
+        <div ref={paraRef} className=' w-5/6 md:w-[50vw] text-[clamp(1rem,1.5vw,3rem)] leading-[1.5] mr-8 font-inter text-gray-300'>
+          A negative experience on a website will deter 88% of online consumers from revisiting, and 79% of consumers who encounter performance issues are less likely to buy from that site again, highlighting the critical importance of  for maintaining customer loyalty and sales.
         </div>
       </div>
 

@@ -13,252 +13,115 @@ const Page4 = () => {
 
 useGSAP(() => {
   if (statRef.current) {
-    const animations = [
-      {
-        trigger: 0.66,
-        flag: 'animation5',
-        actions: () => {
-          highlightButton("brand-img");
-          changeBackground("rgb(19 37 26)");
-          animateImage(".image-3", 0.9, "2rem", 0, 0.3);
-          animateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
-        },
-        reverseActions: () => {
-          reverseHighlightButton("brand-img");
-          changeBackground("rgb(19 37 26)");
-          reverseAnimateImage(".image-3", 0.9, "2rem", 0, 0.3);
-          reverseAnimateImage(".image-4", 0.9, "1rem", 2.132, 0.5);
-        }
-      },
-      {
-        trigger: 0.4,
-        flag: 'animation4',
-        actions: () => {
-          highlightButton("customer-exp");
-          changeBackground("rgb(19 32 37)");
-          animateImage(".image-2", 0.9, "2rem", 0, 0.3);
-          animateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
-          animateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
-        },
-        reverseActions: () => {
-          reverseHighlightButton("customer-exp");
-          changeBackground("rgb(19 32 37)");
-          reverseAnimateImage(".image-2", 0.9, "2rem", 0, 0.3);
-          reverseAnimateImage(".image-3", 0.9, "1rem", 2.132, 0.5);
-          reverseAnimateImage(".image-4", 0.8, "0.35rem", 1.558, 0.5);
-        }
-      },
-      {
-        trigger: 0.34,
-        flag: 'animation3',
-        actions: () => {
-          highlightButton("conversion-rate");
-        },
-        reverseActions: () => {
-          reverseHighlightButton("conversion-rate");
-          changeBackground("rgb(58 43 43)");
-        }
-      },
-      {
-        trigger: 0.09,
-        flag: 'animation2',
-        actions: () => {
-          changeBackground("rgb(58 43 43)");
-          highlightButton("conversion-rate");
-          animateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
-          animateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
-          animateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
-          animateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
-        },
-        reverseActions: () => {
-          reverseHighlightButton("conversion-rate");
-          changeBackground("rgb(58 43 43)");
-          reverseAnimateImage(".image-1", 0.9, "2.2rem", 0, 0.3);
-          reverseAnimateImage(".image-2", 0.9, "1rem", 2.132, 0.5);
-          reverseAnimateImage(".image-3", 0.8, "0.35rem", 1.558, 0.5);
-          reverseAnimateImage(".image-4", 0.72, "-0.3rem", 0.984, 0.5);
-        }
-      },
-      {
-        trigger: 0.03,
-        flag: 'animation1',
-        actions: () => {
-          changeBackground("rgb(106, 106, 106)");
-          highlightButton("user-eng");
-        },
-        reverseActions: () => {
-          reverseHighlightButton("user-eng");
-          changeBackground("rgb(106, 106, 106)");
-          reverseAnimateImage(".image-1", 0.9, "1rem", 2.132, 0.3);
-          reverseAnimateImage(".image-2", 0.8, "0.35rem", 1.558, 0.5);
-          reverseAnimateImage(".image-3", 0.72, "-0.3rem", 0.984, 0.5);
-          reverseAnimateImage(".image-4", 0.67, "-0.95rem", 0.41, 0.5);
-        }
-      }
-    ];
 
     const animationsTriggered = {};
-    animations.forEach(anim => animationsTriggered[anim.flag] = false);
 
     const tl = gsap.timeline({
       ease: "power0",
       scrollTrigger: {
-        trigger: startTrigger.current,
-       endTrigger : endTrigger.current,
+        trigger: ".scroller-pin",
+      //  endTrigger : endTrigger.current,
+          start: "center center",
+    end: `+=${2.8 * window.innerHeight}`,
+    ease: "none",
         scrub: true,
+        pin: true,
         // markers: true,
-        onUpdate: (self) => {
-          const scrollY = parseFloat(self.progress.toFixed(2));
-
-          animations.forEach(anim => {
-            if (scrollY >= anim.trigger && !animationsTriggered[anim.flag]) {
-              anim.actions();
-              console.log(anim.flag);
-              animationsTriggered[anim.flag] = true;
-            } else if (scrollY < anim.trigger && animationsTriggered[anim.flag]) {
-              anim.reverseActions();
-              console.log(anim.flag);
-              animationsTriggered[anim.flag] = false;
-            }
-          });
-        },
+    
       },
     });
 
-    animateText(".stand-out");
+ 
 
-    tl.fromTo(
-      statRef.current,
-      {
-        translateY: "0%",
-      },
-      {
-        translateY: "-86%",
-      }
-    );
+// Function to update opacity based on scale
+const updateOpacity = (element, scale) => {
+  const opacity = scale === 1 ? 0 : 1;
+  gsap.set(element, { opacity: opacity });
+};
 
-    function highlightButton(buttonClass) {
-      gsap.to(`.tes-button.${buttonClass}`, { opacity: 1, fontWeight: 500 });
-      gsap.to(`.tes-button:not(.${buttonClass})`, {
-        opacity: 0.5,
-        fontWeight: 400,
-      });
+tl.fromTo(statRef.current, { translateY: "1%" }, { translateY: "-18%", ease: "none" }, ">")
+  .to(".image-1", {
+    scale: 1,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-1", this.targets()[0]._gsap.scaleX);
     }
-
-    function reverseHighlightButton(buttonClass) {
-      highlightButton(buttonClass);
+  }, "<")
+  .to(".image-2", {
+    scale: 0.9,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-2", this.targets()[0]._gsap.scaleX);
     }
-
-    function changeBackground(color) {
-      const linearGradient = `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, ${color} 63.68%)`;
-      gsap.to(".frame-container", {
-        backgroundImage: linearGradient,
-        duration: 1,
-      });
+  }, "<")
+  .to(".image-3", {
+    scale: 0.8,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-3", this.targets()[0]._gsap.scaleX);
     }
-
-    function animateImage(imageClass, scale, y, opacity, duration) {
-      const image = document.querySelector(imageClass);
-      gsap.to(image, {
-        scale: scale,
-        y: y,
-        opacity: opacity,
-        duration: duration,
-        ease: "power2.in",
-        transform: "translate(0%, -50%)",
-      });
+  }, "<")
+  .to(".image-4", {
+    scale: 0.7,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-4", this.targets()[0]._gsap.scaleX);
     }
+  }, "<");
 
-    function reverseAnimateImage(selector, scale, y, opacity, duration) {
-      animateImage(selector, scale, y, opacity, duration, "power2.out");
+tl.fromTo(statRef.current, { translateY: "-18%" }, { translateY: "-44%", ease: "none" }, ">")
+  .to(".image-2", {
+    scale: 1,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-2", this.targets()[0]._gsap.scaleX);
     }
+  }, "<")
+  .to(".image-3", {
+    scale: 0.9,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-3", this.targets()[0]._gsap.scaleX);
+    }
+  }, "<")
+  .to(".image-4", {
+    scale: 0.8,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-4", this.targets()[0]._gsap.scaleX);
+    }
+  }, "<");
+
+tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "none" }, ">")
+  .to(".image-3", {
+    scale: 1,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-3", this.targets()[0]._gsap.scaleX);
+    }
+  }, "<")
+  .to(".image-4", {
+    scale: 0.9,
+    ease: "none",
+    onUpdate: function() {
+      updateOpacity(".image-4", this.targets()[0]._gsap.scaleX);
+    }
+  }, "<");
+
+
+  tl.fromTo(statRef.current, { translateY: "-70%" }, { translateY: "-80%", ease: "none" }, ">")
+  .to(".image-4", {
+    scale: 1,
+    ease: "none",
+  }, "<");
+
   }
 }, []);
 
 
-  function animateText(textSelector) {
-    document.querySelectorAll(textSelector).forEach((element) => {
-      gsap.set(element, {
-        transformPerspective: 500,
-        transformOrigin: "center bottom",
-        rotationX: 70,
-      });
-
-      let mySplitText = new SplitText(element, { type: "chars" });
-      let chars = mySplitText.chars;
-
-      gsap.fromTo(
-        element,
-        {
-          rotationX: 70,
-          opacity: 0,
-        },
-        {
-          rotationX: 0,
-          opacity: 1,
-          duration: 1.5,
-          ease: "back.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            toggleActions: "play none none reset",
-          },
-        }
-      );
-
-      gsap.from(chars, {
-        yPercent: 15,
-        stagger: 0.04,
-        opacity: 0,
-        ease: "power1.out",
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: element,
-          start: "top 80%",
-          toggleActions: "play none none reset",
-        },
-      });
-
-      gsap.fromTo(
-        element,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            end: "top 60%",
-            scrub: true,
-            toggleActions: "play reverse play reverse",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        element,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 20%",
-            end: "top 5%",
-            scrub: true,
-            toggleActions: "play reverse play reverse",
-          },
-        }
-      );
-    });
-  }
 
   return (
-    <section className=" z-20 testimonials text-gray-200 h-[600vh] relative">
+    <section className=" z-20 testimonials  text-gray-200 h-[400vh] relative">
       <div className="stand-out font-sf-bold  leading-tight text-[#fefeff]  text-center text-[7vw] md:text-[5vw]">
         How do you make yours <p>stand out? </p>
       </div>
@@ -266,7 +129,8 @@ useGSAP(() => {
       <div ref={startTrigger} className=" w-20 h-20    z-50 absolute  top-[110vh] "></div>
       <div ref={endTrigger} className=" w-20 h-20    z-50 absolute bottom-28 "></div>
 
-      <div className="h-[100vh] invisible md:visible w-[10rem] sticky top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
+<div className=" scroller-pin  sticky top-0 ">
+      <div className="h-[100vh] invisible md:visible w-[10rem]  top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
         <button
           data-name="events"
           className="text-left tes-button capitalize user-eng text-2xl leading-relaxed"
@@ -294,7 +158,7 @@ useGSAP(() => {
           Image
         </button>
       </div>
-      <div className=" mt-[-100vh] h-screen sticky top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
+      <div className=" mt-[-100vh] h-screen  top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
         <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
         <div
           className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white md:pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between"
@@ -317,6 +181,16 @@ useGSAP(() => {
                     Websites with interactive elements see a 40% increase in
                     user time spent on site
                   </h6>
+
+                  <div className="test-img-mask block md:hidden ">
+                    <img
+                      alt=""
+                      loading="lazy"
+                      className="w-[100%] origin-top   rounded-[1.25rem] object-cover"
+                      src="./images/showcase/car_image.png"
+                    />
+                  </div>
+
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
                   <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">
@@ -333,15 +207,6 @@ useGSAP(() => {
                       src="./images/showcase/soda_image.png"
                     />
                   </div>
-                </div>
-                <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">
-                    Drive Conversions with Product Customization Tools
-                  </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-2xl">
-                    Interactive Product Customizers can lead to a 30% increase
-                    in sales
-                  </h6>
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
                   <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">
@@ -402,7 +267,7 @@ useGSAP(() => {
             </div>
             <div
               className="test-img-mask"
-              style={{ opacity: 1, display: "flex" }}
+            
             >
               <img
                 alt=""
@@ -421,7 +286,7 @@ useGSAP(() => {
             </div>
             <div
               className="test-img-mask"
-              style={{ opacity: 1, display: "flex" }}
+             
             >
               <img
                 alt=""
@@ -431,8 +296,8 @@ useGSAP(() => {
                 className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-3"
                 style={{
                   transform:
-                    "translate(0%, -50%) translate(0px, -0.3rem) scale(0.7286, 0.7286)",
-                  opacity: 0.984,
+                    "translate(0%, -50%) translate(0px, -0.3rem) scale(0.7, 0.7)",
+                 
                   zIndex: 2,
                 }}
                 src="./images/showcase/vr_image.png"
@@ -447,8 +312,8 @@ useGSAP(() => {
                 className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-4"
                 style={{
                   transform:
-                    "translate(0%, -50%) translate(0px, -0.95rem) scale(0.675, 0.675)",
-                  opacity: 0.41,
+                    "translate(0%, -50%) translate(0px, -0.95rem) scale(0.6, 0.6)",
+              
                   zIndex: 1,
                 }}
                 src="./images/showcase/player_image.png"
@@ -457,32 +322,8 @@ useGSAP(() => {
           </div>
         </div>
       </div>
-      <div className="tes-scroller-wrapper w-[calc((100%-((100vw/12)*3))/2)] opacity-0 absolute left-[calc((100vw/12)*3)] md:pl-0 lg:pl-[2.03rem] pr-[2.2rem] top-[0]">
-        <div
-          className="tes-scroller h-screen w-full"
-          data-color="linear-gradient(111deg, #FFF 13.66%, #FFE0E8 63.68%)"
-          data-name="events"
-          id="events"
-        ></div>
-        <div
-          className="tes-scroller h-screen w-full"
-          data-color="linear-gradient(111deg, #FFF 13.66%, #FFFFE0 63.68%)"
-          data-name="share homes"
-          id="share homes"
-        ></div>
-        <div
-          className="tes-scroller h-screen w-full"
-          data-color="linear-gradient(111deg, #FFF 13.66%, #E0E5FF 63.68%)"
-          data-name="cost splitting"
-          id="cost splitting"
-        ></div>
-        <div
-          className="tes-scroller h-screen w-full"
-          data-color="linear-gradient(111deg, #FFF 13.66%, #E0F5FF 63.68%)"
-          data-name="sync plans"
-          id="sync plans"
-        ></div>
       </div>
+
     </section>
   );
 };

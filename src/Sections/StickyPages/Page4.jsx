@@ -39,34 +39,37 @@ const updateOpacity = (element, scale) => {
   gsap.set(element, { opacity: opacity });
 };
 
+const highlightText = (element) => {
+    gsap.to(`.tes-button.${element}`, { opacity: 1, fontWeight: 500 });
+      gsap.to(`.tes-button:not(.${element})`, {
+        opacity: 0.5,
+        fontWeight: 400,
+     });
+}
+
 tl.fromTo(statRef.current, { translateY: "1%" }, { translateY: "-18%", ease: "none" }, ">")
   .to(".image-1", {
     scale: 1,
     ease: "none",
     onUpdate: function() {
       updateOpacity(".image-1", this.targets()[0]._gsap.scaleX);
+      highlightText("user-eng");
     }
   }, "<")
   .to(".image-2", {
     scale: 0.9,
     ease: "none",
-    onUpdate: function() {
-      updateOpacity(".image-2", this.targets()[0]._gsap.scaleX);
-    }
+
   }, "<")
   .to(".image-3", {
     scale: 0.8,
     ease: "none",
-    onUpdate: function() {
-      updateOpacity(".image-3", this.targets()[0]._gsap.scaleX);
-    }
+ 
   }, "<")
   .to(".image-4", {
     scale: 0.7,
     ease: "none",
-    onUpdate: function() {
-      updateOpacity(".image-4", this.targets()[0]._gsap.scaleX);
-    }
+ 
   }, "<");
 
 tl.fromTo(statRef.current, { translateY: "-18%" }, { translateY: "-44%", ease: "none" }, ">")
@@ -75,21 +78,18 @@ tl.fromTo(statRef.current, { translateY: "-18%" }, { translateY: "-44%", ease: "
     ease: "none",
     onUpdate: function() {
       updateOpacity(".image-2", this.targets()[0]._gsap.scaleX);
+      highlightText("conversion-rate");
     }
   }, "<")
   .to(".image-3", {
     scale: 0.9,
     ease: "none",
-    onUpdate: function() {
-      updateOpacity(".image-3", this.targets()[0]._gsap.scaleX);
-    }
+ 
   }, "<")
   .to(".image-4", {
     scale: 0.8,
     ease: "none",
-    onUpdate: function() {
-      updateOpacity(".image-4", this.targets()[0]._gsap.scaleX);
-    }
+  
   }, "<");
 
 tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "none" }, ">")
@@ -98,14 +98,13 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
     ease: "none",
     onUpdate: function() {
       updateOpacity(".image-3", this.targets()[0]._gsap.scaleX);
+      highlightText("customer-exp");
     }
   }, "<")
   .to(".image-4", {
     scale: 0.9,
     ease: "none",
-    onUpdate: function() {
-      updateOpacity(".image-4", this.targets()[0]._gsap.scaleX);
-    }
+
   }, "<");
 
 
@@ -113,6 +112,9 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
   .to(".image-4", {
     scale: 1,
     ease: "none",
+    onUpdate : ()=>{
+      highlightText("brand-img");
+    },
   }, "<");
 
   }
@@ -137,6 +139,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
         >
           {" "}
           Engagment
+
         </button>
         <button
           data-name="share homes"

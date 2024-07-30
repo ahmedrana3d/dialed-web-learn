@@ -154,7 +154,7 @@ const ThirdPage = () => {
       </div>
 
       <div className='w-full text-left mt-8 flex justify-center md:justify-end'>
-        <div ref={paraRef} className=' w-5/6 md:w-[50vw] text-[clamp(1rem,1.5vw,3rem)] leading-[1.5] mr-8 font-inter text-gray-300'>
+        <div ref={paraRef} className=' w-5/6 md:w-[50vw] text-[clamp(1rem,1.5vw,3rem)] leading-[1.5] mr-8 font-inter text-gray-100'>
           A negative experience on a website will deter 88% of online consumers from revisiting, and 79% of consumers who encounter performance issues are less likely to buy from that site again, highlighting the critical importance of  for maintaining customer loyalty and sales.
         </div>
       </div>

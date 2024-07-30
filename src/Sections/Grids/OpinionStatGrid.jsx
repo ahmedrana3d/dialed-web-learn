@@ -34,9 +34,10 @@ const OpinionStatGrid = () => {
         stagger: 0.05,
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 99%",
-          end: "top 99%",
-          toggleActions: "play none reset none",
+          start: "top 90%",
+          end: "top 30%",
+          scrub: 1,
+          // markers: true,
         },
       }
     );
@@ -51,9 +52,11 @@ const OpinionStatGrid = () => {
         stagger: 0.05,
         scrollTrigger: {
           trigger: text2Ref.current,
-          start: "top 99%",
-          end: "top 99%",
-          toggleActions: "play none reset none",
+          start: "top 90%",
+          end: "top 30%",
+          scrub: 1,
+          // markers: true,
+          
         },
       }
     );

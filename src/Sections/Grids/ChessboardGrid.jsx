@@ -54,15 +54,15 @@ const ChessboardGrid = () => {
         stagger: 0.05,
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 99%",
-          end: "top 99%",
+          start: "top 90%",
+          end: "top 40%",
+          scrub: 1,
+          // markers: true,
           onEnter : ()=>{
 if (chessBoardRef.current) {
   chessBoardRef.current.playAnimation()
 }
           },
-          // markers: true,
-          toggleActions: "play none reset none",
         },
       }
     );
@@ -79,10 +79,10 @@ if (chessBoardRef.current) {
         stagger: 0.05,
         scrollTrigger: {
           trigger: numberRef.current,
-          start: "top 99%",
-          end: "top 99%",
+          start: "top 90%",
+          end: "top 40%",
+          scrub: 1,
           // markers: true,
-          toggleActions: "play none reset none",
         },
         snap: { innerText: 1 },
         onUpdate: function () {

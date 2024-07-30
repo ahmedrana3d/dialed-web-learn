@@ -258,14 +258,14 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="800"
                 height="1200"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-1"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-1"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, 1rem) scale(0.9, 0.9)",
                   opacity: 2.132,
                   zIndex: 4,
                 }}
-                src="./images/showcase/car_image.png"
+                src="./images/showcase/soda_image.png"
               />
             </div>
             <div
@@ -277,14 +277,14 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="1000"
                 height="1000"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-2"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-2"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, 0.35rem) scale(0.8, 0.8)",
                   opacity: 1.558,
                   zIndex: 3,
                 }}
-                src="./images/showcase/soda_image.png"
+                src="./images/showcase/car_image.png"
               />
             </div>
             <div
@@ -296,7 +296,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="800"
                 height="1200"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-3"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-3"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, -0.3rem) scale(0.7, 0.7)",
@@ -312,7 +312,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="800"
                 height="1200"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-96 top-[50%] rounded-[1.25rem] object-cover image-4"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-4"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, -0.95rem) scale(0.6, 0.6)",

@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lottie from "lottie-react";
-import CursorAnimation from "../../assets/cursor.json";
+import CursorAnimation from "../../assets/cursor_new.json";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, Stage } from "@react-three/drei";
 import Monitor from "../../Components/Models/Monitor";
@@ -15,13 +15,14 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const ChessboardGrid = () => {
   const textRef = useRef();
-  const numberRef = useRef();
-
-
+  const numberRef = useRef();;
+  
   const [scaleValues, setScaleValues] = useState({ left: 1.5, right: 0.5 });
   const chessBoardRef = useRef();
-
+  
   useEffect(() => {
+    
+
     const handleMouseMove = (event) => {
       const { clientX } = event;
       const windowWidth = window.innerWidth;
@@ -41,13 +42,12 @@ const ChessboardGrid = () => {
     };
   }, []);
 
-
   useGSAP(() => {
     const split = new SplitText(textRef.current, { type: "words, chars" });
 
     gsap.fromTo(
       split.chars,
-      { scale: 0,  },
+      { scale: 0 },
       {
         scale: 1,
         duration: 0.5,
@@ -55,20 +55,17 @@ const ChessboardGrid = () => {
         scrollTrigger: {
           trigger: textRef.current,
           start: "top 90%",
-          end: "top 40%",
+          end: "top 50%",
           scrub: 1,
           // markers: true,
-          onEnter : ()=>{
-if (chessBoardRef.current) {
-  chessBoardRef.current.playAnimation()
-}
+          onEnter: () => {
+            if (chessBoardRef.current) {
+              chessBoardRef.current.playAnimation();
+            }
           },
         },
       }
     );
-
-
-  
 
     gsap.fromTo(
       numberRef.current,
@@ -80,7 +77,7 @@ if (chessBoardRef.current) {
         scrollTrigger: {
           trigger: numberRef.current,
           start: "top 90%",
-          end: "top 40%",
+          end: "top 30%",
           scrub: 1,
           // markers: true,
         },
@@ -92,6 +89,13 @@ if (chessBoardRef.current) {
         },
       }
     );
+
+
+
+
+
+
+
   }, []);
 
   return (
@@ -109,7 +113,7 @@ if (chessBoardRef.current) {
             </div>
             <div className="bg-[#111111] w-[40%] flex justify-center items-center rounded-3xl">
               <div className="scale-75">
-                <Lottie animationData={CursorAnimation} loop={true} />
+                <Lottie  animationData={CursorAnimation} loop={true}  />
               </div>
             </div>
           </div>
@@ -123,35 +127,34 @@ if (chessBoardRef.current) {
           </div>
         </div>
         <div className="bg-transparent col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl relative">
-  <Canvas
-    className="!w-full !h-[35vh] md:!h-[40vh] lg:!h-full z-10"
-    camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 5, 11] }}
-  >
-    <group>
+          <Canvas
+            className="!w-full !h-[35vh] md:!h-[40vh] lg:!h-full z-10"
+            camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 5, 11] }}
+          >
+            <group>
+              <ChessBoard ref={chessBoardRef} />
 
+              <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                maxPolarAngle={Math.PI / 2}
+              />
+            </group>
+            <Environment preset="city" />
+            <ambientLight intensity={Math.PI / 2} />
+          </Canvas>
 
-       
-        <ChessBoard ref={chessBoardRef} />
-       
-   
-       <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI/2} /> 
-    </group>
-    <Environment preset="city" />
-    <ambientLight intensity={Math.PI / 2} />
-  </Canvas>
-
-  <div className="absolute left-0 top-0 w-full h-full grid gap-x-10 grid-cols-2  pointer-events-none">
-  <div
-        className="rounded-3xl bg-[#111111] scale-transition origin-left"
-        style={{ transform: `scale(${scaleValues.left}, 1)` }}
-      ></div>
-      <div
-        className="rounded-3xl bg-neutral-200 scale-transition origin-right"
-        style={{ transform: `scale(${scaleValues.right}, 1)` }}
-      ></div>
-  </div>
-</div>
-
+          <div className="absolute left-0 top-0 w-full h-full grid gap-x-10 grid-cols-2  pointer-events-none">
+            <div
+              className="rounded-3xl bg-[#111111] scale-transition origin-left"
+              style={{ transform: `scale(${scaleValues.left}, 1)` }}
+            ></div>
+            <div
+              className="rounded-3xl bg-neutral-200 scale-transition origin-right"
+              style={{ transform: `scale(${scaleValues.right}, 1)` }}
+            ></div>
+          </div>
+        </div>
       </div>
     </div>
   );

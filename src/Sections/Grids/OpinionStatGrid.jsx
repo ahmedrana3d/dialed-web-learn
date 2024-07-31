@@ -91,7 +91,7 @@ const OpinionStatGrid = () => {
     {/* bg-white col-span-1 md:col-span-1 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl */}
     <div className="bg-white col-span-1 md:col-span-1 row-span-1 md:row-span-1 flex justify-center items-center rounded-3xl">
       <div>
-        <Lottie animationData={ClockAnimation} loop={true} />
+        <Lottie  animationData={ClockAnimation} loop={false} />
       </div>
     </div>
     

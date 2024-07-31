@@ -51,7 +51,7 @@ const Page3 = () => {
     }, []);
 
     return (
-        <div className='z-10 relative w-screen md:h-[100vh]'>
+        <div className='z-10 relative w-screen h-auto'>
             <div className='trigger1 absolute h-16 w-16 z-30 bottom-0 top-1/2'></div>
             <div className='h-[50vh] flex justify-center items-center flex-col'>
                 <div className='trigger absolute h-16 w-16 z-30 top-1/3'></div>

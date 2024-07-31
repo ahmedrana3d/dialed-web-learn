@@ -117,6 +117,18 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
     },
   }, "<");
 
+
+  const handleResize = () => {
+    ScrollTrigger.refresh();
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  // Clean up the event listener on component unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+
   }
 }, []);
 
@@ -135,6 +147,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
       <div className="h-[100vh] invisible md:visible w-[10rem]  top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
         <button
           data-name="events"
+
           className="text-left tes-button capitalize user-eng text-2xl leading-relaxed"
         >
           {" "}
@@ -164,7 +177,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
       <div className=" mt-[-100vh] h-screen  top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
         <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
         <div
-          className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white md:pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[2rem] flex justify-between"
+          className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white md:pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[3rem] flex justify-between"
           style={{
             backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)`,
           }}
@@ -177,7 +190,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 style={{ transform: "translate(0px, 13%)" }}
               >
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">
+                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
                     Increase User Engagement with Interactivity
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-2xl">
@@ -189,14 +202,14 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                     <img
                       alt=""
                       loading="lazy"
-                      className="w-[100%] origin-top   rounded-[1.25rem] object-cover"
+                      className="w-[100%] origin-top   rounded-[3rem] object-cover"
                       src="./images/showcase/car_image.png"
                     />
                   </div>
 
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">
+                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
                     Transform Sales with 3D Product Configurations
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-2xl">
@@ -206,13 +219,13 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                     <img
                       alt=""
                       loading="lazy"
-                      className="w-[100%] origin-top   rounded-[1.25rem] object-cover"
+                      className="w-[100%] origin-top   rounded-[3rem] object-cover"
                       src="./images/showcase/soda_image.png"
                     />
                   </div>
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">
+                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
                     Avoid Losing Customers, Enhance User Experience
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-2xl">
@@ -223,13 +236,13 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                     <img
                       alt=""
                       loading="lazy"
-                      className="w-[100%] origin-top   rounded-[1.25rem] object-cover"
+                      className="w-[100%] origin-top   rounded-[3rem] object-cover"
                       src="./images/showcase/vr_image.png"
                     />
                   </div>
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-5xl">
+                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
                     Get ahead of the curve.
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-2xl">
@@ -240,7 +253,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                     <img
                       alt=""
                       loading="lazy"
-                      className="w-[100%] origin-top   rounded-[1.25rem] object-cover"
+                      className="w-[100%] origin-top   rounded-[3rem] object-cover"
                       src="./images/showcase/player_image.png"
                     />
                   </div>
@@ -258,7 +271,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="800"
                 height="1200"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-1"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[2rem] object-cover image-1"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, 1rem) scale(0.9, 0.9)",
@@ -277,7 +290,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="1000"
                 height="1000"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-2"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[2rem] object-cover image-2"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, 0.35rem) scale(0.8, 0.8)",
@@ -296,7 +309,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="800"
                 height="1200"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-3"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[2rem] object-cover image-3"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, -0.3rem) scale(0.7, 0.7)",
@@ -312,7 +325,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 loading="lazy"
                 width="800"
                 height="1200"
-                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[1.25rem] object-cover image-4"
+                className="w-[100%] origin-top absolute h-[16.8rem] lg:h-[34rem] top-[50%] rounded-[2rem] object-cover image-4"
                 style={{
                   transform:
                     "translate(0%, -50%) translate(0px, -0.95rem) scale(0.6, 0.6)",

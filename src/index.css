@@ -158,3 +158,8 @@ body{
   z-index: 100;
   /* pointer-events: none; */
 }
+
+.line-inner{
+  transform: translate3d(0px, 1em, 0px) rotateY(-20deg) rotateX(-60deg);
+  display: block;
+}

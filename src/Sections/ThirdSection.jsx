@@ -10,10 +10,10 @@ const ThirdSection = () => {
   return (
   <>
 
-<MonitorGrid/>
 <ThirdPage/>
   <ChessboardGrid/>
-  <OpinionStatGrid/>
+<MonitorGrid/>
+  {/* <OpinionStatGrid/> */}
     </>
   );
 };

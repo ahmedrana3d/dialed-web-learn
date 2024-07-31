@@ -10,55 +10,93 @@ const Page3 = () => {
     const [value, setValue] = useState(100000);
     const text1 = useRef(null);
     const meterContainer = useRef(null);
+    const parent = useRef(null);
 
     useEffect(() => {
-        if (text1.current) {
-            const split = new SplitText(text1.current, { type: 'words, chars' });
-
+        if (text1.current && meterContainer.current) {
+            // GSAP Timeline Configuration
             const tl = gsap.timeline({
                 ease: "power0",
                 scrollTrigger: {
-                    trigger: ".trigger",
-                    start: "top bottom",
-                    endTrigger: ".trigger1",
-                    end: "top 90%",
-                    scrub: 1,
+                    trigger: ".parent-web-stats",
+                    start: "center center",
+                    end: `+=${2 * window.innerHeight}`,
+                    scrub: true,
+                    pin: true,
                     // markers: true,
-                    onUpdate: (self) => {
-                        setValue(self.progress > 0 ? 252000 : 100000);
-                    }
                 }
             });
 
-            tl.fromTo(split.chars, { 
-                'will-change': 'opacity, transform', 
-                opacity: 0, 
-                xPercent: () => gsap.utils.random(-200, 200), 
-                yPercent: () => gsap.utils.random(-150, 150) 
-            }, {
-                ease: 'power1.inOut',
-                opacity: 1,
-                xPercent: 0,
-                yPercent: 0,
-                stagger: { each: 0.05, grid: 'auto', from: 'random'}
-            }, ">");
+            // Animate .number-stats from x: 130% to x: -130%
+            tl.fromTo(".number-stats", 
+                { x: "130%" },
+                { x: "-120%", duration: 1 }
+                ,"<"
+            );
 
-            return () => {
-                split.revert();
-                tl.kill();
-            };
+            // Animate .odo-meter and .make-your opacity in parallel to the .number-stats animation
+            tl.to(".odo-meter", {
+                opacity: 0,
+                duration: 0.1,
+                ease: "none"
+            }, "-=0.7"); // Start the opacity change 0.5 seconds before the end of the number-stats animation
+
+            tl.to(".make-your", {
+                opacity: 1,
+                duration: 0.1,
+                ease: "none"
+            }, "-=0.7"); // Start the opacity change 0.5 seconds before the end of the number-stats animation
+
+
+            // Update the odometer value based on ScrollTrigger progress
+            ScrollTrigger.create({
+                trigger: meterContainer.current,
+                start: "top bottom",
+                end: `+=${2.8 * window.innerHeight}`,
+                onUpdate: (self) => {
+                    setValue(self.progress > 0 ? 252000 : 100000);
+                }
+            });
+
+        
+  const handleResize = () => {
+    ScrollTrigger.refresh();
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  // Clean up the event listener on component unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+    tl.kill();
+  };
+
         }
     }, []);
 
     return (
-        <div className='z-10 relative w-screen h-auto'>
+        <div ref={parent} className='z-10 relative w-screen h-screen parent-web-stats'>
             <div className='trigger1 absolute h-16 w-16 z-30 bottom-0 top-1/2'></div>
-            <div className='h-[50vh] flex justify-center items-center flex-col'>
-                <div className='trigger absolute h-16 w-16 z-30 top-1/3'></div>
-                <div ref={meterContainer} className='flex flex-col gap-7 justify-center items-center'>
-                    <ReactOdometer className='text-[10vw]' value={value} format="d" />
-                    <div ref={text1} className='tracking-[0.05em] text-xl lg:text-6xl text-center text-gray-100 font-inter font-bold'>
-                        Websites are created <span className='highlighted-text'>Every Day</span>
+            <div className='h-[100vh] w-full flex justify-center items-center flex-col'>
+                <div className='trigger absolute h-16 w-16 z-30 top-1/2'></div>
+
+                {/* Banner */}
+                <div className='number-stats w-screen z-20 h-screen flex justify-center items-center bg-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+                    <img className='!w-[150vw] max-w-[140vw] !h-[150vh]' src="./images/number.svg" alt="" />
+                </div>
+
+                {/* Meter */}
+                <div ref={meterContainer} className='flex w-screen h-screen flex-col gap-7 justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+                    <div className='odo-meter flex justify-center items-center flex-col'>
+                        <ReactOdometer className='text-[10vw]' value={value} format="d" />
+                        <div ref={text1} className='tracking-[0.05em] text-xl lg:text-6xl text-center text-gray-100 font-inter font-bold'>
+                            Websites are created <span className='highlighted-text'>Every Day</span>
+                        </div>
+                    </div>
+
+                    {/* Makes Your Standout Text */}
+                    <div className="make-your opacity-0 absolute w-screen  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stand-out font-sf-bold leading-tight text-[#fefeff] text-center text-[7vw] md:text-[5vw]">
+                        How do you make yours <p>stand out?</p>
                     </div>
                 </div>
             </div>

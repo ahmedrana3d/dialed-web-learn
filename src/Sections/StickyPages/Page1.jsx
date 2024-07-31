@@ -22,14 +22,6 @@ const Page1 = () => {
   const chessRef = useRef();
 
 
-  // const chess = useControls("ChessBoard Controls" , {
-  //   posX : 1.00,
-  //   posY : -1.70,
-  //   posZ : 3.50,
-  //   sX : 1,
-  //   sY : 1,
-  //   sZ : 1,
-  // })
 
 
   const [monScale, setMonScale] = useState(1.5)
@@ -98,11 +90,6 @@ useEffect(()=>{
             </group>
 
 
-{/* <group visible={false} scale={[chess.sX,chess.sY,chess.sZ]}  position={[chess.posX, chess.posY, chess.posZ]}>
-
-<ChessBoard/>
-
-</group> */}
 
             <Environment preset="city" />
             <ambientLight intensity={Math.PI / 2} />

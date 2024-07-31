@@ -136,9 +136,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
 
   return (
     <section className=" z-20 testimonials  text-gray-200 h-[400vh] relative">
-      <div className="stand-out font-sf-bold  leading-tight text-[#fefeff]  text-center text-[7vw] md:text-[5vw]">
-        How do you make yours <p>stand out? </p>
-      </div>
+
 
       <div ref={startTrigger} className=" w-20 h-20    z-50 absolute  top-[110vh] "></div>
       <div ref={endTrigger} className=" w-20 h-20    z-50 absolute bottom-28 "></div>

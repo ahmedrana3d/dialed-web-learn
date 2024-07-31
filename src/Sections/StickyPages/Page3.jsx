@@ -7,13 +7,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Page3 = () => {
-    const [value, setValue] = useState(100000);
-    const text1 = useRef(null);
+
     const meterContainer = useRef(null);
     const parent = useRef(null);
 
     useEffect(() => {
-        if (text1.current && meterContainer.current) {
+        if ( meterContainer.current) {
             // GSAP Timeline Configuration
             const tl = gsap.timeline({
                 ease: "power0",
@@ -23,7 +22,6 @@ const Page3 = () => {
                     end: `+=${2 * window.innerHeight}`,
                     scrub: true,
                     pin: true,
-                    // markers: true,
                 }
             });
 
@@ -53,9 +51,6 @@ const Page3 = () => {
                 trigger: meterContainer.current,
                 start: "top bottom",
                 end: `+=${2.8 * window.innerHeight}`,
-                onUpdate: (self) => {
-                    setValue(self.progress > 0 ? 252000 : 100000);
-                }
             });
 
         
@@ -88,14 +83,13 @@ const Page3 = () => {
                 {/* Meter */}
                 <div ref={meterContainer} className='flex w-screen h-screen flex-col gap-7 justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                     <div className='odo-meter flex justify-center items-center flex-col'>
-                        <ReactOdometer className='text-[10vw]' value={value} format="d" />
-                        <div ref={text1} className='tracking-[0.05em] text-xl lg:text-6xl text-center text-gray-100 font-inter font-bold'>
-                            Websites are created <span className='highlighted-text'>Every Day</span>
-                        </div>
+                    <div className=" absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stand-out font-sf-bold leading-tight text-[#fefeff] text-center text-[7vw] md:text-[4vw]">
+                        Approximately 252000 <p>new websites are created</p> every day
+                    </div>
                     </div>
 
                     {/* Makes Your Standout Text */}
-                    <div className="make-your opacity-0 absolute w-screen  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stand-out font-sf-bold leading-tight text-[#fefeff] text-center text-[7vw] md:text-[5vw]">
+                    <div className="make-your opacity-0 absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stand-out font-sf-bold leading-tight text-[#fefeff] text-center text-[7vw] md:text-[5vw]">
                         How do you make yours <p>stand out?</p>
                     </div>
                 </div>

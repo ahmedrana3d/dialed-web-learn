@@ -14,12 +14,7 @@ gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
 
 const Page1 = () => {
-  const headText = useRef();
-  const descText = useRef();
-  const headText2 = useRef();
-  const descText2 = useRef();
   const monitorRef = useRef();
-  const chessRef = useRef();
 
 
 

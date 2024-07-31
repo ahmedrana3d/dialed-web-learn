@@ -68,7 +68,7 @@ const FirstSection = () => {
       >
          <h1
         ref={headText}
-        className="text-gray-50 text-[9vw] md:text-[7vw] md:text-start text-center uppercase md:mx-32"
+        className="text-gray-50 text-[9vw] md:text-[7vw] md:text-start text-center uppercase md:mx-32 leading-[1.1] md:leading-[1]"
       >
         {["how do these", "features actually", 
           <><span className="text-dialed-purple">boost</span> your digital</>, 

@@ -3,6 +3,7 @@ import ReactOdometer from 'react-odometerjs';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -11,63 +12,56 @@ const Page3 = () => {
     const meterContainer = useRef(null);
     const parent = useRef(null);
 
-    useEffect(() => {
-        if ( meterContainer.current) {
+    useGSAP(() => {
+        if (meterContainer.current) {
             // GSAP Timeline Configuration
             const tl = gsap.timeline({
                 ease: "power0",
                 scrollTrigger: {
                     trigger: ".parent-web-stats",
-                    start: "center center",
-                    end: `+=${2 * window.innerHeight}`,
+                    start: "top top",
+                    end: `+=${2.8 * window.innerHeight}`,
                     scrub: true,
                     pin: true,
+                    pinSpacing: true, // Ensure spacing is maintained when pinned
                 }
             });
-
+    
             // Animate .number-stats from x: 130% to x: -130%
             tl.fromTo(".number-stats", 
                 { x: "130%" },
                 { x: "-120%", duration: 1 }
                 ,"<"
             );
-
+    
             // Animate .odo-meter and .make-your opacity in parallel to the .number-stats animation
             tl.to(".odo-meter", {
                 opacity: 0,
                 duration: 0.1,
                 ease: "none"
-            }, "-=0.7"); // Start the opacity change 0.5 seconds before the end of the number-stats animation
-
+            }, "-=0.7"); // Start the opacity change 0.7 seconds before the end of the number-stats animation
+    
             tl.to(".make-your", {
                 opacity: 1,
                 duration: 0.1,
                 ease: "none"
-            }, "-=0.7"); // Start the opacity change 0.5 seconds before the end of the number-stats animation
-
-
-            // Update the odometer value based on ScrollTrigger progress
-            ScrollTrigger.create({
-                trigger: meterContainer.current,
-                start: "top bottom",
-                end: `+=${2.8 * window.innerHeight}`,
-            });
-
-        
-  const handleResize = () => {
-    ScrollTrigger.refresh();
-  };
-
-  window.addEventListener('resize', handleResize);
-
-  // Clean up the event listener on component unmount
-  return () => {
-    window.removeEventListener('resize', handleResize);
-    tl.kill();
-  };
-
+            }, "-=0.7"); // Start the opacity change 0.7 seconds before the end of the number-stats animation
+    
+            const handleResize = () => {
+                ScrollTrigger.refresh();
+            };
+    
+            window.addEventListener('resize', handleResize);
+    
+            // Clean up the event listener on component unmount
+            return () => {
+                window.removeEventListener('resize', handleResize);
+                ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Properly clean up all ScrollTriggers
+                tl.kill(); // Kill the GSAP timeline
+            };
         }
     }, []);
+    
 
     return (
         <div ref={parent} className='z-10 relative w-screen h-screen parent-web-stats'>

@@ -57,7 +57,7 @@ const MonitorGrid = () => {
       }
     );
 
-  }, []);
+  });
 
   return (
 <div className="w-screen h-[100vh] flex justify-center items-center bg-black">

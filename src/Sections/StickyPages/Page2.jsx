@@ -1,16 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ReactOdometer from 'react-odometerjs';
 
 gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
 
 const Page2 = () => {
 
-    const text1 = useRef(null);
 
 
 
@@ -105,7 +103,7 @@ const Page2 = () => {
 
 
     
-    }, []);
+    });
     
 
 // translate3d(148.505px, -209.18px, 0px) rotate(16.2961deg);

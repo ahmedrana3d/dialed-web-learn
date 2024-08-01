@@ -10,18 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@14islands/r3f-scroll-rig": "^8.13.2",
     "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.107.2",
     "@react-three/fiber": "^8.16.8",
-    "curtainsjs": "^8.1.6",
     "gsap": "npm:@gsap/business@^3.12.5",
     "lenis": "^1.1.6",
     "leva": "^0.9.35",
     "lottie-react": "^2.4.0",
     "maath": "^0.10.7",
     "react": "^18.3.1",
-    "react-curtains": "^1.0.10",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-odometerjs": "^3.1.3",

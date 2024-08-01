@@ -130,7 +130,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
   };
 
   }
-}, []);
+});
 
 
 

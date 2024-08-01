@@ -121,12 +121,8 @@ tl.fromTo('.mask', {
       
 
 
-
-      return () => {
-        split.revert(); // Clean up SplitText instance
-      };
     }
-  }, []);
+  });
 
 
   return (

@@ -1,12 +1,14 @@
 import React from 'react'
 import Learn from './Learn'
-import { SmoothScrollbar } from '@14islands/r3f-scroll-rig'
 import './App.css'
+import ReactLenis from 'lenis/react'
 const App = () => {
   return (
     <div>
+      <ReactLenis root options={{lerp : 0.15,}}>
       <Learn/>
-      <SmoothScrollbar/>
+      </ReactLenis>
+      {/* <SmoothScrollbar/> */}
     </div>
   )
 }

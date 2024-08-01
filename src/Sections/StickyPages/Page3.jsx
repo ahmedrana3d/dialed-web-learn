@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
-import ReactOdometer from 'react-odometerjs';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -60,7 +59,7 @@ const Page3 = () => {
                 tl.kill(); // Kill the GSAP timeline
             };
         }
-    }, []);
+    });
     
 
     return (

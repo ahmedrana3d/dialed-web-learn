@@ -1,7 +1,7 @@
+import { useGSAP } from '@gsap/react';
 import gsap, { ScrollTrigger, SplitText, TextPlugin } from 'gsap/all';
-import React, { useEffect, useRef } from 'react';
-// import { Curtains } from 'react-curtains';
-// import SimplePlane from '../../Components/Models/SimplePlane';
+import React, { useRef } from 'react';
+
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -11,7 +11,7 @@ const ThirdPage = () => {
   const headText2Ref = useRef(null);
   const svgPath = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const splitPara = new SplitText(paraRef.current, { type: "words, chars" });
     const splitHead1 = new SplitText(headText1Ref.current, { type: "words" });
     const splitHead2 = new SplitText(headText2Ref.current, { type: "words" });

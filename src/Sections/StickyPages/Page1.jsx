@@ -6,9 +6,6 @@ import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/SplitText'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import ChessBoard from '../../Components/Models/ChessBoard'
-import {  useControls } from 'leva'
-import { min } from 'three/examples/jsm/nodes/Nodes.js'
 
 gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
@@ -49,7 +46,7 @@ useEffect(()=>{
         onLeaveBack: () => gsap.to(monitorRef.current.scale, { x: 0, y: 0, z: 0, duration: 0.5 ,   ease: "power4.inOut", }),
       });
     // }
-  }, [monitorRef]);
+  });
 
   return (
     <section className='z-10 relative w-screen h-[300vh] bg-black'>

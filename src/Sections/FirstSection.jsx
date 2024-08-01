@@ -58,7 +58,7 @@ const FirstSection = () => {
         }
       );
     }
-  }, []);
+  });
 
   return (
     <>

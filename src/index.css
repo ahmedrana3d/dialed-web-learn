@@ -96,3 +96,29 @@ body{
   display: none; 
 }
 
+.background-element-grid{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30vw;
+  height: 60vh;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, .01) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, .01) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 100;
+}
+
+.background-element{
+  width: 40vh;
+  height: 160vh;
+  border-radius: 100%;
+  background-color: #fefeff29;
+  filter: blur(100px);
+  opacity: 1;
+  position: absolute;
+  left: 170vh;
+  margin-top: -77.5vh;
+  z-index: 0;
+  transform: rotate(40deg);
+  z-index: 1;
+
+}

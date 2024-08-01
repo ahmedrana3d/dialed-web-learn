@@ -66,6 +66,12 @@ const FirstSection = () => {
         ref={el}
         className="w-screen !h-screen relative    flex justify-center items-center md:items-start flex-col  font-sf-bold  bg-black z-10"
       >
+
+<div class="background-element" bis_skin_checked="1"></div>
+<div class="background-element-grid" bis_skin_checked="1"></div>
+
+
+        
          <h1
         ref={headText}
         className="text-gray-50 text-[9vw] md:text-[7vw] md:text-start text-center uppercase md:mx-32 leading-[1.1] md:leading-[1]"

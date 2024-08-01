@@ -14,7 +14,6 @@ const FourthSection = () => {
 
 <>
   <Page3 />
-
       <Page4 />
 </>
   )

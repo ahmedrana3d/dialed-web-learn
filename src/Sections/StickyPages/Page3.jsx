@@ -19,10 +19,10 @@ const Page3 = () => {
                 scrollTrigger: {
                     trigger: ".parent-web-stats",
                     start: "top top",
-                    end: `+=${2.8 * window.innerHeight}`,
+                    end: `+=280%`,
                     scrub: true,
                     pin: true,
-                    pinSpacing: true, // Ensure spacing is maintained when pinned
+                    // pinSpacing: true,
                 }
             });
     
@@ -45,19 +45,7 @@ const Page3 = () => {
                 duration: 0.1,
                 ease: "none"
             }, "-=0.7"); // Start the opacity change 0.7 seconds before the end of the number-stats animation
-    
-            const handleResize = () => {
-                ScrollTrigger.refresh();
-            };
-    
-            window.addEventListener('resize', handleResize);
-    
-            // Clean up the event listener on component unmount
-            return () => {
-                window.removeEventListener('resize', handleResize);
-                ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Properly clean up all ScrollTriggers
-                tl.kill(); // Kill the GSAP timeline
-            };
+
         }
     });
     

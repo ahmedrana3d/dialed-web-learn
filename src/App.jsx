@@ -5,7 +5,7 @@ import ReactLenis from 'lenis/react'
 const App = () => {
   return (
     <div>
-      <ReactLenis root options={{lerp : 0.15, syncTouch : true,}}>
+      <ReactLenis root options={{lerp : 0.15,}}>
       <Learn/>
       </ReactLenis>
       {/* <SmoothScrollbar/> */}

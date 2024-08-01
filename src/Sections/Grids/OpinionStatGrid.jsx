@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lottie from "lottie-react";
-import ClockAnimation from "../../assets/clock.json";
+import ClockAnimation from "../../assets/cursor_new.json";
 
 import TextPlugin from "gsap/TextPlugin";
 import { SlArrowRight } from "react-icons/sl";

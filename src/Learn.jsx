@@ -11,8 +11,8 @@ const Learn = () => {
       
 <FirstSection/>
 <ThirdSection/>
-<FourthSection/>
-<FiveSection/>
+ <FourthSection/>
+<FiveSection/> 
 </div>
   )
 }

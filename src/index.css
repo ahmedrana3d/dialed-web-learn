@@ -5,6 +5,7 @@
 #root{
   width: 100%;
   background-color: black;
+  overflow-x: hidden;
 }
 body{
   overflow-x: hidden;
@@ -112,72 +113,3 @@ body{
   display: none; 
 }
 
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
-
-
-.headline-orange {
-  line-height: 80%;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  cursor: auto;
-  overflow: hidden;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(
-    120deg,
-    #0d0b38,
-    #3e3690,
-    #e1e1e1,
-    #aaa3ff,
-    #0d0b38,
-    #cdcbe1,
-    #545358
-  );
-  background-size: 400% 400%;
-  animation: backgroundChange 8s linear infinite;
-  display: inline;
-  font-size: inherit;
-}
-
-.highlighted-text {
-  @apply tracking-widest;
-}
-
-.highlighted-text {
-  color: #e6e6e6; /* Ensure the color matches the parent div */
-  text-shadow: 0 0 1.25px #e6e6e6, 0 0 2.5px #e6e6e6, 0 0 5px #e6e6e6, 0 0 7.5px #e6e6e6;
-}
-.curtains-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 100;
-  /* pointer-events: none; */
-}
-
-.line-inner{
-  transform: translate3d(0px, 1em, 0px) rotateY(-20deg) rotateX(-60deg);
-  display: block;
-}

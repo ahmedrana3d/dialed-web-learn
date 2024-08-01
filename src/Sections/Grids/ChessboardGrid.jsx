@@ -7,6 +7,7 @@ import Lottie from "lottie-react";
 import CursorAnimation from "../../assets/cursor_new.json";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, Stage } from "@react-three/drei";
+import Monitor from "../../Components/Models/Monitor";
 import TextPlugin from "gsap/TextPlugin";
 import ChessBoard from "../../Components/Models/ChessBoard";
 
@@ -19,7 +20,7 @@ const ChessboardGrid = () => {
   const [scaleValues, setScaleValues] = useState({ left: 1.5, right: 0.5 });
   const chessBoardRef = useRef();
   
-  useEffect(() => {
+  useGSAP(() => {
     
 
     const handleMouseMove = (event) => {

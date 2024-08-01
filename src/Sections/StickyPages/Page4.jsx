@@ -22,7 +22,7 @@ useGSAP(() => {
         trigger: ".scroller-pin",
       //  endTrigger : endTrigger.current,
           start: "center center",
-    end: `+=${2.8 * window.innerHeight}`,
+    end: `+=280%`,
     ease: "none",
         scrub: true,
         pin: true,
@@ -118,16 +118,6 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
   }, "<");
 
 
-  const handleResize = () => {
-    ScrollTrigger.refresh();
-  };
-
-  window.addEventListener('resize', handleResize);
-
-  // Clean up the event listener on component unmount
-  return () => {
-    window.removeEventListener('resize', handleResize);
-  };
 
   }
 });
@@ -141,7 +131,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
       <div ref={startTrigger} className=" w-20 h-20    z-50 absolute  top-[110vh] "></div>
       <div ref={endTrigger} className=" w-20 h-20    z-50 absolute bottom-28 "></div>
 
-<div className=" scroller-pin  sticky top-0 ">
+<div className=" scroller-pin   top-0 ">
       <div className="h-[100vh] invisible md:visible w-[10rem]  top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
         <button
           data-name="events"

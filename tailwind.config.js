@@ -8,11 +8,8 @@ export default {
     extend: {
       fontFamily: {
         'sf-pro': ['SFPRO', 'sans-serif'], // Define your custom font family
-        'gt-apline': ['GTApline', 'sans-serif'], // Define your custom font family
-        'capraia': ['Capraia', 'sans-serif'], // Define your custom font family
         'inter': ['Inter', 'sans-serif'], // Define your custom font family
         'sf-bold': ['SFPRO Bold', 'sans-serif'], // Define your custom font family
-        'horizon': ['Horzion', 'sans-serif'], // Define your custom font family
         'helvetica': ['Helvetica', 'sans-serif'], // Define your custom font family
         'international': ['NB-International', 'sans-serif'], // Define your custom font family
         'international-bold': ['NB-International-Bold', 'sans-serif'], // Define your custom font family

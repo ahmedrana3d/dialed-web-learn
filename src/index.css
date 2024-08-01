@@ -19,15 +19,7 @@ body{
   font-family: "SFPRO";
   src: url("/fonts/SFPRODISPLAYHEAVYITALIC.OTF") format("opentype");
 }
-@font-face {
-  font-family: 'GTApline';
-  src: url("/fonts/gt-apline.otf") format("opentype");
-}
 
-@font-face {
-  font-family: 'Capraia';
-  src: url("/fonts/capraia-book-italic.otf") format("opentype");
-}
 
 @font-face {
   font-family: 'Inter';
@@ -39,10 +31,7 @@ body{
   src: url("/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
 }
 
-@font-face {
-  font-family: 'Horizon';
-  src: url("/fonts/newhorizon.otf") format("opentype");
-}
+
 
 @font-face {
   font-family: 'Helvetica';
@@ -70,9 +59,6 @@ body{
 }
 
 
-.horizon {
-  font-family: "Horizon";
-}
 
 .sf-bold {
   font-family: "SFPRO Bold";
@@ -82,9 +68,6 @@ body{
   font-family: "SFPRO Bold";
 }
 
-.international {
-  font-family: "NB-International";
-}
 
 .international-bold {
   font-family: "NB-International";

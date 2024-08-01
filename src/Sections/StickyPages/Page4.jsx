@@ -170,7 +170,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
             backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)`,
           }}
         >
-          <div className="relative w-full md:w-[57%] h-full overflow-hidden flex justify-center">
+          <div className="relative w-full md:w-[57%] h-full overflow-hidden flex justify-center rounded-[3rem]">
             <div className="relative w-full lg:w-[57%] h-full overflow-hidden mx-[3vw] ">
               <div
                 ref={statRef}
@@ -178,10 +178,10 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 style={{ transform: "translate(0px, 13%)" }}
               >
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
+                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
                     Increase User Engagement with Interactivity
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-2xl">
+                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
                     Websites with interactive elements see a 40% increase in
                     user time spent on site
                   </h6>
@@ -197,10 +197,10 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
 
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
+                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
                     Transform Sales with 3D Product Configurations
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-2xl">
+                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
                     3D product views can increase conversion rates by up to 250%
                   </h6>
                   <div className="test-img-mask block md:hidden ">
@@ -213,10 +213,10 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                   </div>
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
+                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
                     Avoid Losing Customers, Enhance User Experience
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-2xl">
+                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
                     89% of consumers turn to a competitor after a poor user
                     experience
                   </h6>
@@ -230,10 +230,10 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                   </div>
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] leading-[1.27]  md:text-3xl xl:text-6xl">
+                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
                     Get ahead of the curve.
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-2xl">
+                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
                     A 3D website sets your brand apart from competitors by
                     offering a cutting-edge, modern online experience.
                   </h6>
@@ -241,7 +241,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                     <img
                       alt=""
                       loading="lazy"
-                      className="w-[100%] origin-top   rounded-[3rem] object-cover"
+                      className="w-[100%] origin-top   rounded-[3rem] object-cov[2rem] xl:leading-[1.2]"
                       src="./images/showcase/player_image.png"
                     />
                   </div>

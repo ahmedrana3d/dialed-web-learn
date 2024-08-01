@@ -64,8 +64,8 @@ const Page3 = () => {
                 {/* Meter */}
                 <div ref={meterContainer} className='flex w-screen h-screen flex-col gap-7 justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                     <div className='odo-meter flex justify-center items-center flex-col'>
-                    <div className=" absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stand-out font-sf-bold leading-tight text-[#fefeff] text-center text-[7vw] md:text-[4vw]">
-                        Approximately 252000 <p>new websites are created</p> every day
+                    <div className=" absolute w-[90%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stand-out font-sf-bold leading-tight text-[#fefeff] text-center text-[7vw] md:text-[4vw]">
+                    Approximately 252000 <p>new websites are created</p> every day
                     </div>
                     </div>
 

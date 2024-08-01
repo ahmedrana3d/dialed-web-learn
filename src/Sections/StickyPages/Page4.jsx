@@ -8,8 +8,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Page4 = () => {
   const statRef = useRef();
-  const startTrigger = useRef();
-  const endTrigger = useRef();
+
 
 useGSAP(() => {
   if (statRef.current) {
@@ -108,7 +107,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
   }, "<");
 
 
-  tl.fromTo(statRef.current, { translateY: "-70%" }, { translateY: "-80%", ease: "none" }, ">")
+  tl.fromTo(statRef.current, { translateY: "-70%" }, { translateY: "-78%", ease: "none" }, ">")
   .to(".image-4", {
     scale: 1,
     ease: "none",
@@ -125,18 +124,17 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
 
 
   return (
-    <section className=" z-20 testimonials  text-gray-200 h-[400vh] relative">
+    <>
+    <section className=" hidden md:block z-20 testimonials  text-gray-200  h-[400vh] relative">
 
 
-      <div ref={startTrigger} className=" w-20 h-20    z-50 absolute  top-[110vh] "></div>
-      <div ref={endTrigger} className=" w-20 h-20    z-50 absolute bottom-28 "></div>
 
 <div className=" scroller-pin   top-0 ">
-      <div className="h-[100vh] invisible md:visible w-[10rem]  top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
+      <div className="h-[100vh]  w-[10rem]  top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
         <button
           data-name="events"
 
-          className="text-left tes-button capitalize user-eng text-2xl leading-relaxed"
+          className="text-left tes-button capitalize user-eng text-3xl leading-relaxed"
         >
           {" "}
           Engagment
@@ -144,20 +142,20 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
         </button>
         <button
           data-name="share homes"
-          className="text-left tes-button capitalize conversion-rate text-2xl leading-relaxed opacity-50"
+          className="text-left tes-button capitalize conversion-rate text-3xl leading-relaxed opacity-50"
         >
           Conversion
         </button>
         <button
           data-name="cost splitting"
-          className="text-left tes-button capitalize customer-exp text-2xl leading-relaxed opacity-50"
+          className="text-left tes-button capitalize customer-exp text-3xl leading-relaxed opacity-50"
         >
           {" "}
           Experience
         </button>
         <button
           data-name="sync plans"
-          className="text-left tes-button capitalize brand-img text-2xl leading-relaxed opacity-50"
+          className="text-left tes-button capitalize brand-img text-3xl leading-relaxed opacity-50"
         >
           Image
         </button>
@@ -165,7 +163,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
       <div className=" mt-[-100vh] h-screen  top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
         <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
         <div
-          className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-[.09rem] border-white md:pr-[0.4rem] h-[calc(13rem+49vh)] rounded-[3rem] flex justify-between"
+          className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-2 border-white md:pr-[0.4rem] h-[calc(13rem+53vh)] rounded-[4rem] flex justify-between"
           style={{
             backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)`,
           }}
@@ -177,8 +175,8 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 className="tes-scroll-content w-full text-center md:text-start absolute flex flex-col gap-80 md:pl-[2.03rem] md:pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]"
                 style={{ transform: "translate(0px, 13%)" }}
               >
-                <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
+                <div className="min-h-[15.6rem] tes-content h-screen gap-[6rem] flex flex-col justify-center">
+                  <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Increase User Engagement with Interactivity
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
@@ -197,7 +195,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
 
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
+                  <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Transform Sales with 3D Product Configurations
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
@@ -213,7 +211,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                   </div>
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
+                  <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Avoid Losing Customers, Enhance User Experience
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
@@ -230,7 +228,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                   </div>
                 </div>
                 <div className="min-h-[15.6rem] tes-content h-screen gap-[3rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] md:text-3xl xl:text-[3rem] xl:leading-[1.2] font-sf-bold tracking-wide">
+                  <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Get ahead of the curve.
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
@@ -329,6 +327,107 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
       </div>
 
     </section>
+
+    <section className="bg-black block md:hidden">
+    <div
+      className="test-bg-mobile  tablet:block p-[2rem] rounded-[2.9rem] w-[calc((100vw/12)*10)] mx-auto  border-[.17rem] border-white text-white mobile:w-full mobile:pt-[5rem] mobile:px-[1.2rem]"
+      style={{ backgroundImage: 'linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)' }}
+    >
+      <div
+        className="moblile-tes-contain pb-[5rem]"
+        data-color="linear-gradient(111deg, #FFF 13.66%, #FFE0E8 63.68%)"
+      >
+        <img
+          alt=""
+          loading="lazy"
+          width={800}
+          height={1200}
+          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
+          src="./images/showcase/player_image.png"
+
+        />
+        <div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
+        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
+                    Increase User Engagement with Interactivity
+                  </h6>
+                  <h6 className="text-lg">
+                    Websites with interactive elements see a 40% increase in
+                    user time spent on site
+                  </h6>
+        </div>
+      </div>
+
+      <div
+        className="moblile-tes-contain pb-[5rem]"
+        data-color="linear-gradient(111deg, #FFF 13.66%, #FFFFE0 63.68%)"
+      >
+        <img
+          alt=""
+          loading="lazy"
+          width={1000}
+          height={1000}
+          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
+          src="./images/showcase/soda_image.png"
+
+        />
+        <div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
+        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
+        Transform Sales with 3D Product Configurations
+                  </h6>
+                  <h6 className="text-lg">
+                  3D product views can increase conversion rates by up to 250%
+                  </h6>
+        </div>
+      </div>
+
+      <div
+        className="moblile-tes-contain pb-[5rem]"
+        data-color="linear-gradient(111deg, #FFF 13.66%, #E0E5FF 63.68%)"
+      >
+        <img
+          alt=""
+          loading="lazy"
+          width={800}
+          height={1200}
+          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
+          src="./images/showcase/car_image.png"
+/>
+<div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
+        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
+        Avoid Losing Customers, Enhance User Experience
+                  </h6>
+                  <h6 className="text-lg">
+                  89% of consumers turn to a competitor after a poor user
+                    experience
+                  </h6>
+        </div>
+      </div>
+
+      <div
+        className="moblile-tes-contain pb-[5rem]"
+        data-color="linear-gradient(111deg, #FFF 13.66%, #E0F5FF 63.68%)"
+      >
+        <img
+          alt=""
+          loading="lazy"
+          width={800}
+          height={1200}
+          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
+          src="./images/showcase/vr_image.png"
+    />
+      <div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
+        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
+        Get ahead of the curve.
+                  </h6>
+                  <h6 className="text-lg">
+                  A 3D website sets your brand apart from competitors by
+                  offering a cutting-edge, modern online experience.
+                  </h6>
+        </div>
+      </div>
+    </div>
+  </section>
+    </>
   );
 };
 

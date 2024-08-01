@@ -100,7 +100,7 @@ body{
 }
 
 /* Scrollbar styles for WebKit browsers (Chrome, Safari) */
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   overflow: scroll; 
   scrollbar-width: none; 
   display: none; 
@@ -110,7 +110,7 @@ body{
   overflow: scroll; 
   scrollbar-width: none;
   display: none; 
-} */
+}
 
 html.lenis, html.lenis body {
   height: auto;

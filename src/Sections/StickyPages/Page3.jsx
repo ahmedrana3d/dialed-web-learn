@@ -57,15 +57,22 @@ const Page3 = () => {
                 <div className='trigger absolute h-16 w-16 z-30 top-1/2'></div>
 
                 {/* Banner */}
-                <div className='number-stats w-screen z-20 h-screen flex justify-center items-center bg-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-                    <img className='!w-[150vw] max-w-[140vw] !h-[150vh]' src="./images/number.svg" alt="" />
+                <div className='number-stats w-screen z-20 h-screen flex justify-center items-center bg-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+                    <img className='!w-[390vw] max-w-[380vw] !h-[550vh]' src="./images/number_new.svg" alt="" />
                 </div>
 
                 {/* Meter */}
                 <div ref={meterContainer} className='flex w-screen h-screen flex-col gap-7 justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                     <div className='odo-meter flex justify-center items-center flex-col'>
                     <div className=" absolute w-[90%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stand-out font-sf-bold leading-tight text-[#fefeff] text-center text-[7vw] md:text-[4vw]">
-                    Approximately 252000 <p>new websites are created</p> every day
+                    Approximately 252000 <p>new websites are created</p>  
+                    
+                    <span >
+  every day
+</span>
+
+
+                    
                     </div>
                     </div>
 

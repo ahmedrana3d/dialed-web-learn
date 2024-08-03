@@ -163,9 +163,7 @@ const ThirdPage = () => {
 <div className=' z-10 w-full flex justify-center md:justify-start md:pl-12'>
 
 
-
-<div 
-className=' opacity-0 w-5/6 md:w-1/3 rounded-3xl h-0 md:h-[20vw]'></div>
+<video className=' w-[90%] rounded-3xl md:w-1/3' src="./videos/video1.mp4"  playsInline muted autoPlay loop></video>
 
 </div>
 

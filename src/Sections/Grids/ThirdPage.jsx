@@ -146,14 +146,14 @@ const ThirdPage = () => {
 
       <div className='w-full  '>
         <div className='overflow-hidden w-full'>
-          <div ref={headText1Ref} className='text-[8vw] font-sf-bold text-gray-50 tracking-tight leading-tight pl-12'>Great Experiences</div>
+          <div ref={headText1Ref} className='text-[9vw] md:text-[8vw] font-sf-bold text-gray-50 tracking-tight leading-tight pl-6 md:pl-12'>Great Experiences</div>
         </div>
         <div className='overflow-hidden'>
-          <div ref={headText2Ref} className='text-[8vw] font-sf-bold text-gray-50 tracking-tight leading-tight pl-12'>Build Loyalty</div>
+          <div ref={headText2Ref} className=' text-[9vw] md:text-[8vw] font-sf-bold text-gray-50 tracking-tight leading-tight pl-6 md:pl-12'>Build Loyalty</div>
         </div>
       </div>
 
-      <div className='w-full text-left mt-8 flex justify-center md:justify-end'>
+      <div className='w-full pl-6 md:pl-12 text-left mt-8 flex justify-start md:justify-end'>
         <div ref={paraRef} className=' w-2/3 md:w-[35vw] text-[clamp(1rem,1.5vw,3rem)] leading-[1.5] mr-8 font-inter text-gray-100'>
           A negative experience on a website will deter 88% of online consumers from revisiting, and 79% of consumers who encounter performance issues are less likely to buy from that site again, highlighting the critical importance of  for maintaining customer loyalty and sales.
         </div>

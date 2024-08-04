@@ -122,6 +122,14 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
 });
 
 
+function takeToElement(element) {
+  const targetElement = document.getElementById(`${element}`);
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+
 
   return (
     <>
@@ -134,12 +142,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
       <button
   data-name="events"
   className="text-left tes-button capitalize user-eng text-3xl leading-relaxed"
-  onClick={() => {
-    const targetElement = document.querySelector('#engagement');
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }}
+  onClick={()=>{ takeToElement('engagement') } }
 >
   Engagement
 </button>
@@ -148,24 +151,14 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
         <button
           data-name="share homes"
           className="text-left tes-button capitalize conversion-rate text-3xl leading-relaxed opacity-50"
-          onClick={() => {
-            const targetElement = document.querySelector('#conversion');
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }}
+          onClick={()=>{ takeToElement('conversion') }}
         >
           Conversion
         </button>
         <button
           data-name="cost splitting"
           className="text-left tes-button capitalize customer-exp text-3xl leading-relaxed opacity-50"
-          onClick={() => {
-            const targetElement = document.querySelector('#experience');
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }}
+          onClick={()=>{ takeToElement('experience') }}
         >
           {" "}
           Experience
@@ -173,12 +166,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
         <button
           data-name="sync plans"
           className="text-left tes-button capitalize brand-img text-3xl leading-relaxed opacity-50"
-          onClick={() => {
-            const targetElement = document.querySelector('#image');
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }}
+          onClick={()=>{ takeToElement('image') }}
         >
           Image
         </button>

@@ -109,12 +109,7 @@ const ThirdPage = () => {
       },
     });
 
-    return () => {
-      splitPara.revert();
-      splitHead1.revert();
-      splitHead2.revert();
-    };
-  }, []);
+  });
 
   return (
     <div className='w-screen h-auto bg-black flex flex-col items-center gap-12 md:gap-0 md:items-start '>
@@ -130,18 +125,18 @@ const ThirdPage = () => {
         <path
           ref={svgPath}
           d="M-13 17.5C-46.2521 -28.3137 475.634 302.292 320 455C233.7 531.813 122.952 458.201 166.5 344.5C193.788 273.253 330.649 117.107 510.5 393C547.281 449.422 538.5 504.5 609.5 476.5C680.5 448.5 727.243 671 774.5 671C935.994 672.176 1039.92 724.796 1072.5 781"
-          stroke="url(#paint0_radial_79_8)"
+          stroke="url(#paint0_linear_79_8)"
           strokeLinecap="round"
-          strokeWidth="14"
+          strokeWidth="18"
           strokeLinejoin="round"
         />
-        <defs>
-          <radialGradient id="paint0_radial_79_8" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(524.199 337.527) rotate(90) scale(333.473 333.473)">
-            <stop stopColor="#323232" />
-            <stop offset="0.0001" stopColor="#282828" />
-            <stop offset="1" stopColor="#666666" />
-          </radialGradient>
-        </defs>
+<defs>
+<linearGradient id="paint0_linear_79_8" x1="517.199" y1="4.05438" x2="517.199" y2="671" gradientUnits="userSpaceOnUse">
+<stop stopColor="#808080"/>
+<stop offset="0.0001" stopColor="#C1C1C1"/>
+<stop offset="1" stopColor="#514F4F"/>
+</linearGradient>
+</defs>
       </svg>
 
       <div className='w-full  '>

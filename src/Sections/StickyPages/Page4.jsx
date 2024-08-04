@@ -21,7 +21,7 @@ useGSAP(() => {
         trigger: ".scroller-pin",
       //  endTrigger : endTrigger.current,
           start: "center center",
-    end: `+=280%`,
+    end: `+=400%`,
     ease: "none",
         scrub: true,
         pin: true,
@@ -125,30 +125,47 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
 
   return (
     <>
-    <section className=" hidden md:block z-20 testimonials  text-gray-200  h-[400vh] relative">
+    <section className=" hidden md:block z-20 testimonials  text-gray-200   relative">
 
 
 
 <div className=" scroller-pin   top-0 ">
       <div className="h-[100vh]  w-[10rem]  top-0 buttons pl-[calc(100vw/12)] z-[200] flex flex-col justify-center text-regular30 gap-[.67rem]">
-        <button
-          data-name="events"
+      <button
+  data-name="events"
+  className="text-left tes-button capitalize user-eng text-3xl leading-relaxed"
+  onClick={() => {
+    const targetElement = document.querySelector('#engagement');
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }}
+>
+  Engagement
+</button>
 
-          className="text-left tes-button capitalize user-eng text-3xl leading-relaxed"
-        >
-          {" "}
-          Engagment
 
-        </button>
         <button
           data-name="share homes"
           className="text-left tes-button capitalize conversion-rate text-3xl leading-relaxed opacity-50"
+          onClick={() => {
+            const targetElement = document.querySelector('#conversion');
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
         >
           Conversion
         </button>
         <button
           data-name="cost splitting"
           className="text-left tes-button capitalize customer-exp text-3xl leading-relaxed opacity-50"
+          onClick={() => {
+            const targetElement = document.querySelector('#experience');
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
         >
           {" "}
           Experience
@@ -156,6 +173,12 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
         <button
           data-name="sync plans"
           className="text-left tes-button capitalize brand-img text-3xl leading-relaxed opacity-50"
+          onClick={() => {
+            const targetElement = document.querySelector('#image');
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
         >
           Image
         </button>
@@ -163,7 +186,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
       <div className=" mt-[-100vh] h-screen  top-[0] px-[calc(100vw/12)] flex flex-row justify-center  md:justify-between items-center">
         <div className="h-[100vh] w-[7rem] buttons  flex-col justify-center text-regular30 gap-[.67rem] hidden md:flex"></div>
         <div
-          className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-2 border-white md:pr-[0.4rem] h-[calc(13rem+53vh)] rounded-[4rem] flex justify-between"
+          className="frame-container w-[100vw] md:w-[calc((100vw/12)*8)] bg-red-gradient border-4 border-white md:pr-[0.4rem] h-[calc(13rem+53vh)] rounded-[4rem] flex justify-between"
           style={{
             backgroundImage: `linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)`,
           }}
@@ -175,7 +198,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
                 className="tes-scroll-content w-full text-center md:text-start absolute flex flex-col gap-80 md:pl-[2.03rem] md:pr-[.2rem] top-[calc(((71vh-20.3rem)/2)*-1)]"
                 style={{ transform: "translate(0px, 13%)" }}
               >
-                <div className="min-h-[15.6rem] tes-content h-screen gap-[6rem] flex flex-col justify-center">
+                <div className="min-h-[15.6rem] user-engagement tes-content h-screen gap-[6rem] flex flex-col justify-center">
                   <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Increase User Engagement with Interactivity
                   </h6>
@@ -324,7 +347,34 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
           </div>
         </div>
       </div>
+
+
+
+
+    
       </div>
+
+      <div 
+    className="tes-scroller-wrapper w-[calc((100%-((100vw/12)*3))/2)] opacity-0 absolute left-[calc((100vw/12)*3)] pl-[2.03rem] pr-[2.2rem] top-[0]"
+  >
+    <div 
+      className="tes-scroller h-[130vh] w-full" 
+
+      id="engagement"
+    ></div>
+    <div 
+      className="tes-scroller  absolute top-[130vh] h-[20vh] w-full"  
+      id="conversion"
+    ></div>
+    <div 
+      className="tes-scroller  absolute top-[230vh] h-[20vh] w-full" 
+      id="experience"
+    ></div>
+    <div 
+      className="tes-scroller  absolute top-[400vh] h-[20vh] w-full" 
+      id="image"
+    ></div>
+  </div>
 
     </section>
 

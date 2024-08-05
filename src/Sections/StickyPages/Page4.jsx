@@ -187,7 +187,7 @@ function takeToElement(element) {
                 style={{ transform: "translate(0px, 13%)" }}
               >
                 <div className="min-h-[15.6rem] user-engagement tes-content h-screen gap-[6rem] flex flex-col justify-center">
-                  <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
+                  <h6 className="text-[1.64rem] md:text-[2.2vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Increase User Engagement with Interactivity
                   </h6>
                   <h6 className="text-[4vw] md:text-xl xl:text-[1.3vw] xl:leading-[1.4] font-inter">

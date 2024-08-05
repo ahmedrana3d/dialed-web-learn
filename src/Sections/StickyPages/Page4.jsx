@@ -190,7 +190,7 @@ function takeToElement(element) {
                   <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Increase User Engagement with Interactivity
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
+                  <h6 className="text-[4vw] md:text-xl xl:text-[1.3vw] xl:leading-[1.4] font-inter">
                     Websites with interactive elements see a 40% increase in
                     user time spent on site
                   </h6>
@@ -209,7 +209,7 @@ function takeToElement(element) {
                   <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Transform Sales with 3D Product Configurations
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
+                  <h6 className="text-[4vw] md:text-[2vw] xl:text-[1.3vw] xl:leading-[1.4] font-inter">
                     3D product views can increase conversion rates by up to 250%
                   </h6>
                   <div className="test-img-mask block md:hidden ">
@@ -225,7 +225,7 @@ function takeToElement(element) {
                   <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Avoid Losing Customers, Enhance User Experience
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
+                  <h6 className="text-[4vw] md:text-[2vw] xl:text-[1.3vw] xl:leading-[1.4] font-inter">
                     89% of consumers turn to a competitor after a poor user
                     experience
                   </h6>
@@ -242,7 +242,7 @@ function takeToElement(element) {
                   <h6 className="text-[1.64rem] md:text-[2.4vw] leading-snug font-sf-bold tracking-wide capitalize">
                     Get ahead of the curve.
                   </h6>
-                  <h6 className="text-[4vw] md:text-xl xl:text-[2rem] xl:leading-[1.4] font-inter">
+                  <h6 className="text-[4vw] md:text-xl xl:text-[1.3vw] xl:leading-[1.4] font-inter">
                     A 3D website sets your brand apart from competitors by
                     offering a cutting-edge, modern online experience.
                   </h6>
@@ -346,7 +346,7 @@ function takeToElement(element) {
     className="tes-scroller-wrapper w-[calc((100%-((100vw/12)*3))/2)] opacity-0 absolute left-[calc((100vw/12)*3)] pl-[2.03rem] pr-[2.2rem] top-[0]"
   >
     <div 
-      className="tes-scroller h-[130vh] w-full" 
+      className="tes-scroller h-[100vh] w-full" 
 
       id="engagement"
     ></div>

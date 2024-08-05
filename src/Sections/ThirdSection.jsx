@@ -13,7 +13,6 @@ const ThirdSection = () => {
 <ThirdPage/>
   <ChessboardGrid/>
 <MonitorGrid/>
-  {/* <OpinionStatGrid/> */}
     </>
   );
 };

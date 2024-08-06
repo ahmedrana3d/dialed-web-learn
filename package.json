@@ -13,6 +13,7 @@
     "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.107.2",
     "@react-three/fiber": "^8.16.8",
+    "cobe": "^0.6.3",
     "gsap": "npm:@gsap/business@^3.12.5",
     "lenis": "^1.1.6",
     "leva": "^0.9.35",

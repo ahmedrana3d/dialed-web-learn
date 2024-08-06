@@ -132,9 +132,15 @@ body{
 
 
    .background-dots {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.192) 1%, transparent 15%);
-    background-size: 30px 30px; /* Adjust size as needed */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.192) 1%, transparent 16%);
+    background-size: 20px 20px; /* Adjust size as needed */
     z-index: 0;
-    mask-image:radial-gradient(60vw,white,transparent)
+   
+    --mask-offset: 120px;
+    /* -webkit-mask: linear-gradient(to bottom, transparent, #fff var(--mask-offset) calc(100% - var(--mask-offset)), transparent), linear-gradient(to right, transparent, #fff var(--mask-offset) calc(100% - var(--mask-offset)), transparent); */
+    mask: linear-gradient(to bottom, transparent, #fff var(--mask-offset) calc(100% - var(--mask-offset)), transparent), linear-gradient(to right, transparent, #fff var(--mask-offset) calc(100% - var(--mask-offset)), transparent);
+    -webkit-mask-composite: source-in, xor;
+    mask-composite: intersect;
+    
   }
   

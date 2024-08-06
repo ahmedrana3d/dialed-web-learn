@@ -66,7 +66,10 @@ const MonitorGrid = () => {
  
   >
 
-<div className=" absolute w-full h-full background-dots -z-10"></div>
+<div className=" absolute w-full h-full background-dots  -z-10"></div>
+
+
+{/* <div class="absolute inset-0 size-full  " ></div> */}
 
   <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 z-10 md:grid-rows-3 gap-4 w-[95%] h-[90%] md:w-[90%] md:h-[70%] p-2 md:p-4  "
   

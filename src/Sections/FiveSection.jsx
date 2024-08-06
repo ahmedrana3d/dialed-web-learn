@@ -171,8 +171,12 @@ const FiveSection = () => {
       glowColor: [1, 1, 1],
       markers: [
         // longitude latitude
-        { location: [37.7595, -122.4367], size: 0.03 },
-        { location: [40.7128, -74.006], size: 0.1 }
+        { location: [46.2044, 6.1432], size: 0.07 },
+        { location: [41.8967, 12.4822], size: 0.07 },
+        { location: [13.7563, 100.5018], size: 0.07 },
+        { location: [32.0853, 34.7818], size: 0.07 },
+        { location: [40.4167, 3.7033], size: 0.07 },
+       
       ],
       onRender: (state) => {
         // Called on every animation frame.

@@ -96,29 +96,28 @@ body{
   display: none; 
 }
 
-.background-element-grid{
+.background-element-grid {
   position: absolute;
   top: 0;
   right: 0;
-  width: 30vw;
-  height: 60vh;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, .01) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, .01) 1px, transparent 1px);
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to right, rgb(255 255 255 / 6%) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 6%) 1px, transparent 1px);
   background-size: 50px 50px;
-  z-index: 100;
+  z-index: 0; /* Ensure this is below other content */
+  transform: skewY(12deg);
+  
 }
 
-.background-element{
-  width: 40vh;
-  height: 160vh;
+.background-element {
+  width: 100vw;
+  height: 100vh;
   border-radius: 100%;
-  background-color: #fefeff29;
+  background-color: #60606029;
   filter: blur(100px);
   opacity: 1;
   position: absolute;
-  left: 170vh;
-  margin-top: -77.5vh;
-  z-index: 0;
-  transform: rotate(40deg);
-  z-index: 1;
-
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure this is below other content */
 }

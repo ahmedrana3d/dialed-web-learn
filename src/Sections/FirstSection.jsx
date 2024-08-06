@@ -68,7 +68,7 @@ const FirstSection = () => {
       >
 
 <div class="background-element" bis_skin_checked="1"></div>
-<div class="background-element-grid" bis_skin_checked="1"></div>
+<div class="background-element-grid " bis_skin_checked="1"></div>
 
 
         

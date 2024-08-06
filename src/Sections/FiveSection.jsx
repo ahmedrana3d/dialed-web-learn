@@ -150,47 +150,47 @@ const FiveSection = () => {
   animateText(".split");
   
 
-  useEffect(() => {
-    let phi = 0;
-    let width = 0;
-    const onResize = () => canvasRef.current && (width = window.innerWidth * 2)
-    window.addEventListener('resize', onResize)
-    onResize()
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: width,
-      height: window.innerHeight * 1.6,
-      phi: 0,
-      theta: 0,
-      dark: 1,
-      diffuse: 1.2,
-      mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: [0.3, 0.3, 0.3],
-      markerColor: [0.1, 0.8, 1],
-      glowColor: [1, 1, 1],
-      markers: [
-        // longitude latitude
-        { location: [46.2044, 6.1432], size: 0.07 },
-        { location: [41.8967, 12.4822], size: 0.07 },
-        { location: [13.7563, 100.5018], size: 0.07 },
-        { location: [32.0853, 34.7818], size: 0.07 },
-        { location: [40.4167, 3.7033], size: 0.07 },
+  // useEffect(() => {
+  //   let phi = 0;
+  //   let width = 0;
+  //   const onResize = () => canvasRef.current && (width = window.innerWidth * 2)
+  //   window.addEventListener('resize', onResize)
+  //   onResize()
+  //   const globe = createGlobe(canvasRef.current, {
+  //     devicePixelRatio: 2,
+  //     width: width,
+  //     height: window.innerHeight * 1.6,
+  //     phi: 0,
+  //     theta: 0,
+  //     dark: 1,
+  //     diffuse: 1.2,
+  //     mapSamples: 16000,
+  //     mapBrightness: 6,
+  //     baseColor: [0.3, 0.3, 0.3],
+  //     markerColor: [0.1, 0.8, 1],
+  //     glowColor: [1, 1, 1],
+  //     markers: [
+  //       // longitude latitude
+  //       { location: [46.2044, 6.1432], size: 0.07 },
+  //       { location: [41.8967, 12.4822], size: 0.07 },
+  //       { location: [13.7563, 100.5018], size: 0.07 },
+  //       { location: [32.0853, 34.7818], size: 0.07 },
+  //       { location: [40.4167, 3.7033], size: 0.07 },
        
-      ],
-      onRender: (state) => {
-        // Called on every animation frame.
-        // `state` will be an empty object, return updated params.
-        state.phi = phi;
-        phi += 0.004;
-      }
-    });
+  //     ],
+  //     onRender: (state) => {
+  //       // Called on every animation frame.
+  //       // `state` will be an empty object, return updated params.
+  //       state.phi = phi;
+  //       phi += 0.004;
+  //     }
+  //   });
 
-    return () => { 
-      globe.destroy();
-      window.removeEventListener('resize', onResize);
-    };
-  }, []);
+  //   return () => { 
+  //     globe.destroy();
+  //     window.removeEventListener('resize', onResize);
+  //   };
+  // }, []);
 
   return (
     <div className="content z-30 bg-transparent">
@@ -225,10 +225,10 @@ your business?</p> </div>
 
       </div>
 
-    <canvas
+    {/* <canvas
         ref={canvasRef}
         className='w-full h-[80vh]  absolute bottom-0 -z-10 bg-transparent'
-      />
+      /> */}
 
     </div>
   )

@@ -103,6 +103,8 @@ const ChessboardGrid = () => {
 
 
 {/* <div className=" absolute w-full h-full background-dots -z-10"></div> */}
+<div className=" absolute w-full h-full background-dots  -z-10"></div>
+
 
       <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 md:grid-rows-3 gap-4 w-[95%] h-[90%] md:w-[90%] md:h-[70%] z-10 p-2 md:p-4 rounded-2xl">
         <div className="col-span-1 md:col-span-2 justify-center row-span-1 md:row-span-3 flex flex-col gap-2 md:gap-4">

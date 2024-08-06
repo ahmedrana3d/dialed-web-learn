@@ -121,3 +121,20 @@ body{
   left: 0;
   z-index: -1; /* Ensure this is below other content */
 }
+
+ .wrapper::before {
+     background: conic-gradient(
+       rgba(233, 55, 120, 0.8) 0deg,
+       rgba(219, 38, 222, 0.8) 0deg,
+       transparent 90deg
+     );
+   }
+
+
+   .background-dots {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.192) 1%, transparent 15%);
+    background-size: 30px 30px; /* Adjust size as needed */
+    z-index: 0;
+    mask-image:radial-gradient(60vw,white,transparent)
+  }
+  

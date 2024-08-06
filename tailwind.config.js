@@ -28,6 +28,18 @@ export default {
         'dark-gray': '#333333',
       },
     },
+
+keyframes: {
+  "border-spin": {
+    "100%": {
+      transform: "rotate(-360deg)",
+    },
+  },
+},
+animation: {
+  "border-spin": "border-spin 9s linear infinite",
+},
+
   },
   plugins: [],
 }

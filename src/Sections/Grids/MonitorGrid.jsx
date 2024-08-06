@@ -60,9 +60,21 @@ const MonitorGrid = () => {
   });
 
   return (
-<div className="w-screen h-[100vh] flex justify-center items-center bg-black">
-  <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 md:grid-rows-3 gap-4 w-[95%] h-[90%] md:w-[90%] md:h-[70%] p-2 md:p-4 ">
-    <div className="bg-[#111111] col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl">
+<div className="w-screen h-[100vh] flex justify-center items-center bg-black  " 
+
+
+ 
+  >
+
+<div className=" absolute w-full h-full background-dots -z-10"></div>
+
+  <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 z-10 md:grid-rows-3 gap-4 w-[95%] h-[90%] md:w-[90%] md:h-[70%] p-2 md:p-4  "
+  
+  >
+    <div className="bg-[#111111]  col-span-1  md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl "
+  
+      
+    >
       <Canvas
         className='!w-full !h-[35vh] md:!h-[40vh] lg:!h-[50vh] xl:!h-[75vh]'
         camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 11] }}
@@ -87,7 +99,7 @@ const MonitorGrid = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#111111] flex justify-start items-start h-[30%] md:h-full rounded-3xl p-4 md:p-10">
+      <div className="bg-[#111111]  flex justify-start items-start h-[30%] md:h-full rounded-3xl p-4 md:p-10">
         <div ref={textRef} className="text-white font-inter text-[4vw] md:text-[2.5vw] leading-tight font-semibold">
           Of users cite poor design as a primary reason for not trusting a website.
         </div>

@@ -78,11 +78,16 @@ const MonitorGrid = () => {
   <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 z-10 md:grid-rows-3 gap-4 w-[95%] h-[90%] md:w-[90%] md:h-[70%] p-2 md:p-4  bg-transparent "
   
   >
-    <div className="bg-[#111111]  col-span-1  md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl "
+ 
+
+
+<div className="bg-[#111111]   col-span-1  md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-2xl relative wrapper   before:absolute  before:w-[180%] before:h-[180%] before:content-[''] before:animate-border-spin before:left-[-35%] before:top-[-35%] overflow-hidden"
   
       
-    >
-      <Canvas
+  >
+    <div className="flex items-center justify-center h-[calc(100%-3px)]  w-[calc(100%-3px)] absolute bg-[#111111] rounded-2xl left-[1px] top-[1px] ">
+      
+    <Canvas
         className='!w-full !h-[35vh] md:!h-[40vh] lg:!h-[50vh] xl:!h-[75vh]'
         camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 11] }}
       >
@@ -94,7 +99,11 @@ const MonitorGrid = () => {
         <Environment preset="city" />
         <ambientLight intensity={Math.PI / 2} />
       </Canvas>
-    </div>
+      </div>
+    
+  </div>
+
+   
     <div className="col-span-1 md:col-span-2 row-span-2 md:row-span-3 flex flex-col gap-2 md:gap-4">
       <div className="flex gap-2 md:gap-4 h-2/5">
         <div className="bg-white w-[60%] flex justify-center items-center rounded-3xl">

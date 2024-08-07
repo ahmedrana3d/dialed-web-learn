@@ -122,13 +122,25 @@ body{
   z-index: -1; /* Ensure this is below other content */
 }
 
- .wrapper::before {
+ /* .wrapper::before {
      background: conic-gradient(
-       rgba(233, 55, 120, 0.8) 0deg,
-       rgba(219, 38, 222, 0.8) 0deg,
+       rgba(81, 255, 0, 0.8) 0deg,
+       rgba(182, 222, 38, 0.8) 0deg,
        transparent 90deg
      );
-   }
+   } */
+
+
+   .wrapper::before {
+    background: conic-gradient(
+      rgba(143, 8, 221, 0.8) 0deg,
+  
+      rgba(23, 226, 84, 0.8) 30deg,
+  
+      transparent 90deg
+    );
+     }
+
 
 
    .background-dots {

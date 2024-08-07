@@ -41,7 +41,7 @@ keyframes: {
   },
 },
 animation: {
-  "border-spin": "border-spin 9s linear infinite",
+  "border-spin": "border-spin 15s linear infinite",
 },
 
   },

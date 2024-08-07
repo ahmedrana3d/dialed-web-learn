@@ -130,16 +130,15 @@ body{
      );
    } */
 
+   
 
-   .wrapper::before {
+  .wrapper::before {
     background: conic-gradient(
-      rgba(143, 8, 221, 0.8) 0deg,
-  
-      rgba(23, 226, 84, 0.8) 30deg,
-  
-      transparent 90deg
+      rgba(255, 170, 64, 0.8) 0deg,
+      rgba(156, 64, 255, 0.8) 30deg,
+      transparent 60deg
     );
-     }
+  }
 
 
 

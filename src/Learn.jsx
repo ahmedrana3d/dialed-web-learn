@@ -12,7 +12,7 @@ const Learn = () => {
 <FirstSection/>
 <ThirdSection/>
  <FourthSection/>
-<FiveSection/> 
+{/* <FiveSection/>  */}
 </div>
   )
 }

@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lottie from "lottie-react";
@@ -9,12 +9,16 @@ import { Canvas } from "@react-three/fiber";
 import { Environment, Stage } from "@react-three/drei";
 import Monitor from "../../Components/Models/Monitor";
 import TextPlugin from "gsap/TextPlugin";
+import {Card, CardHeader, CardBody, CardFooter, Avatar, Button} from "@nextui-org/react";
+
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const MonitorGrid = () => {
   const textRef = useRef();
   const numberRef = useRef();
+  const [isFollowed, setIsFollowed] = useState(false);
+
 
   useGSAP(() => {
     const split = new SplitText(textRef.current, { type: "words, chars" });
@@ -102,14 +106,51 @@ const MonitorGrid = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#111111]  flex justify-start items-start h-[30%] md:h-full rounded-3xl p-4 md:p-10">
-        <div ref={textRef} className="text-white font-inter text-[4vw] md:text-[2.5vw] leading-tight font-semibold">
-          Of users cite poor design as a primary reason for not trusting a website.
+   
+      <Card className=" dark bg-[#111111] h-30% md:h-full ">
+        <div className=" flex flex-col h-full justify-evenly">
+
+      <CardHeader className="justify-between" >
+        <div className="flex gap-5">
+          <Avatar isBordered radius="full" size="lg" src="https://mighty.tools/mockmind-api/content/human/39.jpg" />
+          <div className="flex flex-col gap-1 items-start justify-center">
+            <h4 className="text-small font-semibold leading-none text-default-600 text-[2vw] md:text-[1vw]">Potential Customer</h4>
+            <h5 className="text-small tracking-tight text-default-400 text-[2vw] md:text-[1vw]">@PotentialCustomer</h5>
+          </div>
         </div>
+        <Button
+          className={isFollowed ? "bg-transparent text-foreground border-default-200" : ""}
+          color="primary"
+          radius="full"
+          size="xl"
+          variant={isFollowed ? "bordered" : "solid"}
+          onPress={() => setIsFollowed(!isFollowed)}
+          >
+          {isFollowed ? "Unfollow" : "Follow"}
+        </Button>
+      </CardHeader>
+      <CardBody className="px-3 py-0 text-[4vw] md:text-[2.4vw] text-default-800 flex flex-col justify-center">
+        <p ref={textRef} className=" font-inter font-semibold">
+        90% of users cite poor design as a primary reason for not trusting a website
+        </p>
+        
+      </CardBody>
+      <CardFooter className="gap-3">
+        <div className="flex gap-1">
+          <p className="font-semibold text-default-600 text-[3vw] md:text-[1vw]">4</p>
+          <p className=" text-default-600 text-[3vw] md:text-[1vw]">Following</p>
+        </div>
+        <div className="flex gap-1">
+          <p className="font-semibold6text-default-400 text-[3vw] md:text-[1vw]">97.1K</p>
+          <p className="text-default-600 text-[3vw] md:text-[1vw]">Followers</p>
+        </div>
+      </CardFooter>
+          </div>
+    </Card>
       </div>
     </div>
   </div>
-</div>
+
 
   );
 };

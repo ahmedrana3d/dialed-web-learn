@@ -108,7 +108,7 @@ const MonitorGrid = () => {
       </div>
    
       <Card className=" dark bg-[#111111] h-30% md:h-full ">
-        <div className=" flex flex-col h-full justify-evenly">
+        <div className=" flex flex-col h-full justify-center  md:mx-10 ">
 
       <CardHeader className="justify-between" >
         <div className="flex gap-5">
@@ -122,19 +122,20 @@ const MonitorGrid = () => {
           className={isFollowed ? "bg-transparent text-foreground border-default-200" : ""}
           color="primary"
           radius="full"
-          size="xl"
+          
           variant={isFollowed ? "bordered" : "solid"}
           onPress={() => setIsFollowed(!isFollowed)}
           >
           {isFollowed ? "Unfollow" : "Follow"}
         </Button>
       </CardHeader>
-      <CardBody className="px-3 py-0 text-[4vw] md:text-[2.4vw] text-default-800 flex flex-col justify-center">
+      <div className="px-3 py-0 text-[4vw] md:text-[2vw] text-default-800 !h-auto flex flex-col justify-center">
         <p ref={textRef} className=" font-inter font-semibold">
         90% of users cite poor design as a primary reason for not trusting a website
         </p>
         
-      </CardBody>
+      </div>
+
       <CardFooter className="gap-3">
         <div className="flex gap-1">
           <p className="font-semibold text-default-600 text-[3vw] md:text-[1vw]">4</p>

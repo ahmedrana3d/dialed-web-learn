@@ -109,12 +109,12 @@ const ChessboardGrid = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 md:grid-rows-3 gap-4 w-[95%] h-[90%] md:w-[90%] md:h-[70%] z-10 p-2 md:p-4 rounded-2xl">
         <div className="col-span-1 md:col-span-2 justify-center row-span-1 md:row-span-3 flex flex-col gap-2 md:gap-4">
           <div className="flex gap-2 md:gap-4 h-2/5">
-            <div className="bg-white w-[60%] flex justify-center items-center rounded-3xl">
+            <div className="bg-[#111111] w-[60%] flex justify-center items-center rounded-3xl">
               <div
                 ref={numberRef}
-                className="text-[8vw] md:text-[5.5vw] font-international-bold"
+                className="text-[8vw] md:text-[5.5vw] font-international-bold  bg-gradient-to-b  bg-clip-text  text-transparent from-white dark:to-slate-900/10"
               >
-                90%
+                89%
               </div>
             </div>
             <div className="bg-[#111111] w-[40%] flex justify-center items-center rounded-3xl">

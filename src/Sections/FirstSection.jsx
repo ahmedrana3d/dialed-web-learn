@@ -67,7 +67,7 @@ const FirstSection = () => {
         className="w-screen !h-screen relative    flex justify-center items-center md:items-start flex-col  font-sf-bold  bg-black z-10"
       >
 
-<div class="background-element" bis_skin_checked="1"></div>
+<div class="background-element hidden md:block" bis_skin_checked="1"></div>
 <div class="background-element-grid " bis_skin_checked="1"></div>
 
 

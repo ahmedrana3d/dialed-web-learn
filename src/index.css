@@ -104,7 +104,7 @@ body{
   height: 100vh;
   background-image: linear-gradient(to right, rgb(255 255 255 / 6%) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 6%) 1px, transparent 1px);
   background-size: 50px 50px;
-  z-index: 0; /* Ensure this is below other content */
+  z-index: 0; 
   transform: skewY(12deg);
   
 }
@@ -114,22 +114,13 @@ body{
   height: 100vh;
   border-radius: 100%;
   background-color: #60606029;
-  filter: blur(100px);
+  filter: blur(80px);
   opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* Ensure this is below other content */
+  z-index: -1; 
 }
-
- /* .wrapper::before {
-     background: conic-gradient(
-       rgba(81, 255, 0, 0.8) 0deg,
-       rgba(182, 222, 38, 0.8) 0deg,
-       transparent 90deg
-     );
-   } */
-
    
 
   .wrapper::before {

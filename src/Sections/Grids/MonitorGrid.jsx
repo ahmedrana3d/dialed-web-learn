@@ -115,7 +115,7 @@ const MonitorGrid = () => {
         </div>
       </div>
    
-      <Card className=" dark bg-[#111111] h-30% md:h-full ">
+      <Card className=" dark bg-[#111111] h-30% md:h-full rounded-3xl">
         <div className=" flex flex-col h-full justify-center  md:mx-10 ">
 
       <CardHeader className="justify-between" >

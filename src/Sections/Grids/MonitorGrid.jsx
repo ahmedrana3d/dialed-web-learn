@@ -120,10 +120,10 @@ const MonitorGrid = () => {
 
       <CardHeader className="justify-between" >
         <div className="flex gap-5">
-          <Avatar isBordered radius="full" size="lg" src="./images/animoji.jpeg" />
+          <Avatar isBordered radius="full" size="lg" src="https://pbs.twimg.com/profile_images/1711185897415180288/lgwajQTW_400x400.jpg" />
           <div className="flex flex-col gap-1 items-start justify-center">
-            <h4 className="text-small font-semibold leading-none text-default-600 text-[2vw] md:text-[1vw]">Potential Customer</h4>
-            <h5 className="text-small tracking-tight text-default-400 text-[2vw] md:text-[1vw]">@PotentialCustomer</h5>
+            <h4 className="text-small font-semibold leading-none text-default-600 text-[2vw] md:text-[1vw]">Forbes</h4>
+            <h5 className="text-small tracking-tight text-default-400 text-[2vw] md:text-[1vw]">@Forbes</h5>
           </div>
         </div>
         <Button

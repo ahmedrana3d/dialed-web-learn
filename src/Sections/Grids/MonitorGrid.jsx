@@ -106,8 +106,8 @@ const MonitorGrid = () => {
    
     <div className="col-span-1 md:col-span-2 row-span-2 md:row-span-3 flex flex-col gap-2 md:gap-4">
       <div className="flex gap-2 md:gap-4 h-2/5">
-        <div className="bg-white w-[60%] flex justify-center items-center rounded-3xl">
-          <div ref={numberRef} className="text-[8vw] md:text-[5.5vw] font-international-bold">90%</div>
+        <div className="bg-[#111111] w-[60%] flex justify-center items-center rounded-3xl">
+          <div ref={numberRef} className="text-[8vw] md:text-[5.5vw] font-international-bold bg-gradient-to-b  bg-clip-text  text-transparent from-white dark:to-slate-900/10">90%</div>
         </div>
         <div className="bg-white w-[40%] flex justify-center items-center rounded-3xl">
           <div className="scale-75">

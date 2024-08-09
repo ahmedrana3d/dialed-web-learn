@@ -77,7 +77,7 @@ const FirstSection = () => {
         className="text-gray-50 text-[9vw] md:text-[7vw] md:text-start text-center uppercase md:mx-32 leading-[1.1] md:leading-[1]"
       >
         {["how do these", "features actually", 
-          <><span className="bg-gradient-to-t from-gray-400 to-white bg-clip-text text-transparent">boost</span> your digital</>, 
+          <><span className="bg-gradient-to-b  bg-clip-text  text-transparent from-white dark:to-slate-900/10">boost</span> your digital</>, 
           "conversions?"].map((text, index) => (
             <div 
               key={index} 

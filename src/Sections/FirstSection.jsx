@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import Meteors from "../Components/Models/Meteor";
+import Meteors from "../Components/Styles/Meteor";
 gsap.registerPlugin(SplitText);
 
 const FirstSection = () => {

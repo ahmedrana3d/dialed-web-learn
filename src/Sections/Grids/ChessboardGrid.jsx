@@ -131,7 +131,7 @@ const ChessboardGrid = () => {
               </div>
             </div>
           </div>
-          <Card className="  bg-white h-30% md:h-full rounded-3xl ">
+          <Card className=" dark bg-[#111111] h-30% md:h-full rounded-3xl ">
         <div className=" flex flex-col h-full justify-center  md:mx-10 ">
 
       <CardHeader className="justify-between" >

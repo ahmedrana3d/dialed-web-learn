@@ -39,9 +39,18 @@ keyframes: {
       transform: "rotate(-360deg)",
     },
   },
+  meteor: {
+    "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
+    "70%": { opacity: 1 },
+    "100%": {
+      transform: "rotate(215deg) translateX(-500px)",
+      opacity: 0,
+    },
+  },
 },
 animation: {
   "border-spin": "border-spin 15s linear infinite",
+  meteor: "meteor 5s linear infinite",
 },
 
   },

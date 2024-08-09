@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import Meteors from "../Components/Models/Meteor";
 gsap.registerPlugin(SplitText);
 
 const FirstSection = () => {
@@ -66,6 +67,8 @@ const FirstSection = () => {
         ref={el}
         className="w-screen !h-screen relative    flex justify-center items-center md:items-start flex-col  font-sf-bold  bg-black z-10"
       >
+
+<Meteors number={20} />
 
 <div class="background-element hidden md:block" bis_skin_checked="1"></div>
 <div class="background-element-grid " bis_skin_checked="1"></div>

@@ -146,11 +146,12 @@ const MonitorGrid = () => {
 
       <CardFooter className="gap-3">
         <div className="flex gap-1">
-          <p className="font-semibold text-default-600 text-[3vw] md:text-[1vw]">4</p>
+          <p className="font-semibold text-default-600 text-[3vw] md:text-[1vw]">4,877</p>
           <p className=" text-default-600 text-[3vw] md:text-[1vw]">Following</p>
         </div>
         <div className="flex gap-1">
-          <p className="font-semibold6text-default-400 text-[3vw] md:text-[1vw]">97.1K</p>
+          <p className="font-semibold6text-default-400 text-[3vw] md:text-[1vw]">
+          20.1M</p>
           <p className="text-default-600 text-[3vw] md:text-[1vw]">Followers</p>
         </div>
       </CardFooter>

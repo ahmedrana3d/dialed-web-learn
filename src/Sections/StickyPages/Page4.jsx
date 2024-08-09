@@ -210,7 +210,7 @@ function takeToElement(element) {
                       alt=""
                       loading="lazy"
                       className="w-[100%] origin-top   rounded-[3rem] object-cover"
-                      src="./images/showcase/car_image.png"
+                      src="./images/showcase/car_image.jpg"
                     />
                   </div>
 
@@ -227,7 +227,7 @@ function takeToElement(element) {
                       alt=""
                       loading="lazy"
                       className="w-[100%] origin-top   rounded-[3rem] object-cover"
-                      src="./images/showcase/soda_image.png"
+                      src="./images/showcase/soda_image.jpg"
                     />
                   </div>
                 </div>
@@ -244,7 +244,7 @@ function takeToElement(element) {
                       alt=""
                       loading="lazy"
                       className="w-[100%] origin-top   rounded-[3rem] object-cover"
-                      src="./images/showcase/vr_image.png"
+                      src="./images/showcase/vr_image.jpg"
                     />
                   </div>
                 </div>
@@ -499,7 +499,7 @@ function takeToElement(element) {
         className="swiper_container flex justify-center items-center"
       >
 <SwiperSlide>
-  <img src="./images/showcase/player_image.jpg" alt="slide_image" 
+  <img src="./images/showcase/soda_image.jpg" alt="slide_image" 
        width={1000}
        height={1000}
        className="h-[20rem] object-cover rounded-[2rem] w-11/12"
@@ -515,7 +515,7 @@ function takeToElement(element) {
 </SwiperSlide>
 
         <SwiperSlide>
-          <img src="./images/showcase/soda_image.jpg" alt="slide_image" 
+          <img src="./images/showcase/car_image.jpg" alt="slide_image" 
                width={1000}
                height={1000}
                className="h-[20rem] object-cover rounded-[2rem]  w-11/12"
@@ -531,7 +531,7 @@ function takeToElement(element) {
         </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="./images/showcase/vr_image.jpg" alt="slide_image" 
+          <img src="./images/showcase/player_image.jpg" alt="slide_image" 
                width={1000}
                height={1000}
                className="h-[20rem] object-cover rounded-[2rem]  w-11/12"
@@ -548,7 +548,7 @@ function takeToElement(element) {
         </SwiperSlide>
         
         <SwiperSlide>
-          <img src="./images/showcase/car_image.jpg" alt="slide_image" 
+          <img src="./images/showcase/vr_image.jpg" alt="slide_image" 
                width={1000}
                height={1000}
                className="h-[20rem] object-cover rounded-[2rem]  w-11/12"

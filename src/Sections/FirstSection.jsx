@@ -70,8 +70,8 @@ const FirstSection = () => {
 
 <Meteors number={20} />
 
-<div class="background-element hidden md:block" bis_skin_checked="1"></div>
-<div class="background-element-grid " bis_skin_checked="1"></div>
+<div className="background-element hidden md:block" bis_skin_checked="1"></div>
+<div className="background-element-grid " bis_skin_checked="1"></div>
 
 
         

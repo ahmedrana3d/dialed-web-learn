@@ -111,7 +111,7 @@ const ChessboardGrid = () => {
         <div className="col-span-1 md:col-span-2 justify-center row-span-1 md:row-span-3 flex flex-col gap-2 md:gap-4">
           <div className="flex gap-2 md:gap-4 h-2/5">
             <ShineBorder className="bg-[#111111] w-[60%] flex justify-center items-center rounded-3xl"
-                  color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                  color={["white"]}
 
             >
               <div

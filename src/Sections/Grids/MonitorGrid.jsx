@@ -10,6 +10,7 @@ import { Environment, Stage } from "@react-three/drei";
 import Monitor from "../../Components/Models/Monitor";
 import TextPlugin from "gsap/TextPlugin";
 import {Card, CardHeader, CardBody, CardFooter, Avatar, Button} from "@nextui-org/react";
+import BorderBeam from "../../Components/Styles/BorderBeam";
 
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
@@ -81,12 +82,10 @@ const MonitorGrid = () => {
  
 
 
-<div className="bg-[#111111]   col-span-1  md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-2xl relative wrapper   before:absolute  before:w-[180%] before:h-[180%] before:content-[''] before:animate-border-spin before:left-[-35%] before:top-[-35%] overflow-hidden"
-  
-      
-  >
-    <div className="flex items-center justify-center h-[calc(100%-3px)]  w-[calc(100%-3px)] absolute bg-[#111111] rounded-2xl left-[1px] top-[1px] ">
-      
+<div className="bg-[#111111]   col-span-1  md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl relative ">
+
+<BorderBeam size={350} duration={12} delay={9} colorTo="white" colorFrom="grey" />
+    
     <Canvas
         className='!w-full !h-[35vh] md:!h-[40vh] lg:!h-[50vh] xl:!h-[75vh]'
         camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 11] }}
@@ -99,7 +98,7 @@ const MonitorGrid = () => {
         <Environment preset="city" />
         <ambientLight intensity={Math.PI / 2} />
       </Canvas>
-      </div>
+
     
   </div>
 

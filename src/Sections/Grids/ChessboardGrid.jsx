@@ -116,7 +116,7 @@ const ChessboardGrid = () => {
             >
               <div
                 ref={numberRef}
-                className="text-[14vw] md:text-[5.5vw] font-international-bold  bg-gradient-to-b  bg-clip-text  text-transparent from-white dark:to-slate-900/10"
+                className="text-[12vw] md:text-[5.5vw] font-international-bold  bg-gradient-to-b  bg-clip-text  text-transparent from-white dark:to-slate-900/10"
               >
                 89%
               </div>

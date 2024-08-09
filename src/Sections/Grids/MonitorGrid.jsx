@@ -23,21 +23,26 @@ const MonitorGrid = () => {
 
   useGSAP(() => {
     const split = new SplitText(textRef.current, { type: "words, chars" });
-
+    
     gsap.fromTo(
-      split.chars, 
-      { opacity: 0.1 }, 
+      split.chars,
+      { scale: 0 },
       {
-        opacity: 1,
+        scale: 1,
         duration: 0.5,
         stagger: 0.05,
         scrollTrigger: {
           trigger: textRef.current,
-          start: 'top 99%',
-          end: 'top 99%',
+          start: "top 90%",
+          end: "top 50%",
+          scrub: 1,
           // markers: true,
-          toggleActions: 'play none reset none',
-        }
+          onEnter: () => {
+            if (chessBoardRef.current) {
+              chessBoardRef.current.playAnimation();
+            }
+          },
+        },
       }
     );
 
@@ -120,7 +125,7 @@ const MonitorGrid = () => {
 
       <CardHeader className="justify-between" >
         <div className="flex gap-5">
-          <Avatar isBordered radius="full" size="lg" src="https://pbs.twimg.com/profile_images/1711185897415180288/lgwajQTW_400x400.jpg" />
+          <Avatar isBordered radius="full" size="lg" src="./images/logo/forbes.jpg" />
           <div className="flex flex-col gap-1 items-start justify-center">
             <h4 className="text-small font-semibold leading-none text-default-600 text-[2vw] md:text-[1vw]">Forbes</h4>
             <h5 className="text-small tracking-tight text-default-400 text-[2vw] md:text-[1vw]">@Forbes</h5>

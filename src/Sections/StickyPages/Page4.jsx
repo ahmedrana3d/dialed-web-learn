@@ -117,7 +117,7 @@ tl.fromTo(statRef.current, { translateY: "-44%" }, { translateY: "-70%", ease: "
   }, "<");
 
 
-  tl.fromTo(statRef.current, { translateY: "-70%" }, { translateY: "-78%", ease: "none" }, ">")
+  tl.fromTo(statRef.current, { translateY: "-70%" }, { translateY: "-79%", ease: "none" }, ">")
   .to(".image-4", {
     scale: 1,
     ease: "none",
@@ -376,105 +376,6 @@ function takeToElement(element) {
 
     </section>
 
-    {/* <section className="bg-black block md:hidden">
-    <div
-      className="test-bg-mobile  tablet:block p-[2rem] rounded-[2.9rem] w-[calc((100vw/12)*10)] mx-auto  border-[.17rem] border-white text-white mobile:w-full mobile:pt-[5rem] mobile:px-[1.2rem]"
-      style={{ backgroundImage: 'linear-gradient(111deg, rgb(0, 0, 0) 13.66%, rgb(106 106 106) 63.68%)' }}
-    >
-      <div
-        className="moblile-tes-contain pb-[5rem]"
-        data-color="linear-gradient(111deg, #FFF 13.66%, #FFE0E8 63.68%)"
-      >
-        <img
-          alt=""
-          loading="lazy"
-          width={800}
-          height={1200}
-          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
-          src="./images/showcase/player_image.png"
-
-        />
-        <div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
-        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
-                    Increase User Engagement with Interactivity
-                  </h6>
-                  <h6 className="text-lg">
-                    Websites with interactive elements see a 40% increase in
-                    user time spent on site
-                  </h6>
-        </div>
-      </div>
-
-      <div
-        className="moblile-tes-contain pb-[5rem]"
-        data-color="linear-gradient(111deg, #FFF 13.66%, #FFFFE0 63.68%)"
-      >
-        <img
-          alt=""
-          loading="lazy"
-          width={1000}
-          height={1000}
-          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
-          src="./images/showcase/soda_image.png"
-
-        />
-        <div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
-        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
-        Transform Sales with 3D Product Configurations
-                  </h6>
-                  <h6 className="text-lg">
-                  3D product views can increase conversion rates by up to 250%
-                  </h6>
-        </div>
-      </div>
-
-      <div
-        className="moblile-tes-contain pb-[5rem]"
-        data-color="linear-gradient(111deg, #FFF 13.66%, #E0E5FF 63.68%)"
-      >
-        <img
-          alt=""
-          loading="lazy"
-          width={800}
-          height={1200}
-          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
-          src="./images/showcase/car_image.png"
-/>
-<div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
-        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
-        Avoid Losing Customers, Enhance User Experience
-                  </h6>
-                  <h6 className="text-lg">
-                  89% of consumers turn to a competitor after a poor user
-                    experience
-                  </h6>
-        </div>
-      </div>
-
-      <div
-        className="moblile-tes-contain pb-[5rem]"
-        data-color="linear-gradient(111deg, #FFF 13.66%, #E0F5FF 63.68%)"
-      >
-        <img
-          alt=""
-          loading="lazy"
-          width={800}
-          height={1200}
-          className="h-[20rem] object-cover rounded-[2rem] mobile:h-[calc(100vw-2.4rem)]"
-          src="./images/showcase/vr_image.png"
-    />
-      <div className="tes-content h-auto pt-[2rem] flex flex-col justify-between text-center gap-4">
-        <h6 className="text-2xl  font-sf-bold tracking-wide capitalize">
-        Get ahead of the curve.
-                  </h6>
-                  <h6 className="text-lg">
-                  A 3D website sets your brand apart from competitors by
-                  offering a cutting-edge, modern online experience.
-                  </h6>
-        </div>
-      </div>
-    </div>
-  </section> */}
 
 
 

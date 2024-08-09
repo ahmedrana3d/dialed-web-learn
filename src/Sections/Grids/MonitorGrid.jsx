@@ -23,26 +23,21 @@ const MonitorGrid = () => {
 
   useGSAP(() => {
     const split = new SplitText(textRef.current, { type: "words, chars" });
-    
+
     gsap.fromTo(
-      split.chars,
-      { scale: 0 },
+      split.chars, 
+      { opacity: 0.1 }, 
       {
-        scale: 1,
+        opacity: 1,
         duration: 0.5,
         stagger: 0.05,
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 90%",
-          end: "top 50%",
-          scrub: 1,
+          start: 'top 99%',
+          end: 'top 99%',
           // markers: true,
-          onEnter: () => {
-            if (chessBoardRef.current) {
-              chessBoardRef.current.playAnimation();
-            }
-          },
-        },
+          toggleActions: 'play none reset none',
+        }
       }
     );
 

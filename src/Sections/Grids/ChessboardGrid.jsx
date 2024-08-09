@@ -50,24 +50,19 @@ const ChessboardGrid = () => {
     const split = new SplitText(textRef.current, { type: "words, chars" });
 
     gsap.fromTo(
-      split.chars,
-      { scale: 0 },
+      split.chars, 
+      { opacity: 0.1 }, 
       {
-        scale: 1,
+        opacity: 1,
         duration: 0.5,
         stagger: 0.05,
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 90%",
-          end: "top 50%",
-          scrub: 1,
+          start: 'top 99%',
+          end: 'top 99%',
           // markers: true,
-          onEnter: () => {
-            if (chessBoardRef.current) {
-              chessBoardRef.current.playAnimation();
-            }
-          },
-        },
+          toggleActions: 'play none reset none',
+        }
       }
     );
 
@@ -136,7 +131,7 @@ const ChessboardGrid = () => {
 
       <CardHeader className="justify-between" >
         <div className="flex gap-5">
-          <Avatar isBordered radius="full" size="lg" src="https://pbs.twimg.com/profile_images/1684477634091134976/RP0X2zgr_400x400.jpg" />
+          <Avatar isBordered radius="full" size="lg" src="./images/logo/linearity.jpg" />
           <div className="flex flex-col gap-1 items-start justify-center">
             <h4 className="text-small font-semibold leading-none text-default-600 text-[2vw] md:text-[1vw]">Linearity</h4>
             <h5 className="text-small tracking-tight text-default-400 text-[2vw] md:text-[1vw]">@linearityhq</h5>

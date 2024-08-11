@@ -19,32 +19,35 @@ const ChessboardGrid = () => {
   const textRef = useRef();
   const numberRef = useRef();;
   
-  const [scaleValues, setScaleValues] = useState({ left: 1.5, right: 0.5 });
+  const [scaleValues, setScaleValues] = useState({ left: 1, right: 1 });
   const [isFollowed, setIsFollowed] = useState(false);
 
   const chessBoardRef = useRef();
   
   useGSAP(() => {
     
+if (window.innerWidth > 768) {
 
-    const handleMouseMove = (event) => {
-      const { clientX } = event;
-      const windowWidth = window.innerWidth;
-      const mouseX = clientX;
-      const scaleFactor = mouseX / windowWidth;
-      const newScaleValues = {
-        left: 0.5 + scaleFactor,
-        right: 1.5 - scaleFactor,
-      };
-      setScaleValues(newScaleValues);
+  
+  const handleMouseMove = (event) => {
+    const { clientX } = event;
+    const windowWidth = window.innerWidth;
+    const mouseX = clientX;
+    const scaleFactor = mouseX / windowWidth;
+    const newScaleValues = {
+      left: 0.5 + scaleFactor,
+      right: 1.5 - scaleFactor,
     };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+    setScaleValues(newScaleValues);
+  };
+  
+  window.addEventListener("mousemove", handleMouseMove);
+  
+  return () => {
+    window.removeEventListener("mousemove", handleMouseMove);
+  };
+}
+  });
 
   useGSAP(() => {
     const split = new SplitText(textRef.current, { type: "words, chars" });

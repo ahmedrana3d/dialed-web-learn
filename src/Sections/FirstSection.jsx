@@ -31,7 +31,7 @@ const FirstSection = () => {
           rotationY: 0,
           duration: 1,
           stagger: 0.05,
-          ease: "power2.out", // Optional: Adjust ease as needed
+          ease: "power2.out", 
         }
       );
 
@@ -52,9 +52,9 @@ const FirstSection = () => {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: headText.current,
-            start: "top 10%", // Start the animation when the top of the headText element hits the top of the viewport
-            end: "+=55%", // End the animation 45% of the viewport height after the start
-            scrub: true, // Animate in sync with the scroll position
+            start: "center center", 
+            end: "+=55%", 
+            scrub: true, 
           },
         }
       );

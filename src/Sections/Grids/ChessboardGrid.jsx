@@ -7,7 +7,6 @@ import Lottie from "lottie-react";
 import CursorAnimation from "../../assets/cursor_new.json";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, Stage } from "@react-three/drei";
-import Monitor from "../../Components/Models/Monitor";
 import TextPlugin from "gsap/TextPlugin";
 import ChessBoard from "../../Components/Models/ChessBoard";
 import ShineBorder from "../../Components/Styles/ShineBorder";
@@ -93,10 +92,16 @@ if (window.innerWidth > 768) {
     );
 
 
-
-
-
-
+    ScrollTrigger.create({
+      trigger: ".canvas-chess",
+      start: 'top 99%',
+              end: 'top 99%',
+              // markers: true,
+      onEnter: () => {
+        chessBoardRef.current.playAnimation();
+        console.log("Play Animation")
+      },
+      });
 
   });
 
@@ -172,7 +177,7 @@ if (window.innerWidth > 768) {
           </div>
     </Card>
         </div>
-        <div className="bg-transparent col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl relative">
+        <div className="bg-transparent col-span-1 md:col-span-2 row-span-1 md:row-span-3 flex justify-center items-center rounded-3xl relative canvas-chess">
           <Canvas
             className="!w-full !h-[35vh] md:!h-[40vh] lg:!h-full z-10"
             camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 5, 11] }}

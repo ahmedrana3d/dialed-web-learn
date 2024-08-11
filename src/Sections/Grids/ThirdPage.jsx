@@ -114,7 +114,7 @@ const ThirdPage = () => {
   return (
     <div className='w-screen h-auto bg-black flex flex-col items-center gap-12 md:gap-0 md:items-start '>
       <svg
-        className='absolute w-screen h-[250vw] md:h-[150vw] left-0'
+        className='absolute w-screen h-[250vw] md:h-[150vw] left-0 hidden md:block'
         width="100%"
         height="100%"
         viewBox="0 0 1000 1500"
@@ -138,6 +138,10 @@ const ThirdPage = () => {
 </linearGradient>
 </defs>
       </svg>
+
+
+
+
 
       <div className='w-full  '>
         <div className='overflow-hidden w-full'>

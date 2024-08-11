@@ -35,16 +35,6 @@ body{
 
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url("/fonts/Helvetica.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'NB-International';
-  src: url("/fonts/NB-International-Pro-Light.ttf") format("truetype");
-}
-
-@font-face {
   font-family: 'NB-International-Bold';
   src: url("/fonts/number_font.otf") format("opentype");
 }
@@ -70,19 +60,11 @@ body{
 }
 
 
-.international-bold {
-  font-family: "NB-International";
-}
 
 
 
-.gt-alpine{
-  font-family: "GTApline";
-}
 
-.capraia{
-  font-family: "Capraia";
-}
+
 
 /* Scrollbar styles for WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {

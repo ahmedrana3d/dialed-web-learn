@@ -12,11 +12,9 @@ const FourthSection = () => {
 
     <>
 
-{/* <div className=' flex flex-col-reverse md:flex-col'> */}
-
   <Page3 />
       <Page4 />
-{/* </div> */}
+
 </>
   )
 }

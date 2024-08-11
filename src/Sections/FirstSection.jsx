@@ -51,7 +51,6 @@ const FirstSection = () => {
           rotationY: -20,
           ease: "power1.inOut",
           scrollTrigger: {
-            markers: true,
             trigger: headText.current,
             start: "center center", 
             end: "+=55%", 

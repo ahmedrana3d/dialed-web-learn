@@ -96,10 +96,8 @@ if (window.innerWidth > 768) {
       trigger: ".canvas-chess",
       start: 'top 99%',
               end: 'top 99%',
-              // markers: true,
       onEnter: () => {
         chessBoardRef.current.playAnimation();
-        console.log("Play Animation")
       },
       });
 

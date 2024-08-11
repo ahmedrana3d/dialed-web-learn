@@ -8,7 +8,6 @@ const App = () => {
       <ReactLenis root options={{lerp : 0.15,}}>
       <Learn/>
       </ReactLenis>
-      {/* <SmoothScrollbar/> */}
     </div>
   )
 }

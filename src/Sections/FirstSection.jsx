@@ -46,11 +46,12 @@ const FirstSection = () => {
         },
         {
           x: 0,
-          y: "2em",
+          y: "1.5em",
           rotationX: -60,
           rotationY: -20,
           ease: "power1.inOut",
           scrollTrigger: {
+            markers: true,
             trigger: headText.current,
             start: "center center", 
             end: "+=55%", 
